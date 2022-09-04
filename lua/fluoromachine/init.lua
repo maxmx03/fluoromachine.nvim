@@ -1,7 +1,7 @@
-local fluoromachine = require("fluoromachine.src.colorscheme")
-local utils = require("fluoromachine.src.utils")
-local colors = require("fluoromachine.src.colors")
-local colortool = require("fluoromachine.src.colortool")
+local fluoromachine = require("fluoromachine.colorscheme")
+local utils = require("fluoromachine.utils")
+local colors = require("fluoromachine.colors")
+local colortool = require("fluoromachine.colortool")
 local darken = colortool.darken
 local blend = colortool.blend
 
