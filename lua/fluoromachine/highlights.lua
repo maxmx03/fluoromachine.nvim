@@ -6,14 +6,13 @@ local darken = colortool.darken
 local blend = colortool.blend
 
 fluoromachine.highlights = {
-
 	Comment = { fg = colors.comment, italic = true },
 	ColorColumn = { bg = colors.bg },
 	Conceal = { fg = colors.blue },
 	Cursor = { fg = colors.bg, bg = colors.purple },
 	CursorColumn = { bg = colors.bg },
 	CursorLineNr = { bg = colors.selection, sp = colors.fg },
-	CursorLine = { bg = colors.bg, sp = colors.fg },
+	CursorLine = { bg = colors.selection, sp = colors.fg },
 	lCursor = { link = "Cursor" },
 	-- CursorIM = { fg = colors.bg, bg = colors.fg },
 	MatchWord = { bold = true },
