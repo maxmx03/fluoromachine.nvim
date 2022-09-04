@@ -6,6 +6,7 @@ local darken = colortool.darken
 local blend = colortool.blend
 
 fluoromachine.highlights = {
+  --{{{ BASE
 	Comment = { fg = colors.comment, italic = true },
 	ColorColumn = { bg = colors.bg },
 	Conceal = { fg = colors.blue },
@@ -143,6 +144,7 @@ fluoromachine.highlights = {
 	Error = { fg = colors.error, bg = colors.bg, bold = true },
 	ErrorMsg = { fg = colors.error, reverse = true },
 	WarningMsg = { fg = colors.warn, bold = true },
+  --}}}
 
 	--{{{ TREESITTER
 	TSFunction = { link = "Function" },
@@ -150,6 +152,7 @@ fluoromachine.highlights = {
 	TSFuncBuiltin = { link = "Function" },
 	TSParameter = { fg = colors.fg, bold = true, italic = true },
 	TSType = { fg = colors.yellow },
+  TSTypeBuiltin = { link = 'TSType' },
 	TSConstructor = { fg = colors.pink },
 	TSKeyWord = { link = "Keyword" },
 	TSKeyWordFunction = { link = "TSKeyWord" },
@@ -169,16 +172,6 @@ fluoromachine.highlights = {
 	TSPunctDelimiter = { fg = colors.fg },
 	TSOperator = { link = "Keyword" },
 	TSTitle = { link = "TSText" },
-
-	-- LUA
-	luaTSConstructor = { link = "TSPunctBracket" },
-	luaTSConstBuiltin = { fg = colors.orange },
-	--}}}
-
-	--{{{ TREESITTER - MARKDOWN
-	markdownTSPunctSpecial = { fg = colors.blue },
-	markdownTSTitle = { fg = colors.blue },
-	markdownTSLiteral = { fg = colors.fg },
 	--}}}
 
 	--{{{ DIAGNOSTIC
@@ -317,8 +310,8 @@ fluoromachine.highlights = {
 	--}}}
 
 	--{{{ DASHBOARD
-	DashboardHeader = { fg = colors.pink },
-	DashboardCenter = { fg = colors.fg },
+	DashboardHeader = { fg = blend(colors.pink, colors.purple, 0.5) },
+	DashboardCenter = { fg = colors.yellow },
 	DashboardFooter = { fg = colors.purple },
 	--}}}
 
@@ -343,6 +336,6 @@ fluoromachine.highlights = {
 	--}}}
 
 	--{{{ TWILIGHT
-	Twilight = { fg = fluoromachine:is_not_transparent(colors.gray) },
+	Twilight = { fg = fluoromachine:is_not_transparent(colors.fg, 2) },
 	--}}}
 }
