@@ -17,7 +17,12 @@ M.colors = {
 	gray = "#73817D",
   info = '#6796E6',
   warn = '#CD9731',
+  hint = '#8BA7A7',
   error = '#F44747',
+  add = '#2FFC1D',
+  changed = '#FD8902',
+  deleted = '#F92AAD',
+  removed = '#F44747',
 }
 M.config = {
 	mode = "dark",

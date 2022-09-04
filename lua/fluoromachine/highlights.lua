@@ -16,7 +16,7 @@ fluoromachine.highlights = {
 	lCursor = { link = "Cursor" },
 	-- CursorIM = { fg = colors.bg, bg = colors.fg },
 	MatchWord = { bold = true },
-	MatchParen = { fg = colors.red, bg = colors.fg, bold = true },
+	-- MatchParen = { fg = colors.red, bg = colors.fg, bold = true },
 	MatchWordCur = { bold = true },
 	MatchParenCur = { bold = true },
 	Normal = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
@@ -24,13 +24,13 @@ fluoromachine.highlights = {
 	NormalFloat = { fg = colors.fg, bg = colors.bg },
 	Pmenu = { fg = colors.fg, bg = colors.bg, bold = true },
 	PmenuSel = { fg = colors.fg, bg = colors.selection, bold = true },
-	PmenuSbar = { fg = colors.bg_alt_invert, bg = colors.fg, reverse = true, bold = true },
-	PmenuThumb = { fg = colors.primary, bg = colors.bg, reverse = true, bold = true },
+	PmenuSbar = { fg = colors.bg, bg = colors.fg, reverse = true, bold = true },
+	PmenuThumb = { fg = colors.pink, bg = colors.bg, reverse = true, bold = true },
 	TabLine = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
 	TabLineSel = { fg = colors.fg, bg = colors.selection, sp = colors.fg, reverse = true },
 	TabLineFill = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
 	FloatBorder = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
-	SignColumn = { fg = colors.fg },
+	SignColumn = { fg = colors.red },
 	MsgArea = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
 	ModeMsg = { fg = colors.blue },
 	MsgSeparator = { fg = colors.fg, bg = colors.bg },
@@ -46,15 +46,15 @@ fluoromachine.highlights = {
 	LineNr = { fg = colors.comment, bg = colors.bg },
 	Whitespace = { fg = colors.bg },
 	VertSplit = { fg = colors.fg, bg = colors.bg },
-	Visual = { fg = colors.comment, bg = colors.bg, reverse = true, bold = true },
+	Visual = { fg = colors.selection, bg = colors.bg, reverse = true, bold = true },
 	VisualNOS = { bg = colors.bg, reverse = true, bold = true },
-	-- DiffAdd = { fg = colors.added, sp = colors.added, reverse = true },
-	-- DiffChange = { fg = colors.changed, sp = colors.changed, reverse = true },
-	-- DiffDelete = { fg = colors.deleted, reverse = true },
-	-- DiffText = { fg = colors.blue, sp = colors.blue, reverse = true },
-	-- DiffAdded = { fg = colors.added, reverse = true },
-	-- DiffChanged = { fg = colors.changed, reverse = true },
-	-- DiffRemoved = { fg = colors.removed, reverse = true },
+	DiffAdd = { fg = colors.add, sp = colors.add, reverse = true },
+	DiffChange = { fg = colors.changed, sp = colors.changed },
+	DiffDelete = { fg = colors.deleted, reverse = true },
+	DiffText = { fg = colors.blue, sp = colors.blue, reverse = true },
+	DiffAdded = { fg = colors.add, reverse = true },
+	DiffChanged = { fg = colors.changed, reverse = true },
+	DiffRemoved = { fg = colors.removed, reverse = true },
 	DiffFile = { fg = colors.comment },
 	DiffIndexLine = { fg = colors.purple },
 	QuickFixLine = { bg = colors.bg },
@@ -76,7 +76,7 @@ fluoromachine.highlights = {
 	--        Number          a number constant: 234, 0xff
 	--        Boolean         a boolean constant: TRUE, false
 	--        Float           a floating point constant: 2.3e10
-	-- String = { fg = colors.cyan },
+	String = { fg = colors.purple },
 	-- Character = { fg = colors.cyan },
 	-- Number = { fg = colors.cyan },
 	-- Boolean = { fg = colors.cyan },
@@ -87,7 +87,7 @@ fluoromachine.highlights = {
 	-- Variable = { fg = colors.blue },
 	-- Function = { fg = colors.blue },
 
-	Statement = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	Statement = { fg = colors.pink },
 	--       *Statement       any statement
 	--        Conditional     if, then, else, endif, switch, etc.
 	--        Repeat          for, do, while, etc.
@@ -95,12 +95,12 @@ fluoromachine.highlights = {
 	--        Operator        "sizeof", "+", "*", etc.
 	--        Keyword         any other keyword
 	--        Exception       try, catch, throw
-	-- Conditional = { fg = colors.green },
-	-- Repeat = { fg = colors.green },
-	-- Label = { fg = colors.green },
-	-- Operator = { fg = colors.green },
-	-- Keyword = { fg = colors.green },
-	-- Exception = { fg = colors.green },
+	-- Conditional = { fg = colors.pink },
+	-- Repeat = { fg = colors.pink },
+	-- Label = { fg = colors.pink },
+	-- Operator = { fg = colors.pink },
+	Keyword = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15)  },
+	-- Exception = { fg = colors.pink },
 
 	PreProc = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
 	--       *PreProc         generic Preprocessor
@@ -143,4 +143,218 @@ fluoromachine.highlights = {
 	Error = { fg = colors.error, bg = colors.bg, bold = true },
 	ErrorMsg = { fg = colors.error, reverse = true },
 	WarningMsg = { fg = colors.warn, bold = true },
+
+  --{{{ TREESITTER
+  TSFunction = { link = 'Function' },
+  TSFunctionCall = { link = 'Function' },
+  TSFuncBuiltin = { link = 'Function' },
+  TSParameter = { fg = colors.fg, bold = true, italic = true },
+  TSType = { fg = colors.orange },
+  TSConstructor = { fg = colors.pink },
+  TSKeyWord = { link = 'Keyword' },
+  TSKeyWordFunction = { link = 'TSKeyWord' },
+  TSKeyWordReturn = { link = 'Statement' },
+  TSConditional = { link = 'Statement' },
+  TSVariable = { fg = colors.blue },
+  TSVariableBuiltin = { link = 'TSVariable' },
+  TSInclude = { link = 'Include' },
+  TSConstant = { fg = colors.orange },
+  TSNumber = { fg = colors.pink },
+  TSFloat = { link = 'TSNumber' },
+  TSBoolean = { fg = colors.yellow },
+  TSTag = { fg = colors.green, bg = blend(colors.green, colors.bg, 0.15) },
+  TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, 0.15) },
+  TSTagDelimiter = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+  TSPunctBracket = { fg = colors.purple },
+  TSPunctDelimiter = { fg = colors.fg },
+  TSOperator = { link = 'Keyword' },
+  TSTitle = { link = 'TSText' },
+
+  -- javascript
+  javascriptTSConstructor = { fg = colors.blue },
+  tsxTSConstructor = { link = 'javascriptTSConstructor' },
+
+  -- CSS / SCSS
+  cssTSProperty = { fg = colors.green },
+  cssTSType = { fg = colors.blue },
+  cssTSString = { fg = colors.green },
+  scssTSProperty = { link = 'cssTSProperty' },
+  scssTSType = { link = 'cssTSType' },
+  scssTSString = { link = 'cssTSString' },
+
+  -- LUA
+  luaTSConstructor = { link = 'TSPunctBracket' },
+  luaTSConstBuiltin = { fg = colors.orange },
+  --}}}
+
+  --{{{ TREESITTER - MARKDOWN
+  markdownTSPunctSpecial = { fg = colors.blue },
+  markdownTSTitle = { fg = colors.blue },
+  markdownTSLiteral = { fg = colors.fg },
+  --}}}
+
+  --{{{ DIAGNOSTIC
+  DiagnosticError = { fg = colors.error },
+  DiagnosticWarn = { fg = colors.warn },
+  DiagnosticInfo = { fg = colors.info },
+  DiagnosticHint = { fg = colors.info },
+
+  DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, 0.15) },
+  DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, 0.15) },
+  DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, 0.15) },
+  DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, 0.15) },
+
+  DiagnosticUnderlineError = { undercurl = true, sp = colors.error },
+  DiagnosticUnderlineWarn = { undercurl = true, sp = colors.warn },
+  DiagnosticUnderlineInfo = { undercurl = true, sp = colors.info },
+  DiagnosticUnderlineHint = { undercurl = true, sp = colors.hint },
+  --}}}
+
+  --{{{ LSP
+  LspReferenceText = { bg = colors.bg },
+  LspReferenceRead = { bg = colors.bg },
+  LspReferenceWrite = { bg = colors.bg },
+  --}}}
+
+  --{{{ LSPSAGA
+  -- code action
+  LspSagaCodeActionTitle = { fg = colors.pink, bold = true },
+  LspSagaCodeActionBorder = { fg = colors.pink },
+  LspSagaCodeActionTrunCateLine = { link = 'LspSagaCodeActionBorder' },
+  LspSagaCodeActionContent = { fg = colors.fg, bold = true },
+
+  -- finder
+  LspSagaLspFinderBorder = { fg = colors.pink },
+  LspSagaAutoPreview = { fg = colors.pink },
+  LspSagaFinderSelection = { fg = colors.yellow, bold = true },
+  TargetFileName = { link = 'Comment' },
+
+  DefinitionsIcon = { fg = colors.yellow },
+  Definitions = { fg = colors.pink, bold = true, reverse = true },
+  ReferencesIcon = { fg = colors.yellow },
+  References = { fg = colors.pink, bold = true, reverse = true },
+
+  --winbar finder
+  LSFinderBarSepStart = { fg = colors.bg },
+  LSFinderBarSepEnd = { fg = colors.bg },
+  LSFinderBarFind = { fg = colors.pink, bg = colors.bg, bold = true },
+  LSFinderBarParam = { fg = colors.pink, bg = colors.bg, bold = true },
+
+  -- definition
+  LspSagaDefPreviewBorder = { fg = colors.pink },
+
+  -- hover
+  LspSagaHoverBorder = { fg = colors.pink },
+  LspSagaHoverTrunCateLine = { link = 'LspSagaHoverBorder' },
+
+  -- rename
+  LspSagaRenameBorder = { fg = colors.pink },
+  LspSagaRenameMatch = { link = 'Search' },
+
+  -- diagnostic
+  LspSagaDiagnosticError = { link = 'DiagnosticError' },
+  LspSagaDiagnosticWarn = { link = 'DiagnosticWarn' },
+  LspSagaDiagnosticInfo = { link = 'DiagnosticInfo' },
+  LspSagaDiagnosticHint = { link = 'DiagnosticHint' },
+  LspSagaErrorTrunCateLine = { link = 'DiagnosticError' },
+  LspSagaWarnTrunCateLine = { link = 'DiagnosticWarn' },
+  LspSagaInfoTrunCateLine = { link = 'DiagnosticInfo' },
+  LspSagaHintTrunCateLine = { link = 'DiagnosticHint' },
+  LspSagaDiagnosticHeader = { link = 'Title' },
+  LspSagaDiagnosticBorder = { fg = colors.pink },
+  --}}}
+
+  --{{{ CMP KIND
+  CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
+  CmpItemAbbrMatch = { fg = colors.yellow, reverse = true },
+  CmpItemAbbrMatchFuzzy = { fg = colors.yellow, reverse = true },
+  CmpItemKindFunction = { link = 'TSFunction' },
+  CmpItemKindMethod = { link = 'TSMethod' },
+  CmpItemKindConstructor = { link = 'TSConstructor' },
+  CmpItemKindClass = { link = 'TSType' },
+  CmpItemKindEnum = { link = 'TSConstant' },
+  CmpItemKindEvent = { fg = colors.yellow },
+  CmpItemKindInterface = { link = 'TSConstructor' },
+  CmpItemKindStruct = { link = 'TSType' },
+  CmpItemKindVariable = { link = 'TSVariableBuiltin' },
+  CmpItemKindField = { link = 'TSProperty' },
+  CmpItemKindProperty = { link = 'TSProperty' },
+  CmpItemKindEnumMember = { link = 'TSConstBuiltin' },
+  CmpItemKindConstant = { link = 'TSConstant' },
+  CmpItemKindKeyword = { link = 'TSKeyword' },
+  CmpItemKindModule = { link = 'TSFunction' },
+  CmpItemKindValue = { fg = colors.fg },
+  CmpItemKindUnit = { link = 'TSNumber' },
+  CmpItemKindText = { link = 'TSString' },
+  CmpItemKindSnippet = { fg = colors.fg },
+  CmpItemKindFile = { fg = colors.fg },
+  CmpItemKindFolder = { fg = colors.fg },
+  CmpItemKindColor = { fg = colors.fg },
+  CmpItemKindReference = { fg = colors.fg },
+  CmpItemKindOperator = { link = 'TSOperator' },
+  CmpItemKindTypeParameter = { fg = colors.purple },
+  --}}}
+
+  --{{{ NVIM-TREE
+  NvimTreeNormalNC = { link = 'NormalNC' },
+  NvimTreeVertSplit = { fg = colors.bg },
+
+  NvimTreeFolderIcon = { fg = colors.blue },
+  NvimTreeFolderName = { fg = colors.fg },
+  NvimTreeOpenedFolderName = { fg = colors.blue },
+  NvimTreeRootFolder = { fg = colors.blue },
+
+  NvimTreeLspDiagnosticsError = { fg = colors.error },
+  NvimTreeLspDiagnosticsWarning = { fg = colors.warn },
+  NvimTreeLspDiagnosticsInformation = { fg = colors.info },
+
+  NvimTreeGitStaged = { fg = colors.added },
+  NvimTreeGitNew = { fg = colors.added },
+  NvimTreeGitDeleted = { fg = colors.deleted },
+  --}}}
+
+  -- {{{ NEO-TREE
+  NeoTreeDirectoryName = { fg = colors.fg },
+  NeoTreeDirectoryIcon = { fg = colors.blue },
+  NeoTreeRootName = { fg = colors.blue },
+  -- }}}
+
+  --{{{ TELESCOPE
+  TelescopePreviewTitle = { fg = colors.bg, bg = colors.blue },
+  TelescopeResultsTitle = { fg = colors.bg, bg = colors.blue },
+  TelescopePromptTitle = { fg = colors.bg, bg = colors.blue },
+
+  TelescopeSelection = { fg = colors.yellow },
+  TelescopeMatching = { fg = colors.yellow, reverse = true },
+  --}}}
+
+  --{{{ DASHBOARD
+  DashboardHeader = { fg = colors.pink },
+  DashboardCenter = { fg = colors.fg },
+  DashboardFooter = { fg = colors.purple },
+  --}}}
+
+  --{{{ GIT
+  SignAdd = { fg = colors.add },
+  SignChange = { fg = colors.changed },
+  SignDelete = { fg = colors.deleted },
+  GitSignsAdd = { fg = colors.add },
+  GitSignsChange = { fg = colors.changed },
+  GitSignsDelete = { fg = colors.deleted },
+  GitGutterAdd = { fg = colors.add },
+  GitGutterChange = { fg = colors.changed },
+  GitGutterDelete = { fg = colors.deleted },
+  --}}}
+
+  --{{{ HOP
+  HopPreview = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15), bold = true },
+  HopNextKey = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), bold = true },
+  HopNextKey1 = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), bold = true },
+  HopNextKey2 = { fg = darken(colors.blue, 1.25) },
+  HopUnmatched = { fg = darken(colors.fg, 2) },
+  --}}}
+
+  --{{{ TWILIGHT
+  Twilight = { fg = fluoromachine:is_not_transparent(colors.gray) },
+  --}}}
 }

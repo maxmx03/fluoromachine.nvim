@@ -14,7 +14,7 @@ local M = {
     a = { fg = darken(colors.green), bg = colors.green },
   },
   visual = {
-    a = { fg = darken(colors.magenta), bg = colors.magenta },
+    a = { fg = darken(colors.pink), bg = colors.pink },
   },
   replace = {
     a = { fg = darken(colors.red), bg = colors.red },
