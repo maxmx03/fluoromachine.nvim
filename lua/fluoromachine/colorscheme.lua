@@ -25,8 +25,6 @@ M.colors = {
   removed = '#F44747',
 }
 M.config = {
-	mode = "dark",
-	theme = "vim",
 	transparent = false,
 }
 
