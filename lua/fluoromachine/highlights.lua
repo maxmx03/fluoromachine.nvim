@@ -7,7 +7,6 @@ local blend = colortool.blend
 
 fluoromachine.highlights = {
 
-	--{{{ BASE
 	Comment = { fg = colors.comment, italic = true },
 	ColorColumn = { bg = colors.bg },
 	Conceal = { fg = colors.blue },
@@ -42,7 +41,7 @@ fluoromachine.highlights = {
 	SpellCap = { sp = colors.purple, undercurl = true },
 	SpellLocal = { sp = colors.warn, undercurl = true },
 	SpellRare = { sp = colors.cyan, undercurl = true },
-	WildMenu = { fg = colors.bg_alt_invert, bg = colors.bg, reverse = true, bold = true },
+	WildMenu = { fg = colors.bg, bg = colors.bg, reverse = true, bold = true },
 	Folded = { fg = colors.fg, bg = colors.bg, sp = colors.bg },
 	FoldColumn = { fg = colors.fg, bg = colors.bg },
 	LineNr = { fg = colors.comment, bg = colors.bg },
@@ -50,13 +49,13 @@ fluoromachine.highlights = {
 	VertSplit = { fg = colors.fg, bg = colors.bg },
 	Visual = { fg = colors.comment, bg = colors.bg, reverse = true, bold = true },
 	VisualNOS = { bg = colors.bg, reverse = true, bold = true },
-	DiffAdd = { fg = colors.added, sp = colors.added, reverse = true },
-	DiffChange = { fg = colors.changed, sp = colors.changed, reverse = true },
-	DiffDelete = { fg = colors.deleted, reverse = true },
-	DiffText = { fg = colors.blue, sp = colors.blue, reverse = true },
-	DiffAdded = { fg = colors.added, reverse = true },
-	DiffChanged = { fg = colors.changed, reverse = true },
-	DiffRemoved = { fg = colors.removed, reverse = true },
+	-- DiffAdd = { fg = colors.added, sp = colors.added, reverse = true },
+	-- DiffChange = { fg = colors.changed, sp = colors.changed, reverse = true },
+	-- DiffDelete = { fg = colors.deleted, reverse = true },
+	-- DiffText = { fg = colors.blue, sp = colors.blue, reverse = true },
+	-- DiffAdded = { fg = colors.added, reverse = true },
+	-- DiffChanged = { fg = colors.changed, reverse = true },
+	-- DiffRemoved = { fg = colors.removed, reverse = true },
 	DiffFile = { fg = colors.comment },
 	DiffIndexLine = { fg = colors.purple },
 	QuickFixLine = { bg = colors.bg },
@@ -145,5 +144,4 @@ fluoromachine.highlights = {
 	Error = { fg = colors.error, bg = colors.bg, bold = true },
 	ErrorMsg = { fg = colors.error, reverse = true },
 	WarningMsg = { fg = colors.warn, bold = true },
-	--}}}za
 }
