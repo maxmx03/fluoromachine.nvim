@@ -83,7 +83,7 @@ fluoromachine.highlights = {
 	-- Float = { fg = colors.cyan },
 	Identifier = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
 	--       *Identifier      any variable name
-	       -- Function        function name (also: methods for classes)
+	-- Function        function name (also: methods for classes)
 	-- Variable = { fg = colors.blue },
 	Function = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
 
@@ -99,7 +99,7 @@ fluoromachine.highlights = {
 	-- Repeat = { fg = colors.pink },
 	-- Label = { fg = colors.pink },
 	-- Operator = { fg = colors.pink },
-	Keyword = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15)  },
+	Keyword = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
 	-- Exception = { fg = colors.pink },
 
 	PreProc = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
@@ -144,217 +144,205 @@ fluoromachine.highlights = {
 	ErrorMsg = { fg = colors.error, reverse = true },
 	WarningMsg = { fg = colors.warn, bold = true },
 
-  --{{{ TREESITTER
-  TSFunction = { link = 'Function' },
-  TSFunctionCall = { link = 'Function' },
-  TSFuncBuiltin = { link = 'Function' },
-  TSParameter = { fg = colors.fg, bold = true, italic = true },
-  TSType = { fg = colors.orange },
-  TSConstructor = { fg = colors.pink },
-  TSKeyWord = { link = 'Keyword' },
-  TSKeyWordFunction = { link = 'TSKeyWord' },
-  TSKeyWordReturn = { link = 'Statement' },
-  TSConditional = { link = 'Statement' },
-  TSVariable = { fg = colors.blue },
-  TSVariableBuiltin = { link = 'TSVariable' },
-  TSInclude = { link = 'Include' },
-  TSConstant = { fg = colors.orange },
-  TSNumber = { fg = colors.pink },
-  TSFloat = { link = 'TSNumber' },
-  TSBoolean = { fg = colors.yellow },
-  TSTag = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
-  TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, 0.15) },
-  TSTagDelimiter = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15) },
-  TSPunctBracket = { fg = colors.purple },
-  TSPunctDelimiter = { fg = colors.fg },
-  TSOperator = { link = 'Keyword' },
-  TSTitle = { link = 'TSText' },
+	--{{{ TREESITTER
+	TSFunction = { link = "Function" },
+	TSFunctionCall = { link = "Function" },
+	TSFuncBuiltin = { link = "Function" },
+	TSParameter = { fg = colors.fg, bold = true, italic = true },
+	TSType = { fg = colors.yellow },
+	TSConstructor = { fg = colors.pink },
+	TSKeyWord = { link = "Keyword" },
+	TSKeyWordFunction = { link = "TSKeyWord" },
+	TSKeyWordReturn = { link = "Statement" },
+	TSConditional = { link = "Statement" },
+	TSVariable = { fg = colors.blue },
+	TSVariableBuiltin = { link = "TSVariable" },
+	TSInclude = { link = "Include" },
+	TSConstant = { fg = colors.orange },
+	TSNumber = { fg = colors.pink },
+	TSFloat = { link = "TSNumber" },
+	TSBoolean = { fg = colors.yellow },
+	TSTag = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, 0.15) },
+	TSTagDelimiter = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15) },
+	TSPunctBracket = { fg = colors.purple },
+	TSPunctDelimiter = { fg = colors.fg },
+	TSOperator = { link = "Keyword" },
+	TSTitle = { link = "TSText" },
 
-  -- javascript
-  javascriptTSConstructor = { fg = colors.blue },
-  tsxTSConstructor = { link = 'javascriptTSConstructor' },
+	-- LUA
+	luaTSConstructor = { link = "TSPunctBracket" },
+	luaTSConstBuiltin = { fg = colors.orange },
+	--}}}
 
-  -- CSS / SCSS
-  cssTSProperty = { fg = colors.green },
-  cssTSType = { fg = colors.blue },
-  cssTSString = { fg = colors.green },
-  scssTSProperty = { link = 'cssTSProperty' },
-  scssTSType = { link = 'cssTSType' },
-  scssTSString = { link = 'cssTSString' },
+	--{{{ TREESITTER - MARKDOWN
+	markdownTSPunctSpecial = { fg = colors.blue },
+	markdownTSTitle = { fg = colors.blue },
+	markdownTSLiteral = { fg = colors.fg },
+	--}}}
 
-  -- LUA
-  luaTSConstructor = { link = 'TSPunctBracket' },
-  luaTSConstBuiltin = { fg = colors.orange },
-  --}}}
+	--{{{ DIAGNOSTIC
+	DiagnosticError = { fg = colors.error },
+	DiagnosticWarn = { fg = colors.warn },
+	DiagnosticInfo = { fg = colors.info },
+	DiagnosticHint = { fg = colors.info },
 
-  --{{{ TREESITTER - MARKDOWN
-  markdownTSPunctSpecial = { fg = colors.blue },
-  markdownTSTitle = { fg = colors.blue },
-  markdownTSLiteral = { fg = colors.fg },
-  --}}}
+	DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, 0.15) },
+	DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, 0.15) },
+	DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, 0.15) },
+	DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, 0.15) },
 
-  --{{{ DIAGNOSTIC
-  DiagnosticError = { fg = colors.error },
-  DiagnosticWarn = { fg = colors.warn },
-  DiagnosticInfo = { fg = colors.info },
-  DiagnosticHint = { fg = colors.info },
+	DiagnosticUnderlineError = { undercurl = true, sp = colors.error },
+	DiagnosticUnderlineWarn = { undercurl = true, sp = colors.warn },
+	DiagnosticUnderlineInfo = { undercurl = true, sp = colors.info },
+	DiagnosticUnderlineHint = { undercurl = true, sp = colors.hint },
+	--}}}
 
-  DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, 0.15) },
-  DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, 0.15) },
-  DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, 0.15) },
-  DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, 0.15) },
+	--{{{ LSP
+	LspReferenceText = { bg = colors.bg },
+	LspReferenceRead = { bg = colors.bg },
+	LspReferenceWrite = { bg = colors.bg },
+	--}}}
 
-  DiagnosticUnderlineError = { undercurl = true, sp = colors.error },
-  DiagnosticUnderlineWarn = { undercurl = true, sp = colors.warn },
-  DiagnosticUnderlineInfo = { undercurl = true, sp = colors.info },
-  DiagnosticUnderlineHint = { undercurl = true, sp = colors.hint },
-  --}}}
+	--{{{ LSPSAGA
+	-- code action
+	LspSagaCodeActionTitle = { fg = colors.pink, bold = true },
+	LspSagaCodeActionBorder = { fg = colors.pink },
+	LspSagaCodeActionTrunCateLine = { link = "LspSagaCodeActionBorder" },
+	LspSagaCodeActionContent = { fg = colors.fg, bold = true },
 
-  --{{{ LSP
-  LspReferenceText = { bg = colors.bg },
-  LspReferenceRead = { bg = colors.bg },
-  LspReferenceWrite = { bg = colors.bg },
-  --}}}
+	-- finder
+	LspSagaLspFinderBorder = { fg = colors.pink },
+	LspSagaAutoPreview = { fg = colors.pink },
+	LspSagaFinderSelection = { fg = colors.yellow, bold = true },
+	TargetFileName = { link = "Comment" },
 
-  --{{{ LSPSAGA
-  -- code action
-  LspSagaCodeActionTitle = { fg = colors.pink, bold = true },
-  LspSagaCodeActionBorder = { fg = colors.pink },
-  LspSagaCodeActionTrunCateLine = { link = 'LspSagaCodeActionBorder' },
-  LspSagaCodeActionContent = { fg = colors.fg, bold = true },
+	DefinitionsIcon = { fg = colors.yellow },
+	Definitions = { fg = colors.pink, bold = true, reverse = true },
+	ReferencesIcon = { fg = colors.yellow },
+	References = { fg = colors.pink, bold = true, reverse = true },
 
-  -- finder
-  LspSagaLspFinderBorder = { fg = colors.pink },
-  LspSagaAutoPreview = { fg = colors.pink },
-  LspSagaFinderSelection = { fg = colors.yellow, bold = true },
-  TargetFileName = { link = 'Comment' },
+	--winbar finder
+	LSFinderBarSepStart = { fg = colors.bg },
+	LSFinderBarSepEnd = { fg = colors.bg },
+	LSFinderBarFind = { fg = colors.pink, bg = colors.bg, bold = true },
+	LSFinderBarParam = { fg = colors.pink, bg = colors.bg, bold = true },
 
-  DefinitionsIcon = { fg = colors.yellow },
-  Definitions = { fg = colors.pink, bold = true, reverse = true },
-  ReferencesIcon = { fg = colors.yellow },
-  References = { fg = colors.pink, bold = true, reverse = true },
+	-- definition
+	LspSagaDefPreviewBorder = { fg = colors.pink },
 
-  --winbar finder
-  LSFinderBarSepStart = { fg = colors.bg },
-  LSFinderBarSepEnd = { fg = colors.bg },
-  LSFinderBarFind = { fg = colors.pink, bg = colors.bg, bold = true },
-  LSFinderBarParam = { fg = colors.pink, bg = colors.bg, bold = true },
+	-- hover
+	LspSagaHoverBorder = { fg = colors.pink },
+	LspSagaHoverTrunCateLine = { link = "LspSagaHoverBorder" },
 
-  -- definition
-  LspSagaDefPreviewBorder = { fg = colors.pink },
+	-- rename
+	LspSagaRenameBorder = { fg = colors.pink },
+	LspSagaRenameMatch = { link = "Search" },
 
-  -- hover
-  LspSagaHoverBorder = { fg = colors.pink },
-  LspSagaHoverTrunCateLine = { link = 'LspSagaHoverBorder' },
+	-- diagnostic
+	LspSagaDiagnosticError = { link = "DiagnosticError" },
+	LspSagaDiagnosticWarn = { link = "DiagnosticWarn" },
+	LspSagaDiagnosticInfo = { link = "DiagnosticInfo" },
+	LspSagaDiagnosticHint = { link = "DiagnosticHint" },
+	LspSagaErrorTrunCateLine = { link = "DiagnosticError" },
+	LspSagaWarnTrunCateLine = { link = "DiagnosticWarn" },
+	LspSagaInfoTrunCateLine = { link = "DiagnosticInfo" },
+	LspSagaHintTrunCateLine = { link = "DiagnosticHint" },
+	LspSagaDiagnosticHeader = { link = "Title" },
+	LspSagaDiagnosticBorder = { fg = colors.pink },
+	--}}}
 
-  -- rename
-  LspSagaRenameBorder = { fg = colors.pink },
-  LspSagaRenameMatch = { link = 'Search' },
+	--{{{ CMP KIND
+	CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
+	CmpItemAbbrMatch = { fg = colors.yellow, reverse = true },
+	CmpItemAbbrMatchFuzzy = { fg = colors.yellow, reverse = true },
+	CmpItemKindFunction = { link = "TSFunction" },
+	CmpItemKindMethod = { link = "TSMethod" },
+	CmpItemKindConstructor = { link = "TSConstructor" },
+	CmpItemKindClass = { link = "TSType" },
+	CmpItemKindEnum = { link = "TSConstant" },
+	CmpItemKindEvent = { fg = colors.yellow },
+	CmpItemKindInterface = { link = "TSConstructor" },
+	CmpItemKindStruct = { link = "TSType" },
+	CmpItemKindVariable = { link = "TSVariableBuiltin" },
+	CmpItemKindField = { link = "TSProperty" },
+	CmpItemKindProperty = { link = "TSProperty" },
+	CmpItemKindEnumMember = { link = "TSConstBuiltin" },
+	CmpItemKindConstant = { link = "TSConstant" },
+	CmpItemKindKeyword = { link = "TSKeyword" },
+	CmpItemKindModule = { link = "TSFunction" },
+	CmpItemKindValue = { fg = colors.fg },
+	CmpItemKindUnit = { link = "TSNumber" },
+	CmpItemKindText = { link = "TSString" },
+	CmpItemKindSnippet = { fg = colors.fg },
+	CmpItemKindFile = { fg = colors.fg },
+	CmpItemKindFolder = { fg = colors.fg },
+	CmpItemKindColor = { fg = colors.fg },
+	CmpItemKindReference = { fg = colors.fg },
+	CmpItemKindOperator = { link = "TSOperator" },
+	CmpItemKindTypeParameter = { fg = colors.purple },
+	--}}}
 
-  -- diagnostic
-  LspSagaDiagnosticError = { link = 'DiagnosticError' },
-  LspSagaDiagnosticWarn = { link = 'DiagnosticWarn' },
-  LspSagaDiagnosticInfo = { link = 'DiagnosticInfo' },
-  LspSagaDiagnosticHint = { link = 'DiagnosticHint' },
-  LspSagaErrorTrunCateLine = { link = 'DiagnosticError' },
-  LspSagaWarnTrunCateLine = { link = 'DiagnosticWarn' },
-  LspSagaInfoTrunCateLine = { link = 'DiagnosticInfo' },
-  LspSagaHintTrunCateLine = { link = 'DiagnosticHint' },
-  LspSagaDiagnosticHeader = { link = 'Title' },
-  LspSagaDiagnosticBorder = { fg = colors.pink },
-  --}}}
+	--{{{ NVIM-TREE
+	NvimTreeNormalNC = { link = "NormalNC" },
+	NvimTreeVertSplit = { fg = colors.bg },
 
-  --{{{ CMP KIND
-  CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
-  CmpItemAbbrMatch = { fg = colors.yellow, reverse = true },
-  CmpItemAbbrMatchFuzzy = { fg = colors.yellow, reverse = true },
-  CmpItemKindFunction = { link = 'TSFunction' },
-  CmpItemKindMethod = { link = 'TSMethod' },
-  CmpItemKindConstructor = { link = 'TSConstructor' },
-  CmpItemKindClass = { link = 'TSType' },
-  CmpItemKindEnum = { link = 'TSConstant' },
-  CmpItemKindEvent = { fg = colors.yellow },
-  CmpItemKindInterface = { link = 'TSConstructor' },
-  CmpItemKindStruct = { link = 'TSType' },
-  CmpItemKindVariable = { link = 'TSVariableBuiltin' },
-  CmpItemKindField = { link = 'TSProperty' },
-  CmpItemKindProperty = { link = 'TSProperty' },
-  CmpItemKindEnumMember = { link = 'TSConstBuiltin' },
-  CmpItemKindConstant = { link = 'TSConstant' },
-  CmpItemKindKeyword = { link = 'TSKeyword' },
-  CmpItemKindModule = { link = 'TSFunction' },
-  CmpItemKindValue = { fg = colors.fg },
-  CmpItemKindUnit = { link = 'TSNumber' },
-  CmpItemKindText = { link = 'TSString' },
-  CmpItemKindSnippet = { fg = colors.fg },
-  CmpItemKindFile = { fg = colors.fg },
-  CmpItemKindFolder = { fg = colors.fg },
-  CmpItemKindColor = { fg = colors.fg },
-  CmpItemKindReference = { fg = colors.fg },
-  CmpItemKindOperator = { link = 'TSOperator' },
-  CmpItemKindTypeParameter = { fg = colors.purple },
-  --}}}
+	NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NvimTreeFolderName = { fg = colors.fg },
+	NvimTreeOpenedFolderName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NvimTreeRootFolder = { fg = colors.blue },
 
-  --{{{ NVIM-TREE
-  NvimTreeNormalNC = { link = 'NormalNC' },
-  NvimTreeVertSplit = { fg = colors.bg },
+	NvimTreeLspDiagnosticsError = { fg = colors.error },
+	NvimTreeLspDiagnosticsWarning = { fg = colors.warn },
+	NvimTreeLspDiagnosticsInformation = { fg = colors.info },
 
-  NvimTreeFolderIcon = { fg = colors.blue },
-  NvimTreeFolderName = { fg = colors.fg },
-  NvimTreeOpenedFolderName = { fg = colors.blue },
-  NvimTreeRootFolder = { fg = colors.blue },
+	NvimTreeGitStaged = { fg = colors.added },
+	NvimTreeGitNew = { fg = colors.added },
+	NvimTreeGitDeleted = { fg = colors.deleted },
+	--}}}
 
-  NvimTreeLspDiagnosticsError = { fg = colors.error },
-  NvimTreeLspDiagnosticsWarning = { fg = colors.warn },
-  NvimTreeLspDiagnosticsInformation = { fg = colors.info },
+	-- {{{ NEO-TREE
+	NeoTreeDirectoryName = { fg = colors.fg },
+	NeoTreeDirectoryIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NeoTreeRootName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	-- }}}
 
-  NvimTreeGitStaged = { fg = colors.added },
-  NvimTreeGitNew = { fg = colors.added },
-  NvimTreeGitDeleted = { fg = colors.deleted },
-  --}}}
+	--{{{ TELESCOPE
+	TelescopePreviewTitle = { fg = colors.bg, bg = colors.blue },
+	TelescopeResultsTitle = { fg = colors.bg, bg = colors.blue },
+	TelescopePromptTitle = { fg = colors.bg, bg = colors.blue },
 
-  -- {{{ NEO-TREE
-  NeoTreeDirectoryName = { fg = colors.fg },
-  NeoTreeDirectoryIcon = { fg = colors.blue },
-  NeoTreeRootName = { fg = colors.blue },
-  -- }}}
+	TelescopeSelection = { fg = colors.yellow },
+	TelescopeMatching = { fg = colors.yellow, reverse = true },
+	--}}}
 
-  --{{{ TELESCOPE
-  TelescopePreviewTitle = { fg = colors.bg, bg = colors.blue },
-  TelescopeResultsTitle = { fg = colors.bg, bg = colors.blue },
-  TelescopePromptTitle = { fg = colors.bg, bg = colors.blue },
+	--{{{ DASHBOARD
+	DashboardHeader = { fg = colors.pink },
+	DashboardCenter = { fg = colors.fg },
+	DashboardFooter = { fg = colors.purple },
+	--}}}
 
-  TelescopeSelection = { fg = colors.yellow },
-  TelescopeMatching = { fg = colors.yellow, reverse = true },
-  --}}}
+	--{{{ GIT
+	SignAdd = { fg = colors.add },
+	SignChange = { fg = colors.changed },
+	SignDelete = { fg = colors.deleted },
+	GitSignsAdd = { fg = colors.add },
+	GitSignsChange = { fg = colors.changed },
+	GitSignsDelete = { fg = colors.deleted },
+	GitGutterAdd = { fg = colors.add },
+	GitGutterChange = { fg = colors.changed },
+	GitGutterDelete = { fg = colors.deleted },
+	--}}}
 
-  --{{{ DASHBOARD
-  DashboardHeader = { fg = colors.pink },
-  DashboardCenter = { fg = colors.fg },
-  DashboardFooter = { fg = colors.purple },
-  --}}}
+	--{{{ HOP
+	HopPreview = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15), bold = true },
+	HopNextKey = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), bold = true },
+	HopNextKey1 = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), bold = true },
+	HopNextKey2 = { fg = darken(colors.blue, 1.25) },
+	HopUnmatched = { fg = darken(colors.fg, 2) },
+	--}}}
 
-  --{{{ GIT
-  SignAdd = { fg = colors.add },
-  SignChange = { fg = colors.changed },
-  SignDelete = { fg = colors.deleted },
-  GitSignsAdd = { fg = colors.add },
-  GitSignsChange = { fg = colors.changed },
-  GitSignsDelete = { fg = colors.deleted },
-  GitGutterAdd = { fg = colors.add },
-  GitGutterChange = { fg = colors.changed },
-  GitGutterDelete = { fg = colors.deleted },
-  --}}}
-
-  --{{{ HOP
-  HopPreview = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15), bold = true },
-  HopNextKey = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), bold = true },
-  HopNextKey1 = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), bold = true },
-  HopNextKey2 = { fg = darken(colors.blue, 1.25) },
-  HopUnmatched = { fg = darken(colors.fg, 2) },
-  --}}}
-
-  --{{{ TWILIGHT
-  Twilight = { fg = fluoromachine:is_not_transparent(colors.gray) },
-  --}}}
+	--{{{ TWILIGHT
+	Twilight = { fg = fluoromachine:is_not_transparent(colors.gray) },
+	--}}}
 }
