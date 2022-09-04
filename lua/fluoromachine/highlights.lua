@@ -6,8 +6,8 @@ local darken = colortool.darken
 local blend = colortool.blend
 
 fluoromachine.highlights = {
-  --{{{ BASE
-	Comment = { fg = colors.comment, italic = true },
+	--{{{ BASE
+	Comment = { fg = colors.comment, italic = vim.g.fluoromachine_italic_comments and true },
 	ColorColumn = { bg = colors.bg },
 	Conceal = { fg = colors.blue },
 	Cursor = { fg = colors.bg, bg = colors.purple },
@@ -86,7 +86,11 @@ fluoromachine.highlights = {
 	--       *Identifier      any variable name
 	-- Function        function name (also: methods for classes)
 	-- Variable = { fg = colors.blue },
-	Function = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	Function = {
+		fg = colors.yellow,
+		bg = blend(colors.yellow, colors.bg, 0.15),
+		italic = vim.g.fluoromachine_italic_functions or false,
+	},
 
 	Statement = { fg = colors.pink },
 	--       *Statement       any statement
@@ -100,7 +104,11 @@ fluoromachine.highlights = {
 	-- Repeat = { fg = colors.pink },
 	-- Label = { fg = colors.pink },
 	-- Operator = { fg = colors.pink },
-	Keyword = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	Keyword = {
+		fg = colors.pink,
+		bg = blend(colors.pink, colors.bg, 0.15),
+		italic = vim.g.fluoromachine_italic_keywords or false,
+	},
 	-- Exception = { fg = colors.pink },
 
 	PreProc = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
@@ -144,7 +152,7 @@ fluoromachine.highlights = {
 	Error = { fg = colors.error, bg = colors.bg, bold = true },
 	ErrorMsg = { fg = colors.error, reverse = true },
 	WarningMsg = { fg = colors.warn, bold = true },
-  --}}}
+	--}}}
 
 	--{{{ TREESITTER
 	TSFunction = { link = "Function" },
@@ -152,13 +160,13 @@ fluoromachine.highlights = {
 	TSFuncBuiltin = { link = "Function" },
 	TSParameter = { fg = colors.fg, bold = true, italic = true },
 	TSType = { fg = colors.yellow },
-  TSTypeBuiltin = { link = 'TSType' },
+	TSTypeBuiltin = { link = "TSType" },
 	TSConstructor = { fg = colors.pink },
 	TSKeyWord = { link = "Keyword" },
 	TSKeyWordFunction = { link = "TSKeyWord" },
 	TSKeyWordReturn = { link = "Statement" },
 	TSConditional = { link = "Statement" },
-	TSVariable = { fg = colors.blue },
+	TSVariable = { fg = colors.blue, italic = vim.g.fluoromachine_italic_variables or false },
 	TSVariableBuiltin = { link = "TSVariable" },
 	TSInclude = { link = "Include" },
 	TSConstant = { fg = colors.orange },
@@ -274,6 +282,8 @@ fluoromachine.highlights = {
 	CmpItemKindReference = { fg = colors.fg },
 	CmpItemKindOperator = { link = "TSOperator" },
 	CmpItemKindTypeParameter = { fg = colors.purple },
+	CmpItemKindTabnine = { fg = colors.pink },
+	CmpItemKindEmoji = { fg = colors.yellow },
 	--}}}
 
 	--{{{ NVIM-TREE

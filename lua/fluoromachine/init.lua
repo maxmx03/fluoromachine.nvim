@@ -1,3 +1,4 @@
+require("fluoromachine.globals")
 local fluoromachine = require("fluoromachine.colorscheme")
 local utils = require("fluoromachine.utils")
 local colortool = require("fluoromachine.colortool")
