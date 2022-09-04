@@ -108,7 +108,7 @@ fluoromachine.highlights = {
 	--        Define          preprocessor #define
 	--        Macro           same as Define
 	--        PreCondit       preprocessor #if, #else, #endif, etc.
-	-- Include = { fg = colors.green },
+	Include = { fg = colors.pink },
 	-- Define = { fg = colors.orange },
 	-- Macro = { fg = colors.orange },
 	-- PreCondit = { fg = colors.orange },
