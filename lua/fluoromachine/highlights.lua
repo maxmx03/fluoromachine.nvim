@@ -30,6 +30,8 @@ fluoromachine.highlights = {
 	TabLine = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
 	TabLineSel = { fg = colors.fg, bg = colors.selection, sp = colors.fg, reverse = true },
 	TabLineFill = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
+	StatusLine = { fg = colors.pink, bg = colors.selection },
+	StatusLineNC = { fg = colors.purple, bg = colors.selection },
 	FloatBorder = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
 	SignColumn = { fg = colors.red },
 	MsgArea = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
