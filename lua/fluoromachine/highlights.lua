@@ -83,9 +83,9 @@ fluoromachine.highlights = {
 	-- Float = { fg = colors.cyan },
 	Identifier = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
 	--       *Identifier      any variable name
-	--        Function        function name (also: methods for classes)
+	       -- Function        function name (also: methods for classes)
 	-- Variable = { fg = colors.blue },
-	-- Function = { fg = colors.blue },
+	Function = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
 
 	Statement = { fg = colors.pink },
 	--       *Statement       any statement
@@ -162,9 +162,9 @@ fluoromachine.highlights = {
   TSNumber = { fg = colors.pink },
   TSFloat = { link = 'TSNumber' },
   TSBoolean = { fg = colors.yellow },
-  TSTag = { fg = colors.green, bg = blend(colors.green, colors.bg, 0.15) },
+  TSTag = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
   TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, 0.15) },
-  TSTagDelimiter = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+  TSTagDelimiter = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15) },
   TSPunctBracket = { fg = colors.purple },
   TSPunctDelimiter = { fg = colors.fg },
   TSOperator = { link = 'Keyword' },
