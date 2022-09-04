@@ -1,26 +1,27 @@
 local fluoromachine = require 'fluoromachine'
 local colors = fluoromachine.colors
 local colortool = require 'fluoromachine.colortool'
+local blend = colortool.blend
 local darken = colortool.darken
 
 local M = {
   normal = {
-    a = { fg = darken(colors.blue), bg = colors.blue, gui = 'bold' },
-    b = { fg = darken(colors.content), bg = colors.content },
-    c = { fg = colors.content, bg = fluoromachine:is_transparent(colors.bg_alt) },
-    z = { fg = darken(colors.primary), bg = colors.blue },
+    a = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15), gui = 'bold' },
+    b = { fg = colors.purple, bg = darken(colors.purple, 2) },
+    c = { fg = colors.fg, bg = colors.bg },
+    z = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
   },
   insert = {
-    a = { fg = darken(colors.green), bg = colors.green },
+    a = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), gui = 'bold' },
   },
   visual = {
-    a = { fg = darken(colors.pink), bg = colors.pink },
+    a = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), gui = 'bold' },
   },
   replace = {
-    a = { fg = darken(colors.red), bg = colors.red },
+    a = { fg = colors.orange, bg = blend(colors.orange, colors.bg, 0.15), gui = 'bold' },
   },
   command = {
-    a = { fg = colors.blue, bg = darken(colors.blue) },
+    a = { fg = colors.purple, bg = darken(colors.purple), gui = 'bold' },
   },
 }
 
