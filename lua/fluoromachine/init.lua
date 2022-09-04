@@ -26,8 +26,7 @@ function fluoromachine.setup(user_config)
 			vim.tbl_extend("force", fluoromachine.colors, user_config.colors(fluoromachine.colors, darken, blend))
 	end
 
-	-- highlights: vim, neovim, vscode
-	require("fluoromachine.src.themes." .. fluoromachine.config.theme)
+	require("fluoromachine.highlights")
 
 	-- override or add colors
 	if user_config and type(user_config.highlights) == "table" then
