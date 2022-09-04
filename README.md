@@ -1,5 +1,7 @@
 # FluoroMachine.nvim
-FluoroMachine theme for neovim
+FluoroMachine theme for neovim base on
+
+![Theme screenshot](https://repository-images.githubusercontent.com/184457193/69dcff00-14d2-11ea-90e1-4bdf6fef80ca)
 
 ## Configuration
 
@@ -110,5 +112,6 @@ lualine.setup {
 }
 ```
 
+## Contributing 😳
 
-![Theme screenshot](https://repository-images.githubusercontent.com/184457193/69dcff00-14d2-11ea-90e1-4bdf6fef80ca)
+Pull requests are welcome.
