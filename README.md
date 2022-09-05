@@ -15,6 +15,7 @@ vim.g.fluoromachine_italic_variables = false
 | option      | default            | description                                                |
 | ----------- | ------------------ | ---------------------------------------------------------- |
 | transparent | `false`            | enable and disable background transparency                 |
+| brightness | `0.15`            | The value should be a float value from 0 to 1          |
 | colors      | `{}` or `function` | You can add new colors or override the default             |
 | highlights  | `{}` or `function` | You can add new highlights or override the default         |
 
@@ -24,7 +25,8 @@ vim.g.fluoromachine_italic_variables = false
 local fluoromachine = require 'fluoromachine'
 
 fluoromachine.setup {
-  transparent = true,
+  transparent = false,
+  brightness = 0.15,
   colors = function (c)
     local colors = {
       fg = c.cyan, -- override the default foreground color

@@ -1,6 +1,7 @@
 local fluoromachine = require("fluoromachine.colorscheme")
 local colortool = require("fluoromachine.colortool")
 
+local alpha = fluoromachine.config.brightness
 local colors = fluoromachine.colors
 local darken = colortool.darken
 local blend = colortool.blend
@@ -12,7 +13,7 @@ fluoromachine.highlights = {
 	Conceal = { fg = colors.blue },
 	Cursor = { fg = colors.bg, bg = colors.purple },
 	CursorColumn = { bg = colors.bg },
-	CursorLineNr = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), sp = colors.fg },
+	CursorLineNr = { fg = colors.pink, bg = blend(colors.pink, colors.bg, alpha), sp = colors.fg },
 	CursorLine = { bg = colors.selection, sp = colors.fg },
 	lCursor = { link = "Cursor" },
 	-- CursorIM = { fg = colors.bg, bg = colors.fg },
@@ -23,10 +24,10 @@ fluoromachine.highlights = {
 	Normal = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
 	NormalNC = { link = "Normal" },
 	NormalFloat = { fg = colors.fg, bg = colors.bg },
-	Pmenu = { fg = colors.fg, bg = colors.bg, bold = true },
-	PmenuSel = { fg = colors.fg, bg = colors.selection, bold = true },
-	PmenuSbar = { fg = colors.bg, bg = colors.fg, reverse = true, bold = true },
-	PmenuThumb = { fg = colors.pink, bg = colors.bg, reverse = true, bold = true },
+	Pmenu = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.alt_bg), bold = true },
+	PmenuSel = { bg = colors.selection, bold = true },
+	PmenuSbar = { bg = colors.bg, bold = true },
+	PmenuThumb = { bg = colors.pink, bold = true },
 	TabLine = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
 	TabLineSel = { fg = colors.fg, bg = colors.selection, sp = colors.fg, reverse = true },
 	TabLineFill = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
@@ -72,7 +73,7 @@ fluoromachine.highlights = {
 	Question = { fg = colors.cyan, bold = true },
 	EndOfBuffer = { fg = colors.bg },
 
-	Constant = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
+	Constant = { fg = colors.purple, bg = blend(colors.purple, colors.bg, alpha) },
 	--       *Constant        any constant
 	--        String          a string constant: "this is a string"
 	--        Character       a character constant: 'c', '\n'
@@ -84,13 +85,13 @@ fluoromachine.highlights = {
 	-- Number = { fg = colors.cyan },
 	-- Boolean = { fg = colors.cyan },
 	-- Float = { fg = colors.cyan },
-	Identifier = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	Identifier = { fg = colors.pink, bg = blend(colors.pink, colors.bg, alpha) },
 	--       *Identifier      any variable name
 	-- Function        function name (also: methods for classes)
 	-- Variable = { fg = colors.blue },
 	Function = {
 		fg = colors.yellow,
-		bg = blend(colors.yellow, colors.bg, 0.15),
+		bg = blend(colors.yellow, colors.bg, alpha),
 		italic = vim.g.fluoromachine_italic_functions or false,
 	},
 
@@ -108,12 +109,12 @@ fluoromachine.highlights = {
 	-- Operator = { fg = colors.pink },
 	Keyword = {
 		fg = colors.pink,
-		bg = blend(colors.pink, colors.bg, 0.15),
+		bg = blend(colors.pink, colors.bg, alpha),
 		italic = vim.g.fluoromachine_italic_keywords or false,
 	},
 	-- Exception = { fg = colors.pink },
 
-	PreProc = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
+	PreProc = { fg = colors.purple, bg = blend(colors.purple, colors.bg, alpha) },
 	--       *PreProc         generic Preprocessor
 	--        Include         preprocessor #include
 	--        Define          preprocessor #define
@@ -124,7 +125,7 @@ fluoromachine.highlights = {
 	-- Macro = { fg = colors.orange },
 	-- PreCondit = { fg = colors.orange },
 
-	Type = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	Type = { fg = colors.pink, bg = blend(colors.pink, colors.bg, alpha) },
 	--       *Type            int, long, char, etc.
 	--        StorageClass    static, register, volatile, etc.
 	--        Structure       struct, union, enum, etc.
@@ -133,7 +134,7 @@ fluoromachine.highlights = {
 	-- Structure = { fg = colors.yellow },
 	-- Typedef = { fg = colors.yellow },
 
-	Special = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	Special = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
 	--       *Special         any special symbol
 	--        SpecialChar     special character in a constant
 	--        Tag             you can use CTRL-] on this
@@ -175,9 +176,9 @@ fluoromachine.highlights = {
 	TSNumber = { fg = colors.pink },
 	TSFloat = { link = "TSNumber" },
 	TSBoolean = { fg = colors.yellow },
-	TSTag = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
-	TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, 0.15) },
-	TSTagDelimiter = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15) },
+	TSTag = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
+	TSTagAttribute = { fg = colors.pink, bg = blend(colors.purple, colors.bg, alpha) },
+	TSTagDelimiter = { fg = colors.blue, bg = blend(colors.blue, colors.bg, alpha) },
 	TSPunctBracket = { fg = colors.purple },
 	TSPunctDelimiter = { fg = colors.fg },
 	TSOperator = { link = "Keyword" },
@@ -190,10 +191,10 @@ fluoromachine.highlights = {
 	DiagnosticInfo = { fg = colors.info },
 	DiagnosticHint = { fg = colors.info },
 
-	DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, 0.15) },
-	DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, 0.15) },
-	DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, 0.15) },
-	DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, 0.15) },
+	DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, alpha) },
+	DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, alpha) },
+	DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, alpha) },
+	DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, alpha) },
 
 	DiagnosticUnderlineError = { undercurl = true, sp = colors.error },
 	DiagnosticUnderlineWarn = { undercurl = true, sp = colors.warn },
@@ -292,9 +293,9 @@ fluoromachine.highlights = {
 	NvimTreeNormal = { fg = colors.fg, bg = colors.alt_bg },
 	NvimTreeVertSplit = { fg = colors.bg },
 
-	NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
 	NvimTreeFolderName = { fg = colors.fg },
-	NvimTreeOpenedFolderName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NvimTreeOpenedFolderName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
 	NvimTreeRootFolder = { fg = colors.blue },
 
 	NvimTreeLspDiagnosticsError = { fg = colors.error },
@@ -308,12 +309,12 @@ fluoromachine.highlights = {
 
 	-- {{{ NEO-TREE
 	NeoTreeDirectoryName = { fg = colors.fg },
-	NeoTreeDirectoryIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
-	NeoTreeRootName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
+	NeoTreeDirectoryIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
+	NeoTreeRootName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
 	-- }}}
 
 	--{{{ TELESCOPE
-	TelescopeBorder = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	TelescopeBorder = { fg = colors.pink, bg = blend(colors.pink, colors.bg, alpha) },
 	TelescopePreviewTitle = { fg = colors.pink },
 	TelescopeResultsTitle = { fg = colors.pink },
 	TelescopePromptTitle = { fg = colors.pink },
@@ -341,9 +342,9 @@ fluoromachine.highlights = {
 	--}}}
 
 	--{{{ HOP
-	HopPreview = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15), bold = true },
-	HopNextKey = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), bold = true },
-	HopNextKey1 = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), bold = true },
+	HopPreview = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha), bold = true },
+	HopNextKey = { fg = colors.pink, bg = blend(colors.pink, colors.bg, alpha), bold = true },
+	HopNextKey1 = { fg = colors.blue, bg = blend(colors.blue, colors.bg, alpha), bold = true },
 	HopNextKey2 = { fg = darken(colors.blue, 1.25) },
 	HopUnmatched = { fg = darken(colors.fg, 2) },
 	--}}}

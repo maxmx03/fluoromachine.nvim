@@ -26,7 +26,8 @@ M.colors = {
 	removed = "#F44747",
 }
 M.config = {
-	transparent = false,
+	transparen = false,
+  brightness = 0.15,
 }
 
 function M:new()
