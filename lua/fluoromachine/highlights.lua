@@ -297,9 +297,9 @@ fluoromachine.highlights = {
   NvimTreeNormal = { fg = colors.fg, bg = colors.alt_bg },
   NvimTreeVertSplit = { fg = colors.bg },
 
-  NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
+  NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.alt_bg, alpha) },
   NvimTreeFolderName = { fg = colors.fg },
-  NvimTreeOpenedFolderName = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, alpha) },
+  NvimTreeOpenedFolderName = { fg = colors.yellow, bg = blend(colors.yellow, colors.alt_bg, alpha) },
   NvimTreeRootFolder = { fg = colors.blue },
 
   NvimTreeLspDiagnosticsError = { fg = colors.error },
