@@ -12,7 +12,7 @@ fluoromachine.highlights = {
 	Conceal = { fg = colors.blue },
 	Cursor = { fg = colors.bg, bg = colors.purple },
 	CursorColumn = { bg = colors.bg },
-	CursorLineNr = { bg = colors.selection, sp = colors.fg },
+	CursorLineNr = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), sp = colors.fg },
 	CursorLine = { bg = colors.selection, sp = colors.fg },
 	lCursor = { link = "Cursor" },
 	-- CursorIM = { fg = colors.bg, bg = colors.fg },
@@ -46,7 +46,7 @@ fluoromachine.highlights = {
 	WildMenu = { fg = colors.bg, bg = colors.bg, reverse = true, bold = true },
 	Folded = { fg = colors.fg, bg = colors.bg, sp = colors.bg },
 	FoldColumn = { fg = colors.fg, bg = colors.bg },
-	LineNr = { fg = colors.comment, bg = colors.bg },
+	LineNr = { fg = colors.comment, bg = fluoromachine:is_transparent(colors.bg) },
 	Whitespace = { fg = colors.bg },
 	VertSplit = { fg = colors.fg, bg = colors.bg },
 	Visual = { fg = colors.selection, bg = colors.bg, reverse = true, bold = true },
@@ -289,7 +289,7 @@ fluoromachine.highlights = {
 	--}}}
 
 	--{{{ NVIM-TREE
-	NvimTreeNormalNC = { link = "NormalNC" },
+	NvimTreeNormal = { fg = colors.fg, bg = colors.alt_bg },
 	NvimTreeVertSplit = { fg = colors.bg },
 
 	NvimTreeFolderIcon = { fg = colors.yellow, bg = blend(colors.yellow, colors.bg, 0.15) },
@@ -313,9 +313,10 @@ fluoromachine.highlights = {
 	-- }}}
 
 	--{{{ TELESCOPE
-	TelescopePreviewTitle = { fg = colors.bg, bg = colors.blue },
-	TelescopeResultsTitle = { fg = colors.bg, bg = colors.blue },
-	TelescopePromptTitle = { fg = colors.bg, bg = colors.blue },
+	TelescopeBorder = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15) },
+	TelescopePreviewTitle = { fg = colors.pink },
+	TelescopeResultsTitle = { fg = colors.pink },
+	TelescopePromptTitle = { fg = colors.pink },
 
 	TelescopeSelection = { fg = colors.yellow },
 	TelescopeMatching = { fg = colors.yellow, reverse = true },
