@@ -12,6 +12,8 @@ colors.pink_bg = blend(colors.pink, colors.bg, alpha)
 colors.blue_bg = blend(colors.blue, colors.bg, alpha)
 colors.changed_bg = blend(colors.changed, colors.bg, alpha)
 colors.add_bg = blend(colors.add, colors.bg, alpha)
+colors.error_bg = blend(colors.error, colors.bg, alpha)
+colors.warn_bg = blend(colors.warn, colors.bg, alpha)
 colors.darker_purple = darken(colors.purple, 2)
 colors.darker_pink = darken(colors.pink, 2)
 
@@ -27,7 +29,7 @@ fluoromachine.highlights = {
   lCursor = { link = 'Cursor' },
   -- CursorIM = { fg = colors.bg, bg = colors.fg },
   MatchWord = { bold = true },
-  -- MatchParen = { fg = colors.red, bg = colors.fg, bold = true },
+  -- MatchParen = { fg = colors.blue, bold = true },
   MatchWordCur = { bold = true },
   MatchParenCur = { bold = true },
   Normal = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
@@ -52,7 +54,7 @@ fluoromachine.highlights = {
   ModeMsg = { fg = colors.blue },
   MsgSeparator = { fg = colors.fg, bg = colors.bg },
   MoreMsg = { fg = colors.blue },
-  NonText = { fg = colors.fg },
+  NonText = { fg = colors.purple },
   SpellBad = { sp = colors.error, undercurl = true },
   SpellCap = { sp = colors.purple, undercurl = true },
   SpellLocal = { sp = colors.warn, undercurl = true },
@@ -164,10 +166,10 @@ fluoromachine.highlights = {
   Bold = { bold = true },
   Italic = { italic = true },
   Ignore = { fg = colors.cyan, bg = colors.bg, bold = true },
-  Todo = { fg = colors.red, bg = colors.bg, bold = true },
+  Todo = { link = 'Title' },
   Error = { fg = colors.error, bg = colors.bg, bold = true },
-  ErrorMsg = { fg = colors.error, reverse = true },
-  WarningMsg = { fg = colors.warn, bold = true },
+  ErrorMsg = { fg = colors.error, bg = colors.error_bg },
+  WarningMsg = { fg = colors.warn, bg = colors.warn_bg },
   --}}}
 
   --{{{ TREESITTER
@@ -198,6 +200,7 @@ fluoromachine.highlights = {
   TSPunctDelimiter = { fg = colors.pink },
   TSOperator = { link = 'TSPunctDelimiter' },
   TSLabel = { fg = colors.pink, bg = colors.pink_bg },
+  TSError = { fg = colors.error },
   --}}}
 
   --{{{ DIAGNOSTIC
@@ -206,8 +209,8 @@ fluoromachine.highlights = {
   DiagnosticInfo = { fg = colors.info },
   DiagnosticHint = { fg = colors.hint },
 
-  DiagnosticVirtualTextError = { fg = colors.error, bg = blend(colors.error, colors.bg, alpha) },
-  DiagnosticVirtualTextWarn = { fg = colors.warn, bg = blend(colors.warn, colors.bg, alpha) },
+  DiagnosticVirtualTextError = { fg = colors.error, bg = colors.error_bg },
+  DiagnosticVirtualTextWarn = { fg = colors.warn, bg = colors.warn_bg },
   DiagnosticVirtualTextInfo = { fg = colors.info, bg = blend(colors.info, colors.bg, alpha) },
   DiagnosticVirtualTextHint = { fg = colors.hint, bg = blend(colors.hint, colors.bg, alpha) },
 
@@ -329,11 +332,11 @@ fluoromachine.highlights = {
   -- }}}
 
   --{{{ TELESCOPE
+  TelescopeNormal = { bg = colors.alt_bg },
   TelescopeBorder = { fg = colors.pink, bg = colors.pink_bg },
   TelescopePreviewTitle = { fg = colors.pink },
   TelescopeResultsTitle = { fg = colors.pink },
   TelescopePromptTitle = { fg = colors.pink },
-
   TelescopeSelection = { fg = colors.yellow },
   TelescopeMatching = { fg = colors.yellow, reverse = true },
   --}}}
