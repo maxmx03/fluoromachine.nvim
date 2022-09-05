@@ -8,7 +8,6 @@ M.colors = {
   comment = '#495495',
   selection = '#463465',
   blue = '#61E2FF',
-  lightblue = '#36F9F6',
   purple = '#AF6DF9',
   pink = '#F92AAD',
   green = '#2FFC1D',

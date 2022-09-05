@@ -7,7 +7,7 @@ local darken = colortool.darken
 local blend = colortool.blend
 
 colors.purple_bg = blend(colors.purple, colors.bg, alpha)
-colors.yellow_bg = blend(colors.yellow, colors.bg, alpha)
+colors.yellow_bg = blend(colors.orange, colors.bg, alpha)
 colors.pink_bg = blend(colors.pink, colors.bg, alpha)
 colors.blue_bg = blend(colors.blue, colors.bg, alpha)
 colors.changed_bg = blend(colors.changed, colors.bg, alpha)
@@ -60,7 +60,7 @@ fluoromachine.highlights = {
   WildMenu = { fg = colors.bg, bg = colors.bg, reverse = true, bold = true },
   Folded = { fg = colors.fg, bg = colors.bg, sp = colors.bg },
   FoldColumn = { fg = colors.fg, bg = colors.bg },
-  LineNr = { fg = colors.comment, bg = fluoromachine:is_transparent(colors.bg) },
+  LineNr = { fg = colors.darker_purple, bg = fluoromachine:is_transparent(colors.bg) },
   Whitespace = { fg = colors.bg },
   VertSplit = { fg = colors.fg, bg = colors.bg },
   Visual = { bg = colors.selection },
@@ -174,11 +174,12 @@ fluoromachine.highlights = {
   TSFunction = { link = 'Function' },
   TSFunctionCall = { link = 'Function' },
   TSFuncBuiltin = { link = 'Function' },
-  TSParameter = { fg = colors.fg, bold = true, italic = true },
-  TSType = { fg = colors.yellow },
+  TSParameter = { fg = colors.blue, italic = true },
+  TSType = { fg = colors.purple },
   TSTypeBuiltin = { link = 'TSType' },
   TSConstructor = { fg = colors.blue, bg = colors.blue_bg },
-  TSMethod = { fg = colors.lightblue, bg = blend(colors.lightblue, colors.bg, alpha) },
+  TSMethod = { link = 'TSFunction' },
+  TSProperty = { fg = colors.blue },
   TSKeyWord = { link = 'Keyword' },
   TSKeyWordFunction = { link = 'TSKeyWord' },
   TSKeyWordReturn = { link = 'Statement' },
@@ -194,8 +195,9 @@ fluoromachine.highlights = {
   TSTagAttribute = { fg = colors.pink, bg = colors.pink_bg },
   TSTagDelimiter = { fg = colors.blue, bg = colors.blue_bg },
   TSPunctBracket = { fg = colors.purple },
-  TSPunctDelimiter = { fg = colors.fg },
-  TSOperator = { link = 'Keyword' },
+  TSPunctDelimiter = { fg = colors.pink },
+  TSOperator = { link = 'TSPunctDelimiter' },
+  TSLabel = { fg = colors.pink, bg = colors.pink_bg },
   --}}}
 
   --{{{ DIAGNOSTIC
