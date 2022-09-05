@@ -80,8 +80,6 @@ local fluoromachine = require 'fluoromachine'
 
 fluoromachine.setup {
   transparent = false,
-  theme = 'vim',
-  mode = 'dark',
   highlights = function(colors, _, blend)
     local background = colors.bg
     local alpha = 0.15
