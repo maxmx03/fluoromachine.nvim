@@ -179,7 +179,7 @@ fluoromachine.highlights = {
   TSParameter = { fg = colors.blue, italic = true },
   TSType = { fg = colors.purple },
   TSTypeBuiltin = { link = 'TSType' },
-  TSConstructor = { fg = colors.purple, bg = colors.purple_bg },
+  TSConstructor = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
   TSMethod = { link = 'TSFunction' },
   TSProperty = { fg = colors.blue },
   TSKeyWord = { link = 'Keyword' },
