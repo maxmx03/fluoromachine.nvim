@@ -369,7 +369,7 @@ fluoromachine.highlights = {
   --}}}
 
   --{{{ TWILIGHT
-  Twilight = { fg = fluoromachine:is_not_transparent(colors.fg, 2) },
+  Twilight = { fg = darken(colors.purple, 2), bg = fluoromachine:is_transparent(colors.bg) },
   --}}}
 
   --{{{ INDENT_BLANKLINE
