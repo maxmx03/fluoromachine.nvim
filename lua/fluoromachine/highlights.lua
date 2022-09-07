@@ -64,7 +64,7 @@ fluoromachine.highlights = {
   FoldColumn = { fg = colors.fg, bg = colors.bg },
   LineNr = { fg = colors.darker_purple, bg = fluoromachine:is_transparent(colors.bg) },
   Whitespace = { fg = colors.bg },
-  VertSplit = { fg = colors.fg, bg = colors.bg },
+  VertSplit = { fg = colors.darker_purple },
   Visual = { bg = colors.selection },
   VisualNOS = { bg = colors.bg, reverse = true, bold = true },
   DiffAdd = { fg = colors.add, bg = colors.add_bg },
@@ -370,7 +370,7 @@ fluoromachine.highlights = {
   --}}}
 
   --{{{ TWILIGHT
-  Twilight = { fg = darken(colors.purple, 2), bg = fluoromachine:is_transparent(colors.bg) },
+  Twilight = { fg = colors.darker_purple, bg = fluoromachine:is_transparent(colors.bg) },
   --}}}
 
   --{{{ INDENT_BLANKLINE
