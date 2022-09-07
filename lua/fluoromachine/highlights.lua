@@ -199,6 +199,7 @@ fluoromachine.highlights = {
   TSTagDelimiter = { fg = colors.blue, bg = colors.blue_bg },
   TSPunctBracket = { fg = colors.purple },
   TSPunctDelimiter = { fg = colors.pink },
+  TSPunctSpecial = { fg = colors.pink },
   TSOperator = { link = 'TSPunctDelimiter' },
   TSLabel = { fg = colors.pink, bg = colors.pink_bg },
   TSError = { fg = colors.error },
