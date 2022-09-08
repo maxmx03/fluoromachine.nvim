@@ -334,7 +334,7 @@ fluoromachine.highlights = {
   -- }}}
 
   --{{{ TELESCOPE
-  TelescopeNormal = { bg = colors.alt_bg },
+  TelescopeNormal = { bg = fluoromachine:is_transparent(colors.alt_bg) },
   TelescopeBorder = { fg = colors.pink, bg = colors.pink_bg },
   TelescopePreviewTitle = { fg = colors.pink },
   TelescopeResultsTitle = { fg = colors.pink },
