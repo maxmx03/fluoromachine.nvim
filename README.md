@@ -1,7 +1,4 @@
-# FluoroMachine.nvim
-FluoroMachine theme for neovim base on
-
-![Theme screenshot](https://repository-images.githubusercontent.com/184457193/69dcff00-14d2-11ea-90e1-4bdf6fef80ca)
+![Theme screenshot](https://user-images.githubusercontent.com/50273941/189177820-b496e6d8-6747-4310-84fc-2a6e016f67a4.png)
 
 ## Configuration
 
@@ -115,3 +112,8 @@ lualine.setup {
 ## Contributing 😳
 
 Pull requests are welcome.
+
+## Credit & References
+
+- [synthwave-x-fluoromachine](https://github.com/webrender/synthwave-x-fluoromachine)
+- [synthwave84](https://github.com/LunarVim/synthwave84.nvim)
