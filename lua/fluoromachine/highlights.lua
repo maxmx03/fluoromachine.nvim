@@ -6,6 +6,7 @@ local colors = fluoromachine.colors
 local darken = colortool.darken
 local blend = colortool.blend
 
+colors.orange_bg = blend(colors.orange, colors.bg, alpha)
 colors.purple_bg = blend(colors.purple, colors.bg, alpha)
 colors.yellow_bg = blend(colors.orange, colors.bg, alpha)
 colors.pink_bg = blend(colors.pink, colors.bg, alpha)
@@ -230,40 +231,44 @@ fluoromachine.highlights = {
 
   --{{{ LSPSAGA
   -- code action
-  LspSagaCodeActionTitle = { fg = colors.pink, bold = true },
-  LspSagaCodeActionBorder = { fg = colors.pink },
+  LspSagaCodeActionTitle = { link = 'Title' },
+  LspSagaCodeActionBorder = { fg = colors.pink, bg = colors.pink_bg },
   LspSagaCodeActionTrunCateLine = { link = 'LspSagaCodeActionBorder' },
   LspSagaCodeActionContent = { fg = colors.fg, bold = true },
-
   -- finder
-  LspSagaLspFinderBorder = { fg = colors.pink },
-  LspSagaAutoPreview = { fg = colors.pink },
-  LspSagaFinderSelection = { fg = colors.yellow, bold = true },
-  TargetFileName = { link = 'Comment' },
-
-  DefinitionsIcon = { fg = colors.yellow },
-  Definitions = { fg = colors.pink, bold = true, reverse = true },
-  ReferencesIcon = { fg = colors.yellow },
-  References = { fg = colors.pink, bold = true, reverse = true },
-
-  --winbar finder
-  LSFinderBarSepStart = { fg = colors.bg },
-  LSFinderBarSepEnd = { fg = colors.bg },
-  LSFinderBarFind = { fg = colors.pink, bg = colors.bg, bold = true },
-  LSFinderBarParam = { fg = colors.pink, bg = colors.bg, bold = true },
-
+  LspSagaLspFinderBorder = { link = 'LspSagaCodeActionBorder' },
+  LspSagaAutoPreview = { link = 'LspSagaCodeActionBorder' },
+  LspSagaFinderSelection = { link = 'Search' },
+  TargetFileName = { fg = colors.fg },
+  FinderParam = { fg = colors.purple, bg = colors.purple_bg, bold = true },
+  FinderVirtText = { fg = colors.darker_purple, bold = true },
+  DefinitionsIcon = { fg = colors.yellow, bg = colors.yellow_bg },
+  Definitions = { fg = colors.orange, bg = colors.orange_bg, bold = true },
+  DefinitionCount = { link = 'Title' },
+  ReferencesIcon = { link = 'DefinitionsIcon' },
+  References = { link = 'Definitions' },
+  ReferencesCount = { link = 'Title' },
+  ImplementsIcon = { link = 'DefinitionsIcon' },
+  Implements = { fg = colors.purple, bold = true },
+  ImplementsCount = { link = 'Title' },
+  --finder spinner
+  FinderSpinnerBorder = { link = 'LspSagaCodeActionBorder' },
+  FinderSpinnerTitle = { fg = colors.green, bold = true },
+  FinderSpinner = { fg = colors.green, bold = true },
+  FinderPreviewSearch = { link = 'Search' },
   -- definition
-  LspSagaDefPreviewBorder = { fg = colors.pink },
-
+  DefinitionBorder = { link = 'LspSagaCodeActionBorder' },
+  DefinitionArrow = { fg = colors.blue, bg = colors.blue_bg },
+  DefinitionSearch = { link = 'Search' },
+  DefinitionFile = { bg = colors.alt_bg },
   -- hover
-  LspSagaHoverBorder = { fg = colors.pink },
+  LspSagaHoverBorder = { link = 'LspSagaCodeActionBorder' },
   LspSagaHoverTrunCateLine = { link = 'LspSagaHoverBorder' },
-
   -- rename
-  LspSagaRenameBorder = { fg = colors.pink },
+  LspSagaRenameBorder = { link = 'LspSagaCodeActionBorder' },
   LspSagaRenameMatch = { link = 'Search' },
-
   -- diagnostic
+  LspSagaDiagnosticSource = { link = 'Comment' },
   LspSagaDiagnosticError = { link = 'DiagnosticError' },
   LspSagaDiagnosticWarn = { link = 'DiagnosticWarn' },
   LspSagaDiagnosticInfo = { link = 'DiagnosticInfo' },
@@ -272,8 +277,30 @@ fluoromachine.highlights = {
   LspSagaWarnTrunCateLine = { link = 'DiagnosticWarn' },
   LspSagaInfoTrunCateLine = { link = 'DiagnosticInfo' },
   LspSagaHintTrunCateLine = { link = 'DiagnosticHint' },
+  LspSagaDiagnosticBorder = { link = 'LspSagaCodeActionBorder' },
   LspSagaDiagnosticHeader = { link = 'Title' },
-  LspSagaDiagnosticBorder = { fg = colors.pink },
+  DiagnosticQuickFix = { fg = colors.green, bold = true },
+  DiagnosticMap = { fg = colors.purple },
+  DiagnosticLineCol = { fg = colors.fg },
+  LspSagaDiagnosticTruncateLine = { link = 'LspSagaDiagnosticBorder' },
+  ColInLineDiagnostic = { link = 'Comment' },
+  -- signture help
+  LspSagaSignatureHelpBorder = { link = 'LspSagaCodeActionBorder' },
+  LspSagaShTrunCateLine = { link = 'LspSagaSignatureHelpBorder' },
+  -- lightbulb
+  LspSagaLightBulb = { link = 'DiagnosticSignHint' },
+  -- shadow
+  SagaShadow = { fg = colors.darker_purple },
+  -- float
+  LspSagaBorderTitle = { link = 'String' },
+  -- Outline
+  LSOutlinePreviewBorder = { link = 'LspSagaCodeActionBorder' },
+  OutlineIndentEvn = { fg = colors.pink },
+  OutlineIndentOdd = { fg = colors.yellow },
+  OutlineFoldPrefix = { fg = colors.green },
+  OutlineDetail = { fg = colors.fg },
+  -- all floatwindow of lspsaga
+  LspFloatWinNormal = { link = 'Normal' },
   --}}}
 
   --{{{ CMP KIND
