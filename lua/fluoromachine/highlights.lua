@@ -29,7 +29,7 @@ fluoromachine.highlights = {
   lCursor = { link = 'Cursor' },
   -- CursorIM = { fg = colors.bg, bg = colors.fg },
   MatchWord = { bold = true },
-  -- MatchParen = { fg = colors.blue, bold = true },
+  MatchParen = { fg = colors.pink, bg = colors.pink_bg, bold = true },
   MatchWordCur = { bold = true },
   MatchParenCur = { bold = true },
   Normal = { fg = colors.fg, bg = fluoromachine:is_transparent(colors.bg) },
