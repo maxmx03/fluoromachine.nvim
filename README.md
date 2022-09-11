@@ -1,5 +1,26 @@
 ![Theme screenshot](https://user-images.githubusercontent.com/50273941/189177820-b496e6d8-6747-4310-84fc-2a6e016f67a4.png)
 
+## Installation
+
+[packer.nvim](https://github.com/wbthomason/packer.nvim)
+
+```lua
+use 'maxmx03/FluoroMachine.nvim'
+```
+
+ftdetect/fluoromachine.lua
+```lua
+local success, fluoromachine = pcall(require, 'fluoromachine')
+
+if not success then
+  return
+end
+
+fluoromachine.setup {}
+
+vim.cmd 'colorscheme fluoromachine'
+```
+
 ## Configuration
 
 ```lua
@@ -41,6 +62,16 @@ fluoromachine.setup {
 vim.cmd 'colorscheme fluoromachine'
 ```
 
+
+<p>before</p>
+
+![before](https://user-images.githubusercontent.com/50273941/189538463-1e0aee04-585b-4854-addf-b284a85aaa2c.png)
+
+<p>after</p>
+
+![after](https://user-images.githubusercontent.com/50273941/189538457-473fc325-0d53-4eab-bb01-914b985253c2.png)
+
+
 or
 
 ```lua
@@ -66,6 +97,10 @@ fluoromachine.setup {
 }
 ```
 
+<p>same result</p>
+
+![after](https://user-images.githubusercontent.com/50273941/189538457-473fc325-0d53-4eab-bb01-914b985253c2.png)
+
 ### Customization - Darken Function
 
 Darken hex colors
@@ -81,31 +116,6 @@ fluoromachine.setup {
       DiagnosticVirtualTextWarn = { fg = colors.warning, bg = darken(colors.warn) },
       DiagnosticVirtualTextInfo = { fg = colors.info, bg = darken(colors.info) },
       DiagnosticVirtualTextHint = { fg = colors.hint, bg = darken(colors.hint) },
-    }
-  end,
-}
-
-vim.cmd 'colorscheme fluoromachine'
-```
-
-### Customization - Blend Function
-
-Blend hex colors, based on [colorblender.py](https://github.com/ChristianChiarulli/colorblender)
-
-```lua
-local fluoromachine = require 'fluoromachine'
-
-fluoromachine.setup {
-  transparent = false,
-  highlights = function(colors, _, blend)
-    local background = colors.bg
-    local alpha = 0.15
-
-    return {
-      Statement = { fg = colors.green, bg = blend(colors.green, background, alpha) },
-      PreProc = { fg = colors.orange, bg = blend(colors.orange, background, alpha) },
-      Type = { fg = colors.yellow, bg = blend(colors.yellow, background, alpha) },
-      Special = { fg = colors.red, bg = blend(colors.red, background, alpha) },
     }
   end,
 }
