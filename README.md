@@ -9,12 +9,12 @@ vim.g.fluoromachine_italic_keywords = false
 vim.g.fluoromachine_italic_variables = false
 ```
 
-| option      | default            | description                                                |
-| ----------- | ------------------ | ---------------------------------------------------------- |
-| transparent | `false`            | enable and disable background transparency                 |
-| brightness | `0.15`            | The value should be a float value from 0 to 1          |
-| colors      | `{}` or `function` | You can add new colors or override the default             |
-| highlights  | `{}` or `function` | You can add new highlights or override the default         |
+| option      | default            | description                                        |
+| ----------- | ------------------ | -------------------------------------------------- |
+| transparent | `false`            | enable and disable background transparency         |
+| brightness  | `0.15`             | The value should be a float value from 0 to 1      |
+| colors      | `{}` or `function` | You can add new colors or override the default     |
+| highlights  | `{}` or `function` | You can add new highlights or override the default |
 
 ## Customization
 
@@ -24,28 +24,48 @@ local fluoromachine = require 'fluoromachine'
 fluoromachine.setup {
   transparent = false,
   brightness = 0.15,
-  colors = function (c)
-    local colors = {
-      fg = c.cyan, -- override the default foreground color
-      indigo = '#4B0082', -- new color
+  colors = {
+    dracula = {
+      green = '#50fa7b'
     }
+  },
+  highlights = function(colors, darken, blend)
+    local alpha = fluoromachine.config.brightness
 
-    return colors
-  end,
-  highlights = function(colors)
-    local highlights = {
-      CmpItemKindTabnine = { fg = colors.pink },
-      CmpItemKindEmoji = { fg = colors.yellow },
-      LineNr = { bg = fluoromachine:is_transparent(colors.bg_alt) }, -- bg_alt if fluoromachine is not transparent
-      CursorLineNr = { fg = colors.indigo }, -- new color being used
+    return {
+      TSTag = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
     }
-
-    return highlights
   end,
 }
 
 vim.cmd 'colorscheme fluoromachine'
 ```
+
+or
+
+```lua
+fluoromachine.setup {
+  transparent = false,
+  brightness = 0.15,
+  colors = function (colors, _, blend)
+    local green = '#50fa7b'
+    local alpha = fluoromachine.config.brightness
+
+    return {
+      dracula = {
+        green = green,
+        green_bg = blend(green, colors.bg, alpha)
+      }
+    }
+  end,
+  highlights = function(colors)
+    return {
+      TSTag = { fg = colors.dracula.green, bg = colors.dracula.green_bg }
+    }
+  end,
+}
+```
+
 ### Customization - Darken Function
 
 Darken hex colors
