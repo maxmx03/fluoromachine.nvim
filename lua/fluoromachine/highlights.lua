@@ -192,6 +192,7 @@ fluoromachine.highlights = {
   TSVariableBuiltin = { fg = colors.purple },
   TSInclude = { link = 'Include' },
   TSConstant = { fg = colors.purple },
+  TSConstBuiltin = { link = 'TSConstant' },
   TSNumber = { link = 'TSConstant' },
   TSFloat = { link = 'TSConstant' },
   TSBoolean = { link = 'TSConstant' },
