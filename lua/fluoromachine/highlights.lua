@@ -83,8 +83,8 @@ fluoromachine.highlights = {
   Directory = { fg = colors.blue },
   SpecialKey = { fg = colors.red },
   Title = { fg = colors.yellow, bg = colors.yellow_bg, bold = true },
-  Search = { fg = colors.yellow },
-  IncSearch = { fg = colors.yellow, bg = darken(colors.yellow, 2) },
+  Search = { fg = colors.orange },
+  IncSearch = { fg = colors.yellow, bg = colors.yellow_bg },
   Substitute = { fg = colors.orange, reverse = true },
   Question = { fg = colors.cyan, bold = true },
   EndOfBuffer = { fg = colors.bg },
@@ -306,7 +306,7 @@ fluoromachine.highlights = {
 
   --{{{ CMP KIND
   CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
-  CmpItemAbbrMatch = { fg = colors.yellow, reverse = true },
+  CmpItemAbbrMatch = { link = 'IncSearch' },
   CmpItemAbbrMatchFuzzy = { fg = colors.yellow, reverse = true },
   CmpItemKindFunction = { link = 'TSFunction' },
   CmpItemKindMethod = { link = 'TSMethod' },
