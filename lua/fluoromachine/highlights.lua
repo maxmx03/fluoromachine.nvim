@@ -83,8 +83,8 @@ fluoromachine.highlights = {
   Directory = { fg = colors.blue },
   SpecialKey = { fg = colors.red },
   Title = { fg = colors.yellow, bg = colors.yellow_bg, bold = true },
-  Search = { fg = colors.yellow, bg = colors.yellow_bg },
-  IncSearch = { fg = colors.yellow, reverse = true },
+  Search = { fg = colors.yellow },
+  IncSearch = { fg = colors.yellow, bg = darken(colors.yellow, 2) },
   Substitute = { fg = colors.orange, reverse = true },
   Question = { fg = colors.cyan, bold = true },
   EndOfBuffer = { fg = colors.bg },
@@ -368,7 +368,7 @@ fluoromachine.highlights = {
   TelescopeResultsTitle = { fg = colors.pink },
   TelescopePromptTitle = { fg = colors.pink },
   TelescopeSelection = { fg = colors.yellow },
-  TelescopeMatching = { fg = colors.yellow, reverse = true },
+  TelescopeMatching = { link = 'IncSearch' },
   --}}}
 
   --{{{ DASHBOARD
