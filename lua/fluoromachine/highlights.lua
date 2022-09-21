@@ -5,18 +5,23 @@ local alpha = fluoromachine.config.brightness
 local colors = fluoromachine.colors
 local darken = colortool.darken
 local blend = colortool.blend
+local glow_enabled = fluoromachine.config.glow
 
-colors.orange_bg = blend(colors.orange, colors.bg, alpha)
-colors.purple_bg = blend(colors.purple, colors.bg, alpha)
-colors.yellow_bg = blend(colors.orange, colors.bg, alpha)
-colors.pink_bg = blend(colors.pink, colors.bg, alpha)
-colors.blue_bg = blend(colors.blue, colors.bg, alpha)
-colors.changed_bg = blend(colors.changed, colors.bg, alpha)
-colors.add_bg = blend(colors.add, colors.bg, alpha)
-colors.error_bg = blend(colors.error, colors.bg, alpha)
-colors.warn_bg = blend(colors.warn, colors.bg, alpha)
 colors.darker_purple = darken(colors.purple, 2)
 colors.darker_pink = darken(colors.pink, 2)
+
+if glow_enabled then
+  colors.orange_bg = blend(colors.orange, colors.bg, alpha)
+  colors.purple_bg = blend(colors.purple, colors.bg, alpha)
+  colors.yellow_bg = blend(colors.orange, colors.bg, alpha)
+  colors.pink_bg = blend(colors.pink, colors.bg, alpha)
+  colors.blue_bg = blend(colors.blue, colors.bg, alpha)
+  colors.changed_bg = blend(colors.changed, colors.bg, alpha)
+  colors.add_bg = blend(colors.add, colors.bg, alpha)
+  colors.error_bg = blend(colors.error, colors.bg, alpha)
+  colors.removed_bg = blend(colors.removed, colors.bg, alpha)
+  colors.warn_bg = blend(colors.warn, colors.bg, alpha)
+end
 
 fluoromachine.highlights = {
   --{{{ BASE
@@ -74,7 +79,7 @@ fluoromachine.highlights = {
   DiffText = { fg = colors.blue, bg = colors.blue_bg, sp = colors.blue },
   DiffAdded = { fg = colors.add, bg = colors.add_bg },
   DiffChanged = { fg = colors.changed, bg = colors.changed_bg },
-  DiffRemoved = { fg = colors.removed, bg = blend(colors.removed, colors.bg, alpha) },
+  DiffRemoved = { fg = colors.removed, bg = colors.removed_bg },
   DiffFile = { fg = colors.comment },
   DiffIndexLine = { fg = colors.purple },
   QuickFixLine = { bg = colors.bg },
