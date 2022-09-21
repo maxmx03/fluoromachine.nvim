@@ -27,7 +27,6 @@ M.colors = {
 M.config = {
   transparent = false,
   brightness = 0.15,
-  bt = 0.15,
   glow = true,
 }
 
