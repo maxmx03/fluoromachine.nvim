@@ -24,7 +24,7 @@ if glow_enabled then
 end
 
 fluoromachine.highlights = {
-  --{{{ BASE
+  -- BASE
   Comment = { fg = colors.comment, italic = vim.g.fluoromachine_italic_comments and true },
   ColorColumn = { bg = colors.bg },
   Conceal = { fg = colors.blue },
@@ -176,43 +176,40 @@ fluoromachine.highlights = {
   Error = { fg = colors.error, bg = colors.bg, bold = true },
   ErrorMsg = { fg = colors.error, bg = colors.error_bg },
   WarningMsg = { fg = colors.warn, bg = colors.warn_bg },
-  --}}}
+  -- TREESITTER
+  ['@function.call'] = { link = 'Function' },
+  ['@function.builtin'] = { link = 'Function' },
+  ['@parameter'] = { fg = colors.blue, italic = true },
+  ['@type'] = { fg = colors.purple },
+  ['@type.qualifier'] = { fg = colors.pink },
+  ['@type.builtin'] = { link = 'TSType' },
+  ['@type.constructor'] = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
+  ['@method'] = { link = 'TSFunction' },
+  ['@property'] = { fg = colors.blue },
+  ['@keyword'] = { link = 'Keyword' },
+  ['@keyword.function'] = { link = 'Keyword' },
+  ['@keyword.return'] = { link = 'Keyword' },
+  ['@conditional'] = { link = 'Keyword' },
+  ['@repeat'] = { link = 'Keyword' },
+  ['@variable'] = { fg = colors.blue, italic = vim.g.fluoromachine_italic_variables or false },
+  ['@variable.builtin'] = { fg = colors.purple },
+  ['@include'] = { link = 'Include' },
+  ['@constant'] = { fg = colors.purple },
+  ['@constant.builtin'] = { link = 'TSConstant' },
+  ['@number'] = { link = 'TSConstant' },
+  ['@float'] = { link = 'TSConstant' },
+  ['@boolean'] = { link = 'TSConstant' },
+  ['@tag'] = { fg = colors.yellow, bg = colors.yellow_bg },
+  ['@tag.attribute'] = { fg = colors.pink, bg = colors.pink_bg },
+  ['@tag.delimiter'] = { fg = colors.blue, bg = colors.blue_bg },
+  ['@punct.bracket'] = { fg = colors.purple },
+  -- ['@punct.delimiter'] = { fg = colors.pink },
+  ['@punct.special'] = { fg = colors.pink },
+  ['@operator'] = { fg = colors.pink },
+  ['@label'] = { fg = colors.pink, bg = colors.pink_bg },
+  ['@error'] = { fg = colors.error },
 
-  --{{{ TREESITTER
-  TSFunction = { link = 'Function' },
-  TSFunctionCall = { link = 'Function' },
-  TSFuncBuiltin = { link = 'Function' },
-  TSParameter = { fg = colors.blue, italic = true },
-  TSType = { fg = colors.purple },
-  TSTypeBuiltin = { link = 'TSType' },
-  TSConstructor = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
-  TSMethod = { link = 'TSFunction' },
-  TSProperty = { fg = colors.blue },
-  TSKeyWord = { link = 'Keyword' },
-  TSKeyWordFunction = { link = 'Keyword' },
-  TSKeyWordReturn = { link = 'Keyword' },
-  TSConditional = { link = 'Keyword' },
-  TSRepeat = { link = 'Keyword' },
-  TSVariable = { fg = colors.blue, italic = vim.g.fluoromachine_italic_variables or false },
-  TSVariableBuiltin = { fg = colors.purple },
-  TSInclude = { link = 'Include' },
-  TSConstant = { fg = colors.purple },
-  TSConstBuiltin = { link = 'TSConstant' },
-  TSNumber = { link = 'TSConstant' },
-  TSFloat = { link = 'TSConstant' },
-  TSBoolean = { link = 'TSConstant' },
-  TSTag = { fg = colors.yellow, bg = colors.yellow_bg },
-  TSTagAttribute = { fg = colors.pink, bg = colors.pink_bg },
-  TSTagDelimiter = { fg = colors.blue, bg = colors.blue_bg },
-  TSPunctBracket = { fg = colors.purple },
-  TSPunctDelimiter = { fg = colors.pink },
-  TSPunctSpecial = { fg = colors.pink },
-  TSOperator = { link = 'TSPunctDelimiter' },
-  TSLabel = { fg = colors.pink, bg = colors.pink_bg },
-  TSError = { fg = colors.error },
-  --}}}
-
-  --{{{ DIAGNOSTIC
+  -- DIAGNOSTIC
   DiagnosticError = { fg = colors.error },
   DiagnosticWarn = { fg = colors.warn },
   DiagnosticInfo = { fg = colors.info },
@@ -227,16 +224,12 @@ fluoromachine.highlights = {
   DiagnosticUnderlineWarn = { undercurl = true, sp = colors.warn },
   DiagnosticUnderlineInfo = { undercurl = true, sp = colors.info },
   DiagnosticUnderlineHint = { undercurl = true, sp = colors.hint },
-  --}}}
 
-  --{{{ LSP
+  -- LSP
   LspReferenceText = { bg = colors.bg },
   LspReferenceRead = { bg = colors.bg },
   LspReferenceWrite = { bg = colors.bg },
-  --}}}
-
-  --{{{ LSPSAGA
-  -- code action
+  -- LSPSAGA
   LspSagaCodeActionTitle = { link = 'Title' },
   LspSagaCodeActionBorder = { fg = colors.pink, bg = colors.pink_bg },
   LspSagaCodeActionTrunCateLine = { link = 'LspSagaCodeActionBorder' },
@@ -307,9 +300,8 @@ fluoromachine.highlights = {
   OutlineDetail = { fg = colors.fg },
   -- all floatwindow of lspsaga
   LspFloatWinNormal = { link = 'Normal' },
-  --}}}
 
-  --{{{ CMP KIND
+  -- CMP KIND
   CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
   CmpItemAbbrMatch = { link = 'IncSearch' },
   CmpItemAbbrMatchFuzzy = { fg = colors.yellow, reverse = true },
@@ -340,9 +332,8 @@ fluoromachine.highlights = {
   CmpItemKindTypeParameter = { fg = colors.purple },
   CmpItemKindTabnine = { fg = colors.pink },
   CmpItemKindEmoji = { fg = colors.yellow },
-  --}}}
 
-  --{{{ NVIM-TREE
+  -- NVIM-TREE
   NvimTreeNormal = { fg = colors.fg, bg = colors.alt_bg },
   NvimTreeVertSplit = { fg = colors.bg },
 
@@ -358,13 +349,11 @@ fluoromachine.highlights = {
   NvimTreeGitStaged = { fg = colors.added },
   NvimTreeGitNew = { fg = colors.added },
   NvimTreeGitDeleted = { fg = colors.deleted },
-  --}}}
 
-  -- {{{ NEO-TREE
+  -- NEO-TREE
   NeoTreeDirectoryName = { fg = colors.fg },
   NeoTreeDirectoryIcon = { fg = colors.yellow, bg = colors.yellow_bg },
   NeoTreeRootName = { fg = colors.yellow, bg = colors.yellow_bg },
-  -- }}}
 
   --{{{ TELESCOPE
   TelescopeNormal = { bg = fluoromachine:is_transparent(colors.alt_bg) },
@@ -374,15 +363,13 @@ fluoromachine.highlights = {
   TelescopePromptTitle = { fg = colors.pink },
   TelescopeSelection = { fg = colors.yellow },
   TelescopeMatching = { link = 'IncSearch' },
-  --}}}
 
-  --{{{ DASHBOARD
+  -- DASHBOARD
   DashboardHeader = { fg = blend(colors.pink, colors.purple, 0.5) },
   DashboardCenter = { fg = colors.yellow },
   DashboardFooter = { fg = colors.purple },
-  --}}}
 
-  --{{{ GIT
+  -- GIT
   SignAdd = { fg = colors.add },
   SignChange = { fg = colors.changed },
   SignDelete = { fg = colors.deleted },
@@ -392,24 +379,20 @@ fluoromachine.highlights = {
   GitGutterAdd = { fg = colors.add },
   GitGutterChange = { fg = colors.changed },
   GitGutterDelete = { fg = colors.deleted },
-  --}}}
 
-  --{{{ HOP
+  -- HOP
   HopPreview = { fg = colors.yellow, bg = colors.yellow_bg, bold = true },
   HopNextKey = { fg = colors.pink, bg = colors.pink_bg, bold = true },
   HopNextKey1 = { fg = colors.blue, bg = colors.blue_bg, bold = true },
   HopNextKey2 = { fg = darken(colors.blue, 1.25) },
   HopUnmatched = { fg = darken(colors.fg, 2) },
-  --}}}
 
-  --{{{ TWILIGHT
+  -- TWILIGHT
   Twilight = { fg = colors.darker_purple, bg = fluoromachine:is_transparent(colors.bg) },
-  --}}}
 
-  --{{{ INDENT_BLANKLINE
+  -- INDENT_BLANKLINE
   IndentBlanklineChar = { fg = colors.darker_purple, bg = blend(colors.darker_purple, colors.bg, 0.15) },
   IndentBlanklineContextChar = { fg = colors.darker_pink, bg = blend(colors.darker_pink, colors.bg, 0.15) },
   IndentBlanklineSpaceChar = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
   IndentBlanklineContextSpaceChar = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.05) },
-  --}}}
 }
