@@ -94,7 +94,7 @@ fluoromachine.highlights = {
   Question = { fg = colors.cyan, bold = true },
   EndOfBuffer = { fg = colors.bg },
 
-  Constant = { fg = colors.purple, bg = colors.purple_bg },
+  Constant = { fg = colors.purple },
   --       *Constant        any constant
   --        String          a string constant: "this is a string"
   --        Character       a character constant: 'c', '\n'
@@ -356,7 +356,7 @@ fluoromachine.highlights = {
   NeoTreeDirectoryIcon = { fg = colors.yellow, bg = colors.yellow_bg },
   NeoTreeRootName = { fg = colors.yellow, bg = colors.yellow_bg },
 
-  --{{{ TELESCOPE
+  -- TELESCOPE
   TelescopeNormal = { bg = fluoromachine:is_transparent(colors.alt_bg) },
   TelescopeBorder = { fg = colors.pink, bg = colors.pink_bg },
   TelescopePreviewTitle = { fg = colors.pink },
@@ -396,4 +396,13 @@ fluoromachine.highlights = {
   IndentBlanklineContextChar = { fg = colors.darker_pink, bg = blend(colors.darker_pink, colors.bg, 0.15) },
   IndentBlanklineSpaceChar = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
   IndentBlanklineContextSpaceChar = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.05) },
+
+  -- Whichkey
+  WhichKey = { fg = colors.pink, bg = colors.pink_bg },
+  WhichKeySeperator = { link = 'Comment' },
+  WhichKeyGroup = { fg = colors.yellow },
+  WhichKeyDesc = { fg = colors.purple },
+  WhichKeyFloat = { link = '@float' },
+  WhichKeyValue = { link = '@number' },
+  WhichKeyBorder = { link = 'FloatBorder' },
 }
