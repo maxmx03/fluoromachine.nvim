@@ -16,6 +16,7 @@ if glow_enabled then
   colors.yellow_bg = blend(colors.orange, colors.bg, alpha)
   colors.pink_bg = blend(colors.pink, colors.bg, alpha)
   colors.blue_bg = blend(colors.blue, colors.bg, alpha)
+  colors.red_bg = blend(colors.red, colors.bg, alpha)
   colors.changed_bg = blend(colors.changed, colors.bg, alpha)
   colors.add_bg = blend(colors.add, colors.bg, alpha)
   colors.error_bg = blend(colors.error, colors.bg, alpha)
@@ -64,7 +65,7 @@ fluoromachine.highlights = {
   SpellBad = { sp = colors.error, undercurl = true },
   SpellCap = { sp = colors.purple, undercurl = true },
   SpellLocal = { sp = colors.warn, undercurl = true },
-  SpellRare = { sp = colors.cyan, undercurl = true },
+  SpellRare = { sp = colors.blue, undercurl = true },
   WildMenu = { fg = colors.bg, bg = colors.bg, reverse = true, bold = true },
   Folded = { fg = colors.fg, bg = colors.bg, sp = colors.bg },
   FoldColumn = { fg = colors.fg, bg = colors.bg },
@@ -91,7 +92,7 @@ fluoromachine.highlights = {
   Search = { fg = colors.orange },
   IncSearch = { fg = colors.yellow, bg = colors.yellow_bg },
   Substitute = { fg = colors.orange, reverse = true },
-  Question = { fg = colors.cyan, bold = true },
+  Question = { fg = colors.blue, bold = true },
   EndOfBuffer = { fg = colors.bg },
 
   Constant = { fg = colors.purple },
@@ -102,10 +103,10 @@ fluoromachine.highlights = {
   --        Boolean         a boolean constant: TRUE, false
   --        Float           a floating point constant: 2.3e10
   String = { fg = colors.purple },
-  -- Character = { fg = colors.cyan },
-  -- Number = { fg = colors.cyan },
-  -- Boolean = { fg = colors.cyan },
-  -- Float = { fg = colors.cyan },
+  -- Character = { fg = colors.purple },
+  -- Number = { fg = colors.purple },
+  -- Boolean = { fg = colors.purple },
+  -- Float = { fg = colors.purple },
   Identifier = { fg = colors.pink, bg = colors.pink_bg },
   --       *Identifier      any variable name
   -- Function        function name (also: methods for classes)
@@ -171,44 +172,63 @@ fluoromachine.highlights = {
   Underlined = { fg = colors.purple, underline = true },
   Bold = { bold = true },
   Italic = { italic = true },
-  Ignore = { fg = colors.cyan, bg = colors.bg, bold = true },
+  Ignore = { fg = colors.blue, bg = colors.bg, bold = true },
   Todo = { link = 'Title' },
   Error = { fg = colors.error, bg = colors.bg, bold = true },
   ErrorMsg = { fg = colors.error, bg = colors.error_bg },
   WarningMsg = { fg = colors.warn, bg = colors.warn_bg },
-  -- TREESITTER
+
+  -- Treesitter - Misc
+  ['@error'] = { fg = colors.error },
+  ['@operator'] = { fg = colors.pink },
+
+  -- Treesitter - Punctuation
+  ['@punctuation.delimiter'] = { fg = colors.fg },
+  ['@punctuation.bracket'] = { fg = colors.purple },
+  ['@punctuation.special'] = { fg = colors.pink },
+
+  -- Treesitter - Literals
+  ['@boolean'] = { link = '@constant' },
+  ['@number'] = { link = '@constant' },
+  ['@float'] = { link = '@constant' },
+
+  -- Treesitter - Functions
   ['@function.call'] = { link = 'Function' },
   ['@function.builtin'] = { link = 'Function' },
+  ['@method'] = { link = 'Function' },
+  ['@method.call'] = { link = 'Function' },
+  ['@constructor'] = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
   ['@parameter'] = { fg = colors.blue, italic = true },
-  ['@type'] = { fg = colors.purple },
-  ['@type.qualifier'] = { fg = colors.pink },
-  ['@type.builtin'] = { fg = colors.pink },
-  ['@type.constructor'] = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.05) },
-  ['@method'] = { link = '@function' },
-  ['@property'] = { fg = colors.blue },
-  ['@field'] = { fg = colors.pink },
+
+  -- Treesitter - Keywords
   ['@keyword'] = { link = 'Keyword' },
   ['@keyword.function'] = { link = 'Keyword' },
   ['@keyword.return'] = { link = 'Keyword' },
   ['@conditional'] = { link = 'Keyword' },
+  ['@conditional.ternary'] = { link = 'Keyword' },
   ['@repeat'] = { link = 'Keyword' },
+  ['@label'] = { fg = colors.pink, bg = colors.pink_bg },
+  ['@include'] = { link = 'Include' },
+  ['@exception'] = { link = 'Include' },
+
+  -- Treesitter - Types
+  ['@type'] = { fg = colors.purple },
+  ['@type.qualifier'] = { fg = colors.pink },
+  ['@type.builtin'] = { fg = colors.pink },
+  ['@field'] = { fg = colors.pink },
+  ['@property'] = { fg = colors.blue },
+
+  -- Treesitter - Identifiers
   ['@variable'] = { fg = colors.blue, italic = vim.g.fluoromachine_italic_variables or false },
   ['@variable.builtin'] = { fg = colors.purple },
-  ['@include'] = { link = 'Include' },
   ['@constant'] = { fg = colors.purple },
   ['@constant.builtin'] = { link = '@constant' },
-  ['@number'] = { link = '@constant' },
-  ['@float'] = { link = '@constant' },
-  ['@boolean'] = { link = '@constant' },
+  ['@constant.macro'] = { link = '@constant' },
+
+  -- Treesitter - Tags
   ['@tag'] = { fg = colors.yellow, bg = colors.yellow_bg },
   ['@tag.attribute'] = { fg = colors.pink, bg = colors.pink_bg },
   ['@tag.delimiter'] = { fg = colors.blue, bg = colors.blue_bg },
-  ['@punctuation.bracket'] = { fg = colors.purple },
-  ['@punctuation.delimiter'] = { fg = colors.fg },
-  ['@punctuation.special'] = { fg = colors.pink },
-  ['@operator'] = { fg = colors.pink },
-  ['@label'] = { fg = colors.pink, bg = colors.pink_bg },
-  ['@error'] = { fg = colors.error },
 
   -- DIAGNOSTIC
   DiagnosticError = { fg = colors.error },
@@ -226,81 +246,69 @@ fluoromachine.highlights = {
   DiagnosticUnderlineInfo = { undercurl = true, sp = colors.info },
   DiagnosticUnderlineHint = { undercurl = true, sp = colors.hint },
 
-  -- LSP
-  LspReferenceText = { bg = colors.bg },
-  LspReferenceRead = { bg = colors.bg },
-  LspReferenceWrite = { bg = colors.bg },
-  -- LSPSAGA
-  LspSagaCodeActionTitle = { link = 'Title' },
-  LspSagaCodeActionBorder = { fg = colors.pink, bg = colors.pink_bg },
-  LspSagaCodeActionTrunCateLine = { link = 'LspSagaCodeActionBorder' },
-  LspSagaCodeActionContent = { fg = colors.fg, bold = true },
-  -- finder
-  LspSagaLspFinderBorder = { link = 'LspSagaCodeActionBorder' },
-  LspSagaAutoPreview = { link = 'LspSagaCodeActionBorder' },
-  LspSagaFinderSelection = { link = 'Search' },
-  TargetFileName = { fg = colors.fg },
-  FinderParam = { fg = colors.purple, bg = colors.purple_bg, bold = true },
-  FinderVirtText = { fg = colors.darker_purple, bold = true },
-  DefinitionsIcon = { fg = colors.yellow, bg = colors.yellow_bg },
-  Definitions = { fg = colors.orange, bg = colors.orange_bg, bold = true },
-  DefinitionCount = { link = 'Title' },
-  ReferencesIcon = { link = 'DefinitionsIcon' },
-  References = { link = 'Definitions' },
-  ReferencesCount = { link = 'Title' },
-  ImplementsIcon = { link = 'DefinitionsIcon' },
-  Implements = { fg = colors.purple, bold = true },
-  ImplementsCount = { link = 'Title' },
-  --finder spinner
-  FinderSpinnerBorder = { link = 'LspSagaCodeActionBorder' },
-  FinderSpinnerTitle = { fg = colors.green, bold = true },
+  -- Lspsaga
+  TitleString = { link = 'Title' },
+  TitleIcon = { fg = colors.yellow, bg = colors.yellow_bg },
+  SagaNormal = { link = 'Normal' },
+  SagaBorder = { link = 'FloatBorder' },
+  SagaExpand = { fg = colors.red },
+  SagaCollapse = { fg = colors.red },
+  SagaBeacon = { bg = colors.pink },
+  -- LSPSAGA - code action
+  ActionPreviewNormal = { link = 'SagaNormal' },
+  ActionPreviewBorder = { link = 'SagaBorder' },
+  ActionPreviewTitle = { fg = colors.purple, bg = colors.bg_alt },
+  CodeActionNormal = { link = 'SagaNormal' },
+  CodeActionBorder = { link = 'SagaBorder' },
+  CodeActionText = { link = 'String' },
+  CodeActionNumber = { link = 'Number' },
+  -- LSPSAGA - finder
+  FinderSelection = { link = 'PmenuSel' },
+  FinderFileName = { fg = colors.fg },
+  FinderCount = { link = 'Label' },
+  FinderIcon = { fg = colors.red, bg = colors.red_bg },
+  FinderType = { fg = colors.purple },
+  -- lSPSAGA - finder spinner
+  FinderSpinnerTitle = { link = 'Title' },
   FinderSpinner = { fg = colors.green, bold = true },
   FinderPreviewSearch = { link = 'Search' },
-  -- definition
-  DefinitionBorder = { link = 'LspSagaCodeActionBorder' },
-  DefinitionArrow = { fg = colors.blue, bg = colors.blue_bg },
+  FinderVirtText = { fg = colors.red },
+  FinderNormal = { link = 'SagaNormal' },
+  FinderBorder = { link = 'SagaBorder' },
+  FinderPreviewBorder = { link = 'SagaBorder' },
+  -- LSPSAGA - definition
+  DefinitionBorder = { link = 'SagaBorder' },
+  DefinitionNormal = { link = 'SagaNormal' },
   DefinitionSearch = { link = 'Search' },
-  DefinitionFile = { bg = colors.alt_bg },
-  -- hover
-  LspSagaHoverBorder = { link = 'LspSagaCodeActionBorder' },
-  LspSagaHoverTrunCateLine = { link = 'LspSagaHoverBorder' },
-  -- rename
-  LspSagaRenameBorder = { link = 'LspSagaCodeActionBorder' },
-  LspSagaRenameMatch = { link = 'Search' },
-  -- diagnostic
-  LspSagaDiagnosticSource = { link = 'Comment' },
-  LspSagaDiagnosticError = { link = 'DiagnosticError' },
-  LspSagaDiagnosticWarn = { link = 'DiagnosticWarn' },
-  LspSagaDiagnosticInfo = { link = 'DiagnosticInfo' },
-  LspSagaDiagnosticHint = { link = 'DiagnosticHint' },
-  LspSagaErrorTrunCateLine = { link = 'DiagnosticError' },
-  LspSagaWarnTrunCateLine = { link = 'DiagnosticWarn' },
-  LspSagaInfoTrunCateLine = { link = 'DiagnosticInfo' },
-  LspSagaHintTrunCateLine = { link = 'DiagnosticHint' },
-  LspSagaDiagnosticBorder = { link = 'LspSagaCodeActionBorder' },
-  LspSagaDiagnosticHeader = { link = 'Title' },
-  DiagnosticQuickFix = { fg = colors.green, bold = true },
-  DiagnosticMap = { fg = colors.purple },
-  DiagnosticLineCol = { fg = colors.fg },
-  LspSagaDiagnosticTruncateLine = { link = 'LspSagaDiagnosticBorder' },
-  ColInLineDiagnostic = { link = 'Comment' },
-  -- signture help
-  LspSagaSignatureHelpBorder = { link = 'LspSagaCodeActionBorder' },
-  LspSagaShTrunCateLine = { link = 'LspSagaSignatureHelpBorder' },
-  -- lightbulb
+  -- LSPSAGA - hover
+  HoverNormal = { link = 'SagaNormal' },
+  HoverBorder = { link = 'SagaBorder' },
+  -- LSPSAGA - rename
+  RenameBorder = { link = 'SagaBorder' },
+  RenameNormal = { fg = colors.orange, bg = colors.bg_alt },
+  RenameMatch = { link = 'Search' },
+  -- LSPSAGA - diagnostic
+  DiagnosticBorder = { link = 'SagaBorder' },
+  DiagnosticSource = { fg = 'gray' },
+  DiagnosticNormal = { link = 'SagaNormal' },
+  DiagnosticPos = { fg = colors.gray },
+  DiagnosticWord = { fg = colors.fg },
+  --  LSPSAGA - Call Hierachry
+  CallHierarchyNormal = { link = 'SagaNormal' },
+  CallHierarchyBorder = { link = 'SagaBorder' },
+  CallHierarchyIcon = { fg = colors.purple },
+  CallHierarchyTitle = { fg = colors.red },
+  -- LSPSAGA - lightbulb
   LspSagaLightBulb = { link = 'DiagnosticSignHint' },
-  -- shadow
-  SagaShadow = { fg = colors.darker_purple },
-  -- float
-  LspSagaBorderTitle = { link = 'String' },
-  -- Outline
-  LSOutlinePreviewBorder = { link = 'LspSagaCodeActionBorder' },
-  OutlineIndentEvn = { fg = colors.pink },
-  OutlineIndentOdd = { fg = colors.yellow },
-  OutlineFoldPrefix = { fg = colors.green },
-  OutlineDetail = { fg = colors.fg },
-  -- all floatwindow of lspsaga
-  LspFloatWinNormal = { link = 'Normal' },
+  -- LSPSAGA - shadow
+  SagaShadow = { bg = colors.bg_alt },
+  -- LSPSAGA- Outline
+  OutlineIndent = { fg = colors.magenta },
+  OutlinePreviewBorder = { link = 'SagaNormal' },
+  OutlinePreviewNormal = { link = 'SagaBorder' },
+  -- LSPSAGA - Float term
+  TerminalBorder = { link = 'SagaBorder' },
+  TerminalNormal = { link = 'SagaNormal' },
 
   -- CMP KIND
   CmpItemAbbrDeprecated = { fg = colors.gray, strikethrough = true },
@@ -405,4 +413,35 @@ fluoromachine.highlights = {
   WhichKeyFloat = { link = '@float' },
   WhichKeyValue = { link = '@number' },
   WhichKeyBorder = { link = 'FloatBorder' },
+
+  -- Navic
+  NavicIconsFile = { fg = colors.yellow, bg = colors.yellow_bg },
+  NavicIconsModule = { link = '@namespace' },
+  NavicIconsNamespace = { link = '@namespace' },
+  NavicIconsPackage = { fg = colors.yellow, bg = colors.yellow_bg },
+  NavicIconsClass = { link = '@type' },
+  NavicIconsMethod = { link = '@method' },
+  NavicIconsProperty = { link = '@property' },
+  NavicIconsField = { link = '@field' },
+  NavicIconsConstructor = { link = '@constructor' },
+  NavicIconsEnum = { link = '@keyword' },
+  NavicIconsInterface = { link = '@type' },
+  NavicIconsFunction = { link = '@function' },
+  NavicIconsVariable = { link = '@variable' },
+  NavicIconsConstant = { link = '@constant' },
+  NavicIconsString = { link = '@string' },
+  NavicIconsNumber = { link = '@number' },
+  NavicIconsBoolean = { link = '@boolean' },
+  NavicIconsArray = { link = 'punctuation.bracket' },
+  NavicIconsObject = { link = '@property' },
+  NavicIconsKey = { link = '@keyword' },
+  NavicIconsKeyword = { link = 'Keyword' },
+  NavicIconsNull = { link = '@constant' },
+  NavicIconsEnumMember = { link = '@constant' },
+  NavicIconsStruct = { link = '@keyword' },
+  NavicIconsEvent = { link = 'Special' },
+  NavicIconsOperator = { link = '@operator' },
+  NavicIconsTypeParameter = { link = '@parameter' },
+  NavicText = { link = '@text' },
+  NavicSeparator = { fg = colors.purple, bg = colors.purple_bg },
 }

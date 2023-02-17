@@ -55,7 +55,7 @@ fluoromachine.setup {
     local alpha = fluoromachine.config.brightness
 
     return {
-      TSTag = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
+      ['tag'] = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
     }
   end,
 }
@@ -92,7 +92,7 @@ fluoromachine.setup {
   end,
   highlights = function(colors)
     return {
-      TSTag = { fg = colors.dracula.green, bg = colors.dracula.green_bg }
+      ['tag'] = { fg = colors.dracula.green, bg = colors.dracula.green_bg }
     }
   end,
 }
