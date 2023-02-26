@@ -8,7 +8,7 @@ local darken = chromatic.darken
 local M = {
   normal = {
     a = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15), gui = 'bold' },
-    b = { fg = colors.purple, bg = darken(colors.purple, 20) },
+    b = { fg = colors.purple, bg = darken(colors.purple, 50) },
     c = { fg = colors.fg, bg = colors.bg },
     z = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
   },
@@ -22,7 +22,7 @@ local M = {
     a = { fg = colors.orange, bg = blend(colors.orange, colors.bg, 0.15), gui = 'bold' },
   },
   command = {
-    a = { fg = colors.purple, bg = darken(colors.purple, 20), gui = 'bold' },
+    a = { fg = colors.rurple, bg = darken(colors.purple, 50), gui = 'bold' },
   },
 }
 
