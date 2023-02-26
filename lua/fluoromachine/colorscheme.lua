@@ -151,7 +151,7 @@ function M:set_hl()
   if glow_enabled then
     self.colors.orange_bg = blend(self.colors.orange, self.colors.bg, alpha)
     self.colors.purple_bg = blend(self.colors.purple, self.colors.bg, alpha)
-    self.colors.yellow_bg = chromatic.glow(self.colors.yellow)
+    self.colors.yellow_bg = blend(self.colors.orange, self.colors.bg, alpha)
     self.colors.pink_bg = blend(self.colors.pink, self.colors.bg, alpha)
     self.colors.blue_bg = blend(self.colors.blue, self.colors.bg, alpha)
     self.colors.red_bg = blend(self.colors.red, self.colors.bg, alpha)
