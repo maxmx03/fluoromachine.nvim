@@ -1,8 +1,9 @@
 local fluoromachine = require 'fluoromachine'
+local chromatic = require 'fluoromachine.chromatic'
+
 local colors = fluoromachine.colors
-local colortool = require 'fluoromachine.colortool'
-local blend = colortool.blend
-local darken = colortool.darken
+local blend = chromatic.blend
+local darken = chromatic.darken
 
 local M = {
   normal = {
