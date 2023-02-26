@@ -145,8 +145,8 @@ function M:set_hl()
   local blend = chromatic.blend
   local glow_enabled = self.config.glow
 
-  self.colors.darker_purple = darken(self.colors.purple, 2)
-  self.colors.darker_pink = darken(self.colors.pink, 2)
+  self.colors.darker_purple = darken(self.colors.purple, 20)
+  self.colors.darker_pink = darken(self.colors.pink, 20)
 
   if glow_enabled then
     self.colors.orange_bg = blend(self.colors.orange, self.colors.bg, alpha)
@@ -507,8 +507,8 @@ function M:set_hl()
     HopPreview = { fg = self.colors.yellow, bg = self.colors.yellow_bg, bold = true },
     HopNextKey = { fg = self.colors.pink, bg = self.colors.pink_bg, bold = true },
     HopNextKey1 = { fg = self.colors.blue, bg = self.colors.blue_bg, bold = true },
-    HopNextKey2 = { fg = darken(self.colors.blue, 1.25) },
-    HopUnmatched = { fg = darken(self.colors.fg, 2) },
+    HopNextKey2 = { fg = darken(self.colors.blue, 15) },
+    HopUnmatched = { fg = darken(self.colors.fg, 20) },
     -- TWILIGHT
     Twilight = { fg = self.colors.darker_purple, bg = self:is_transparent(self.colors.bg) },
     -- INDENT_BLANKLINE
