@@ -22,7 +22,7 @@ local M = {
     a = { fg = colors.orange, bg = blend(colors.orange, colors.bg, 0.15), gui = 'bold' },
   },
   command = {
-    a = { fg = colors.rurple, bg = darken(colors.purple, 50), gui = 'bold' },
+    a = { fg = colors.purple, bg = darken(colors.purple, 50), gui = 'bold' },
   },
 }
 
