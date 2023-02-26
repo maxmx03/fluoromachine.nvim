@@ -57,4 +57,10 @@ function chromatic.blend(hex_fg, hex_bg, alpha)
   return rgb_to_hex(blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
+function chromatic.glow(hex_color)
+  local lighter_color = chromatic.lighten(hex_color, 20)
+
+  return chromatic.blend(hex_color, lighter_color, 0.7)
+end
+
 return chromatic
