@@ -76,34 +76,26 @@ function M:load()
 end
 
 function M:set_user_colors(new_colors)
-  if new_colors then
-    if type(new_colors) == 'function' then
-      self.colors = vim.tbl_extend(
-        'force',
-        self.colors,
-        new_colors(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
-      )
-    elseif type(new_colors) == 'table' then
-      self.colors = vim.tbl_extend('force', self.colors, new_colors)
-    else
-      vim.api.nvim_err_writeln 'Error: invalid colors'
-    end
+  if type(new_colors) == 'function' then
+    self.colors = vim.tbl_extend(
+      'force',
+      self.colors,
+      new_colors(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
+    )
+  elseif type(new_colors) == 'table' then
+    self.colors = vim.tbl_extend('force', self.colors, new_colors)
   end
 end
 
 function M:set_user_hl(user_hl)
-  if user_hl then
-    if type(user_hl) == 'function' then
-      self.highlights = vim.tbl_extend(
-        'force',
-        self.highlights,
-        user_hl(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
-      )
-    elseif type(user_hl) == 'table' then
-      self.highlights = vim.tbl_extend('force', self.highlights, user_hl)
-    else
-      vim.api.nvim_err_writeln 'Error: invalid highlights'
-    end
+  if type(user_hl) == 'function' then
+    self.highlights = vim.tbl_extend(
+      'force',
+      self.highlights,
+      user_hl(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
+    )
+  elseif type(user_hl) == 'table' then
+    self.highlights = vim.tbl_extend('force', self.highlights, user_hl)
   end
 end
 
