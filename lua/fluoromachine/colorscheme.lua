@@ -52,7 +52,14 @@ function M:setup(t)
   self:set_user_config(user_config, 'transparent', 'boolean')
   self:set_user_config(user_config, 'brightness', 'number')
   self:set_user_config(user_config, 'glow', 'number')
-  self:set_user_colors(user_config.colors):set_hl():set_user_hl():apply_hl()
+  self:set_user_colors(user_config.colors)
+
+  if vim.tbl_isempty(self.highlights) then
+    self:set_hl()
+    self:set_user_hl()
+  end
+
+  self:apply_hl()
 end
 
 function M:load()
@@ -77,13 +84,11 @@ function M:set_user_colors(new_colors)
         new_colors(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
       )
     elseif type(new_colors) == 'table' then
-      vim.tbl_extend('force', self.colors, new_colors)
+      self.colors = vim.tbl_extend('force', self.colors, new_colors)
     else
       vim.api.nvim_err_writeln 'Error: invalid colors'
     end
   end
-
-  return self
 end
 
 function M:set_user_hl(user_hl)
@@ -92,16 +97,14 @@ function M:set_user_hl(user_hl)
       self.highlights = vim.tbl_extend(
         'force',
         self.highlights,
-        user_hl(self.highlights, chromatic.darken, chromatic.lighten, chromatic.blend)
+        user_hl(self.colors, chromatic.darken, chromatic.lighten, chromatic.blend)
       )
     elseif type(user_hl) == 'table' then
-      vim.tbl_extend('force', self.highlights, user_hl)
+      self.highlights = vim.tbl_extend('force', self.highlights, user_hl)
     else
       vim.api.nvim_err_writeln 'Error: invalid highlights'
     end
   end
-
-  return self
 end
 
 function M:set_user_config(user_config, key, typeof)
@@ -561,8 +564,6 @@ function M:set_hl()
     NavicText = { link = '@text' },
     NavicSeparator = { fg = self.colors.purple, bg = self.colors.purple_bg },
   }
-
-  return self
 end
 
 return M:new()
