@@ -1,5 +1,5 @@
 lua << EOF
 local fluoromachine = require 'fluoromachine'
 
-fluoromachine.setup()
+fluoromachine:setup()
 EOF
