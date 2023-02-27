@@ -49,10 +49,13 @@ function M:setup(t)
   local user_config = t or {}
 
   self:load()
-  self:set_user_config(user_config, 'transparent', 'boolean')
-  self:set_user_config(user_config, 'brightness', 'number')
-  self:set_user_config(user_config, 'glow', 'number')
-  self:set_user_colors(user_config.colors)
+
+  if vim.tbl_isempty(user_config) then
+    self:set_user_config(user_config, 'transparent', 'boolean')
+    self:set_user_config(user_config, 'brightness', 'number')
+    self:set_user_config(user_config, 'glow', 'boolean')
+    self:set_user_colors(user_config.colors)
+  end
 
   if vim.tbl_isempty(self.highlights) then
     self:set_hl()
@@ -146,24 +149,9 @@ function M:set_hl()
   local alpha = self.config.brightness
   local darken = chromatic.darken
   local blend = chromatic.blend
-  local glow_enabled = self.config.glow
 
   self.colors.darker_purple = darken(self.colors.purple, 20)
   self.colors.darker_pink = darken(self.colors.pink, 20)
-
-  if glow_enabled then
-    self.colors.orange_bg = blend(self.colors.orange, self.colors.bg, alpha)
-    self.colors.purple_bg = blend(self.colors.purple, self.colors.bg, alpha)
-    self.colors.yellow_bg = blend(self.colors.orange, self.colors.bg, alpha)
-    self.colors.pink_bg = blend(self.colors.pink, self.colors.bg, alpha)
-    self.colors.blue_bg = blend(self.colors.blue, self.colors.bg, alpha)
-    self.colors.red_bg = blend(self.colors.red, self.colors.bg, alpha)
-    self.colors.changed_bg = blend(self.colors.changed, self.colors.bg, alpha)
-    self.colors.add_bg = blend(self.colors.add, self.colors.bg, alpha)
-    self.colors.error_bg = blend(self.colors.error, self.colors.bg, alpha)
-    self.colors.removed_bg = blend(self.colors.removed, self.colors.bg, alpha)
-    self.colors.warn_bg = blend(self.colors.warn, self.colors.bg, alpha)
-  end
 
   self.highlights = {
     -- BASE
@@ -172,12 +160,12 @@ function M:set_hl()
     Conceal = { fg = self.colors.blue },
     Cursor = { fg = self.colors.bg, bg = self.colors.purple },
     CursorColumn = { bg = self.colors.bg },
-    CursorLineNr = { fg = self.colors.pink, bg = self.colors.pink_bg, sp = self.colors.fg },
+    CursorLineNr = { fg = self.colors.pink, sp = self.colors.fg },
     CursorLine = { bg = self.colors.selection, sp = self.colors.fg },
     lCursor = { link = 'Cursor' },
     -- CursorIM = { fg = self.colors.bg, bg = self.colors.fg },
     MatchWord = { bold = true },
-    MatchParen = { fg = self.colors.pink, bg = self.colors.pink_bg, bold = true },
+    MatchParen = { fg = self.colors.pink, bold = true },
     MatchWordCur = { bold = true },
     MatchParenCur = { bold = true },
     Normal = { fg = self.colors.fg, bg = self:is_transparent(self.colors.bg) },
@@ -194,7 +182,6 @@ function M:set_hl()
     StatusLineNC = { fg = self.colors.purple, bg = self.colors.selection },
     FloatBorder = {
       fg = self.colors.pink,
-      bg = self:is_transparent(self.colors.pink_bg),
       sp = self.colors.pink,
     },
     SignColumn = { fg = self.colors.red },
@@ -216,13 +203,13 @@ function M:set_hl()
     VertSplit = { link = 'WinSeparator' },
     Visual = { bg = self.colors.selection },
     VisualNOS = { bg = self.colors.bg, reverse = true, bold = true },
-    DiffAdd = { fg = self.colors.add, bg = self.colors.add_bg },
-    DiffChange = { fg = self.colors.changed, bg = self.colors.changed_bg, sp = self.colors.changed },
+    DiffAdd = { fg = self.colors.add },
+    DiffChange = { fg = self.colors.changed, sp = self.colors.changed },
     DiffDelete = { fg = self.colors.deleted, reverse = true },
-    DiffText = { fg = self.colors.blue, bg = self.colors.blue_bg, sp = self.colors.blue },
-    DiffAdded = { fg = self.colors.add, bg = self.colors.add_bg },
-    DiffChanged = { fg = self.colors.changed, bg = self.colors.changed_bg },
-    DiffRemoved = { fg = self.colors.removed, bg = self.colors.removed_bg },
+    DiffText = { fg = self.colors.blue, sp = self.colors.blue },
+    DiffAdded = { link = 'DiffAdd' },
+    DiffChanged = { link = 'DiffChange' },
+    DiffRemoved = { link = 'DiffDelete' },
     DiffFile = { fg = self.colors.comment },
     DiffIndexLine = { fg = self.colors.purple },
     QuickFixLine = { bg = self.colors.bg },
@@ -230,9 +217,9 @@ function M:set_hl()
     TermCursorNC = { bg = self.colors.purple },
     Directory = { fg = self.colors.blue },
     SpecialKey = { fg = self.colors.red },
-    Title = { fg = self.colors.yellow, bg = self.colors.yellow_bg, bold = true },
+    Title = { fg = self.colors.yellow, bold = true },
     Search = { fg = self.colors.orange },
-    IncSearch = { fg = self.colors.yellow, bg = self.colors.yellow_bg },
+    IncSearch = { fg = self.colors.yellow },
     Substitute = { fg = self.colors.orange, reverse = true },
     Question = { fg = self.colors.blue, bold = true },
     EndOfBuffer = { fg = self.colors.bg },
@@ -248,15 +235,11 @@ function M:set_hl()
     -- Number = { fg = self.colors.purple },
     -- Boolean = { fg = self.colors.purple },
     -- Float = { fg = self.colors.purple },
-    Identifier = { fg = self.colors.pink, bg = self.colors.pink_bg },
+    Identifier = { fg = self.colors.pink },
     --       *Identifier      any variable name
     -- Function        function name (also: methods for classes)
     -- Variable = { fg = self.colors.blue },
-    Function = {
-      fg = self.colors.yellow,
-      bg = self.colors.yellow_bg,
-      italic = vim.g.fluoromachine_italic_functions or false,
-    },
+    Function = { fg = self.colors.yellow, italic = vim.g.fluoromachine_italic_functions or false },
     Statement = { fg = self.colors.pink },
     --       *Statement       any statement
     --        Conditional     if, then, else, endif, switch, etc.
@@ -269,14 +252,10 @@ function M:set_hl()
     -- Repeat = { fg = self.colors.pink },
     -- Label = { fg = self.colors.pink },
     -- Operator = { fg = self.colors.pink },
-    Keyword = {
-      fg = self.colors.pink,
-      bg = self.colors.pink_bg,
-      italic = vim.g.fluoromachine_italic_keywords or false,
-    },
+    Keyword = { fg = self.colors.pink, italic = vim.g.fluoromachine_italic_keywords or false },
     -- Exception = { fg = self.colors.pink },
 
-    PreProc = { fg = self.colors.purple, bg = self.colors.purple_bg },
+    PreProc = { fg = self.colors.purple },
     --       *PreProc         generic Preprocessor
     --        Include         preprocessor #include
     --        Define          preprocessor #define
@@ -287,7 +266,7 @@ function M:set_hl()
     -- Macro = { fg = self.colors.orange },
     -- PreCondit = { fg = self.colors.orange },
 
-    Type = { fg = self.colors.pink, bg = self.colors.pink_bg },
+    Type = { fg = self.colors.pink },
     --       *Type            int, long, char, etc.
     --        StorageClass    static, register, volatile, etc.
     --        Structure       struct, union, enum, etc.
@@ -296,7 +275,7 @@ function M:set_hl()
     -- Structure = { fg = self.colors.yellow },
     -- Typedef = { fg = self.colors.yellow },
 
-    Special = { fg = self.colors.yellow, bg = self.colors.yellow_bg },
+    Special = { fg = self.colors.yellow },
     --       *Special         any special symbol
     --        SpecialChar     special character in a constant
     --        Tag             you can use CTRL-] on this
@@ -315,8 +294,8 @@ function M:set_hl()
     Ignore = { fg = self.colors.blue, bg = self.colors.bg, bold = true },
     Todo = { link = 'Title' },
     Error = { fg = self.colors.error, bg = self.colors.bg, bold = true },
-    ErrorMsg = { fg = self.colors.error, bg = self.colors.error_bg },
-    WarningMsg = { fg = self.colors.warn, bg = self.colors.warn_bg },
+    ErrorMsg = { fg = self.colors.error },
+    WarningMsg = { fg = self.colors.warn },
     -- Treesitter - Misc
     ['@error'] = { fg = self.colors.error },
     ['@operator'] = { fg = self.colors.pink },
@@ -342,7 +321,7 @@ function M:set_hl()
     ['@conditional'] = { link = 'Keyword' },
     ['@conditional.ternary'] = { link = 'Keyword' },
     ['@repeat'] = { link = 'Keyword' },
-    ['@label'] = { fg = self.colors.pink, bg = self.colors.pink_bg },
+    ['@label'] = { fg = self.colors.pink },
     ['@include'] = { link = 'Include' },
     ['@exception'] = { link = 'Include' },
     -- Treesitter - Types
@@ -358,9 +337,9 @@ function M:set_hl()
     ['@constant.builtin'] = { link = '@constant' },
     ['@constant.macro'] = { link = '@constant' },
     -- Treesitter - Tags
-    ['@tag'] = { fg = self.colors.yellow, bg = self.colors.yellow_bg },
-    ['@tag.attribute'] = { fg = self.colors.pink, bg = self.colors.pink_bg },
-    ['@tag.delimiter'] = { fg = self.colors.blue, bg = self.colors.blue_bg },
+    ['@tag'] = { fg = self.colors.yellow },
+    ['@tag.attribute'] = { fg = self.colors.pink },
+    ['@tag.delimiter'] = { fg = self.colors.blue },
     -- DIAGNOSTIC
     DiagnosticError = { fg = self.colors.error },
     DiagnosticWarn = { fg = self.colors.warn },
@@ -565,6 +544,57 @@ function M:set_hl()
     NavicText = { link = '@text' },
     NavicSeparator = { fg = self.colors.purple, bg = self.colors.purple_bg },
   }
+
+  if self.config.glow then
+    self.colors.orange_bg = blend(self.colors.orange, self.colors.bg, alpha)
+    self.colors.purple_bg = blend(self.colors.purple, self.colors.bg, alpha)
+    self.colors.yellow_bg = blend(self.colors.orange, self.colors.bg, alpha)
+    self.colors.pink_bg = blend(self.colors.pink, self.colors.bg, alpha)
+    self.colors.blue_bg = blend(self.colors.blue, self.colors.bg, alpha)
+    self.colors.red_bg = blend(self.colors.red, self.colors.bg, alpha)
+    self.colors.changed_bg = blend(self.colors.changed, self.colors.bg, alpha)
+    self.colors.add_bg = blend(self.colors.add, self.colors.bg, alpha)
+    self.colors.error_bg = blend(self.colors.error, self.colors.bg, alpha)
+    self.colors.removed_bg = blend(self.colors.removed, self.colors.bg, alpha)
+    self.colors.warn_bg = blend(self.colors.warn, self.colors.bg, alpha)
+
+    self.highlights.CursorLineNr = { fg = self.colors.pink, bg = self.colors.pink_bg, sp = self.colors.fg }
+    self.highlights.MatchParen = { fg = self.colors.pink, bg = self.colors.pink_bg, bold = true }
+    self.highlights.FloatBorder = {
+      fg = self.colors.pink,
+      bg = self:is_transparent(self.colors.pink_bg),
+      sp = self.colors.pink,
+    }
+    self.highlights.DiffAdd = { fg = self.colors.add, bg = self.colors.add_bg }
+    self.highlights.DiffChange = { fg = self.colors.changed, bg = self.colors.changed_bg, sp = self.colors.changed }
+    self.highlights.DiffText = { fg = self.colors.blue, bg = self.colors.blue_bg, sp = self.colors.blue }
+    self.highlights.DiffRemoved = { fg = self.colors.removed, bg = self.colors.removed_bg }
+    self.highlights.DiffAdded = { link = 'DiffAdd' }
+    self.highlights.DiffChanged = { link = 'DiffChange' }
+    self.highlights, DiffRemoved = { link = 'DiffDelete' }
+    self.highlights.Title = { fg = self.colors.yellow, bg = self.colors.yellow_bg, bold = true }
+    self.highlights.IncSearch = { fg = self.colors.yellow, bg = self.colors.yellow_bg }
+    self.highlights.Identifier = { fg = self.colors.pink, bg = self.colors.pink_bg }
+    self.highlights.Function = {
+      fg = self.colors.yellow,
+      bg = self.colors.yellow_bg,
+      italic = vim.g.fluoromachine_italic_functions or false,
+    }
+    self.highlights.Keyword = {
+      fg = self.colors.pink,
+      bg = self.colors.pink_bg,
+      italic = vim.g.fluoromachine_italic_keywords or false,
+    }
+    self.highlights.PreProc = { fg = self.colors.purple, bg = self.colors.purple_bg }
+    self.highlights.Type = { fg = self.colors.pink, bg = self.colors.pink_bg }
+    self.highlights.Special = { fg = self.colors.yellow, bg = self.colors.yellow_bg }
+    self.highlights.ErrorMsg = { fg = self.colors.error, bg = self.colors.error_bg }
+    self.highlights.WarningMsg = { fg = self.colors.warn, bg = self.colors.warn_bg }
+    self.highlights['@label'] = { fg = self.colors.pink, bg = self.colors.pink_bg }
+    self.highlights['@tag'] = { fg = self.colors.yellow, bg = self.colors.yellow_bg }
+    self.highlights['@tag.attribute'] = { fg = self.colors.pink, bg = self.colors.pink_bg }
+    self.highlights['@tag.delimiter'] = { fg = self.colors.blue, bg = self.colors.blue_bg }
+  end
 end
 
 return M:new()
