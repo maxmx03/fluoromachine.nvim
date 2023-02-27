@@ -141,7 +141,7 @@ function M:apply_hl()
 end
 
 function M:set_glow()
-  if self.glow_enabled then
+  if self.config.glow then
     self.colors.blue_bg = '#2A2A52'
     self.colors.purple_bg = '#351851'
     self.colors.pink_bg = '#410B42'
@@ -496,7 +496,7 @@ function M:set_hl()
     TelescopeSelection = { fg = colors.yellow },
     TelescopeMatching = { link = 'IncSearch' },
     -- DASHBOARD
-    DashboardHeader = { fg = self.config.glow and '#270E3D' or nil },
+    DashboardHeader = { fg = colors.pink_bg },
     DashboardCenter = { fg = colors.yellow },
     DashboardFooter = { fg = colors.purple },
     -- GIT
