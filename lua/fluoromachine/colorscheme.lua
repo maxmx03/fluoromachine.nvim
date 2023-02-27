@@ -9,7 +9,7 @@ local M = {}
 M.highlights = {}
 M.colors = {
   bg = '#200933',
-  fg = '#B6F0FC',
+  fg = '#ffffff',
   comment = '#4E83FD',
   alt_bg = '#190728',
   selection = '#463465',
@@ -27,7 +27,7 @@ M.colors = {
   error = '#F44747',
   add = '#3CCF4E',
   changed = '#FD8902',
-  deleted = '#F92AAD',
+  deleted = '#f44747',
   removed = '#F44747',
 }
 M.config = {
@@ -321,7 +321,7 @@ function M:set_hl()
     ['@error'] = { fg = self.colors.error },
     ['@operator'] = { fg = self.colors.pink },
     -- Treesitter - Punctuation
-    ['@punctuation.delimiter'] = { fg = self.colors.fg },
+    ['@punctuation.delimiter'] = { fg = self.colors.pink },
     ['@punctuation.bracket'] = { fg = self.colors.purple },
     ['@punctuation.special'] = { fg = self.colors.pink },
     -- Treesitter - Literals
