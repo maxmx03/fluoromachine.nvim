@@ -571,7 +571,7 @@ function M:set_hl()
     self.highlights.DiffRemoved = { fg = self.colors.removed, bg = self.colors.removed_bg }
     self.highlights.DiffAdded = { link = 'DiffAdd' }
     self.highlights.DiffChanged = { link = 'DiffChange' }
-    self.highlights, DiffRemoved = { link = 'DiffDelete' }
+    self.highlights.DiffRemoved = { link = 'DiffDelete' }
     self.highlights.Title = { fg = self.colors.yellow, bg = self.colors.yellow_bg, bold = true }
     self.highlights.IncSearch = { fg = self.colors.yellow, bg = self.colors.yellow_bg }
     self.highlights.Identifier = { fg = self.colors.pink, bg = self.colors.pink_bg }
