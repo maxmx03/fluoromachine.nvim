@@ -168,8 +168,8 @@ function M:set_hl()
   local blend = chromatic.blend
   local darken = chromatic.darken
 
-  self.colors.darker_purple = darken(colors.purple, 20)
-  self.colors.darker_pink = darken(colors.pink, 20)
+  self.colors.darker_purple = darken(colors.purple, 80)
+  self.colors.darker_pink = darken(colors.pink, 80)
 
   self.highlights = {
     -- BASE
@@ -291,7 +291,7 @@ function M:set_hl()
     -- Define = { fg = colors.orange },
     -- Macro = { fg = colors.orange },
     -- PreCondit = { fg = colors.orange },
-    Type = { fg = colors.pink, bg = colors.pink_bg },
+    Type = { fg = colors.purple, bg = colors.purple_bg },
     --       *Type            int, long, char, etc.
     --        StorageClass    static, register, volatile, etc.
     --        Structure       struct, union, enum, etc.
@@ -321,7 +321,7 @@ function M:set_hl()
     WarningMsg = { fg = colors.warn, bg = colors.warn_bg },
     -- Treesitter - Misc
     ['@error'] = { fg = colors.error },
-    ['@operator'] = { fg = colors.pink },
+    ['@operator'] = { fg = colors.pink, bg = colors.pink_bg },
     -- Treesitter - Punctuation
     ['@punctuation.delimiter'] = { fg = colors.fg },
     ['@punctuation.bracket'] = { fg = colors.purple },
