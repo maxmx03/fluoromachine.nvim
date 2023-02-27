@@ -52,7 +52,7 @@ vim.g.fluoromachine_italic_variables = false
 | ----------- | ------------------ | -------------------------------------------------- |
 | transparent | `false`            | enable and disable background transparency         |
 | brightness  | `0.15`             | The value should be a float value from 0 to 1      |
-| glow        | `true`             | Enable and disable the glow effect                 |
+| glow        | `false`             | Enable and disable the glow effect                 |
 | colors      | `{}` or `function` | You can add new colors or override the default     |
 | highlights  | `{}` or `function` | You can add new highlights or override the default |
 
@@ -65,6 +65,7 @@ fluoromachine.setup {
   config = {
    transparent = false,
    brightness = 0.15,
+   glow = true,
   },
   colors = {
     dracula = {
