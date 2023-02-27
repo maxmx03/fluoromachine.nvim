@@ -62,8 +62,10 @@ vim.g.fluoromachine_italic_variables = false
 local fluoromachine = require 'fluoromachine'
 
 fluoromachine.setup {
-  transparent = false,
-  brightness = 0.15,
+  config = {
+   transparent = false,
+   brightness = 0.15,
+  },
   colors = {
     dracula = {
       green = '#50fa7b'
@@ -93,8 +95,10 @@ or
 
 ```lua
 fluoromachine.setup {
-  transparent = false,
-  brightness = 0.15,
+  config = {
+   transparent = false,
+   brightness = 0.15,
+  },
   colors = function (colors, _, blend)
     local green = '#50fa7b'
     local alpha = fluoromachine.config.brightness
@@ -126,7 +130,10 @@ Darken hex colors
 local fluoromachine = require 'fluoromachine'
 
 fluoromachine.setup {
-  transparent = true,
+  config = {
+   transparent = false,
+   brightness = 0.15,
+  },
   highlights = function(colors, darken)
     return {
       DiagnosticVirtualTextError = { fg = colors.danger, bg = darken(colors.error, 30) },

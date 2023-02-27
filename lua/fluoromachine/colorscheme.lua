@@ -1,9 +1,5 @@
 local chromatic = require 'fluoromachine.chromatic'
 
-local function is_valid_config_key(config, key, typeof)
-  return config and config[key] and type(config) == typeof
-end
-
 local M = {}
 
 M.highlights = {}
@@ -33,7 +29,7 @@ M.colors = {
 M.config = {
   transparent = false,
   brightness = 0.15,
-  glow = true,
+  glow = false,
 }
 
 function M:new()
@@ -51,9 +47,7 @@ function M:setup(t)
   self:load()
 
   if vim.tbl_isempty(user_config) then
-    self:set_user_config(user_config, 'transparent', 'boolean')
-    self:set_user_config(user_config, 'brightness', 'number')
-    self:set_user_config(user_config, 'glow', 'boolean')
+    self:set_user_config(user_config.config)
     self:set_user_colors(user_config.colors)
   end
 
@@ -110,9 +104,9 @@ function M:set_user_hl(user_hl)
   end
 end
 
-function M:set_user_config(user_config, key, typeof)
-  if is_valid_config_key(user_config, key, typeof) then
-    self.config[key] = user_config[key]
+function M:set_user_config(user_config)
+  if user_config then
+    self.config = vim.tbl_extend('force', self.config, user_config)
   end
 end
 
