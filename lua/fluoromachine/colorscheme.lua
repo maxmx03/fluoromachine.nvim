@@ -46,7 +46,7 @@ function M:setup(t)
 
   self:load()
 
-  if vim.tbl_isempty(user_config) then
+  if not vim.tbl_isempty(user_config) then
     self:set_user_config(user_config.config)
     self:set_user_colors(user_config.colors)
   end
