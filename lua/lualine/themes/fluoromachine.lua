@@ -1,13 +1,14 @@
 local fluoromachine = require 'fluoromachine'
+local chromatic = require 'fluoromachine.chromatic'
+
 local colors = fluoromachine.colors
-local colortool = require 'fluoromachine.colortool'
-local blend = colortool.blend
-local darken = colortool.darken
+local blend = chromatic.blend
+local darken = chromatic.darken
 
 local M = {
   normal = {
     a = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15), gui = 'bold' },
-    b = { fg = colors.purple, bg = darken(colors.purple, 2) },
+    b = { fg = colors.purple, bg = darken(colors.purple, 50) },
     c = { fg = colors.fg, bg = colors.bg },
     z = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
   },
@@ -21,7 +22,7 @@ local M = {
     a = { fg = colors.orange, bg = blend(colors.orange, colors.bg, 0.15), gui = 'bold' },
   },
   command = {
-    a = { fg = colors.purple, bg = darken(colors.purple), gui = 'bold' },
+    a = { fg = colors.purple, bg = darken(colors.purple, 50), gui = 'bold' },
   },
 }
 
