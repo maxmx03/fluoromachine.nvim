@@ -496,7 +496,7 @@ function M:set_hl()
     TelescopeSelection = { fg = colors.yellow },
     TelescopeMatching = { link = 'IncSearch' },
     -- DASHBOARD
-    DashboardHeader = { fg = colors.pink_bg },
+    DashboardHeader = { fg = colors.pink },
     DashboardCenter = { fg = colors.yellow },
     DashboardFooter = { fg = colors.purple },
     -- GIT
