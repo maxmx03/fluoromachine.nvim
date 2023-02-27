@@ -168,8 +168,8 @@ function M:set_hl()
   local blend = chromatic.blend
   local darken = chromatic.darken
 
-  self.colors.darker_purple = darken(colors.purple, 80)
-  self.colors.darker_pink = darken(colors.pink, 80)
+  self.colors.darker_purple = darken(colors.purple, 40)
+  self.colors.darker_pink = darken(colors.pink, 40)
 
   self.highlights = {
     -- BASE
