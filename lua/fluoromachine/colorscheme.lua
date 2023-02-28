@@ -567,7 +567,7 @@ function M:set_hl()
     HopNextKey = { fg = colors.pink, bg = colors.pink_bg, bold = true },
     HopNextKey1 = { fg = colors.blue, bg = colors.blue_bg, bold = true },
     HopNextKey2 = { fg = darken(colors.blue, 15) },
-    HopUnmatched = { fg = darken(colors.fg, 20) },
+    HopUnmatched = { fg = colors.comment },
     -- TWILIGHT
     Twilight = { fg = colors.darker_purple, bg = self:is_transparent(colors.bg) },
     -- INDENT_BLANKLINE
