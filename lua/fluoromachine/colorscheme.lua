@@ -600,6 +600,20 @@ function M:set_hl()
     NavicIconsTypeParameter = { link = '@parameter' },
     NavicText = { link = '@text' },
     NavicSeparator = { fg = colors.purple, bg = colors.purple_bg },
+    -- NEORG
+    ['@neorg.headings.1.title'] = { fg = colors.yellow, bg = colors.yellow_bg },
+    ['@neorg.headings.2.title'] = { fg = colors.blue, bg = colors.blue_bg },
+    ['@neorg.headings.3.title'] = { fg = colors.orange, bg = colors.orange_bg },
+    ['@neorg.headings.4.title'] = { fg = colors.green, bg = colors.green_bg },
+    ['@neorg.headings.5.title'] = { fg = colors.pink, bg = colors.pink_bg },
+    ['@neorg.headings.6.title'] = { fg = colors.purple, bg = colors.purple_bg },
+    ['@neorg.headings.1.prefix'] = { link = '@neorg.headings.1.title' },
+    ['@neorg.headings.2.prefix'] = { link = '@neorg.headings.2.title' },
+    ['@neorg.headings.3.prefix'] = { link = '@neorg.headings.3.title' },
+    ['@neorg.headings.4.prefix'] = { link = '@neorg.headings.4.title' },
+    ['@neorg.headings.5.prefix'] = { link = '@neorg.headings.5.title' },
+    ['@neorg.headings.6.prefix'] = { link = '@neorg.headings.6.title' },
+    ['@neorg.links.file'] = { link = '@text.uri' },
   }
 end
 
