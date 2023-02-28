@@ -371,6 +371,7 @@ function M:set_hl()
     ['@text.strike'] = { fg = colors.comment },
     ['@text.title'] = { link = 'Title' },
     ['@text.literal'] = { link = '@text' },
+    ['@text.reference'] = { fg = colors.purple },
     ['@text.uri'] = { fg = colors.pink, bg = colors.pink_bg },
     ['@text.todo'] = { link = 'Title' },
     ['@text.warning'] = { link = 'WarningMsg' },
