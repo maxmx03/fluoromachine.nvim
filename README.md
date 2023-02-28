@@ -76,7 +76,7 @@ fluoromachine.setup {
     local alpha = fluoromachine.config.brightness
 
     return {
-      ['tag'] = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
+      ['@tag'] = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
     }
   end,
 }
