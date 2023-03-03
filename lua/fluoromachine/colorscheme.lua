@@ -141,7 +141,30 @@ function M:apply_hl()
 end
 
 function M:set_glow()
-  if self.config.glow then
+  if self.config.glow and self.config.brightness ~= 0.15 then
+    local blend = function(hex_color)
+      return chromatic.blend(hex_color, '#200933', self.config.brightness)
+    end
+
+    self.colors.fg = '#E8F9FD'
+    self.colors.bg = '#200933'
+    self.colors.alt_bg = '#190728'
+    self.colors.blue_bg = blend(self.colors.blue)
+    self.colors.purple_bg = blend(self.colors.purple)
+    self.colors.pink_bg = blend(self.colors.pink)
+    self.colors.green_bg = blend(self.colors.green)
+    self.colors.orange_bg = blend(self.colors.orange)
+    self.colors.yellow_bg = blend(self.colors.yellow)
+    self.colors.red_bg = blend(self.colors.red)
+    self.colors.info_bg = blend(self.colors.info)
+    self.colors.warn_bg = blend(self.colors.warn)
+    self.colors.hint_bg = blend(self.colors.hint)
+    self.colors.error_bg = blend(self.colors.error)
+    self.colors.add_bg = blend(self.colors.add)
+    self.colors.changed_bg = blend(self.colors.changed)
+    self.colors.deleted_bg = blend(self.colors.deleted)
+    self.colors.removed_bg = blend(self.colors.removed)
+  elseif self.config.glow then
     self.colors.fg = '#E8F9FD'
     self.colors.bg = '#200933'
     self.colors.alt_bg = '#190728'
@@ -160,8 +183,6 @@ function M:set_glow()
     self.colors.changed_bg = '#411C2C'
     self.colors.deleted_bg = '#401236'
     self.colors.removed_bg = '#401236'
-
-    self.colors.yellow_alt_bg = '#3C2522'
   end
 end
 
