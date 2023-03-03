@@ -34,7 +34,7 @@ if not success then
   return
 end
 
-fluoromachine.setup {}
+fluoromachine:setup {}
 
 vim.cmd 'colorscheme fluoromachine'
 ```
@@ -61,7 +61,7 @@ vim.g.fluoromachine_italic_variables = false
 ```lua
 local fluoromachine = require 'fluoromachine'
 
-fluoromachine.setup {
+fluoromachine:setup {
   config = {
    transparent = false,
    brightness = 0.15,
@@ -95,7 +95,7 @@ vim.cmd 'colorscheme fluoromachine'
 or
 
 ```lua
-fluoromachine.setup {
+fluoromachine:setup {
   config = {
    transparent = false,
    brightness = 0.15,
@@ -130,7 +130,7 @@ Darken hex colors
 ```lua
 local fluoromachine = require 'fluoromachine'
 
-fluoromachine.setup {
+fluoromachine:setup {
   config = {
    transparent = false,
    brightness = 0.15,
