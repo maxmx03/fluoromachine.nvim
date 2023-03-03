@@ -4,16 +4,16 @@ local M = {}
 
 M.highlights = {}
 M.colors = {
-  bg = '#200933',
-  fg = '#ffffff',
+  bg = '#262335',
+  fg = '#8BA7A7',
   comment = '#495495',
-  alt_bg = '#190728',
+  alt_bg = '#241b2f',
   selection = '#463465',
   blue = '#61E2FF',
   purple = '#AF6DF9',
   pink = '#FC199A',
-  green = '#2FFC1D',
-  orange = '#FD8902',
+  green = '#59CE8F',
+  orange = '#F99417',
   yellow = '#FFCC00',
   red = '#F44747',
   gray = '#73817D',
@@ -21,8 +21,8 @@ M.colors = {
   warn = '#CD9731',
   hint = '#61E2FF',
   error = '#F44747',
-  add = '#2FFC1D',
-  changed = '#FD8902',
+  add = '#59CE8F',
+  changed = '#F99417',
   deleted = '#f44747',
   removed = '#F44747',
 }
@@ -142,6 +142,9 @@ end
 
 function M:set_glow()
   if self.config.glow then
+    self.colors.fg = '#E8F9FD'
+    self.colors.bg = '#200933'
+    self.colors.alt_bg = '#190728'
     self.colors.blue_bg = '#2A2A52'
     self.colors.purple_bg = '#351851'
     self.colors.pink_bg = '#410B42'
