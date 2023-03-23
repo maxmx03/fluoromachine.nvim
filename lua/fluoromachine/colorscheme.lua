@@ -196,7 +196,7 @@ function M:set_hl()
     PmenuSbar = { bg = colors.bg, bold = true },
     PmenuThumb = { bg = colors.pink, bold = true },
     TabLine = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
-    TabLineSel = { fg = colors.fg, bg = colors.selection, sp = colors.fg, reverse = true },
+    TabLineSel = { fg = colors.purple },
     TabLineFill = { fg = colors.fg, bg = colors.bg, sp = colors.fg },
     StatusLine = { fg = colors.pink, bg = colors.selection },
     StatusLineNC = { fg = colors.purple, bg = colors.selection },
