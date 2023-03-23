@@ -163,6 +163,7 @@ function M:set_glow()
     self.colors.removed_bg = blend(self.colors.removed)
   end
 end
+
 function M:set_hl()
   local colors = self.colors
   local alpha = self.config.brightness
@@ -383,6 +384,12 @@ function M:set_hl()
     ['@tag'] = { fg = colors.yellow, bg = colors.yellow_bg },
     ['@tag.attribute'] = { fg = colors.pink, bg = colors.pink_bg },
     ['@tag.delimiter'] = { fg = colors.blue, bg = colors.blue_bg },
+    -- Semantic highlight
+    ['@lsp.type.variable'] = { link = '@variable' },
+    ['@lsp.type.parameter'] = { link = '@parameter' },
+    ['@lsp.typemod.parameter.readyonly'] = { italic = true },
+    ['@lsp.typemod.variable.readonly'] = { link = '@variable.builtin' },
+    ['@lsp.typemod.variable.defaultLibrary'] = { link = '@variable.builtin' },
     -- DIAGNOSTIC
     DiagnosticError = { fg = colors.error },
     DiagnosticWarn = { fg = colors.warn },
