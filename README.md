@@ -1,174 +1,164 @@
-# Fluoromachine (Colorscheme)
+# Fluoromachine for [Neovim](https://neovim.io)
 
-Fluoromachine is a fork of the popular Synthwave84 color scheme, which is inspired by the aesthetics of the 1980s and the retro-futuristic genre known as synthwave.
-Fluoromachine (Colorscheme) incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of sci-fi to your coding experience.
+> Created with [colorgen](https://github.com/ChristianChiarulli/colorgen-nvim)
 
-![Theme screenshot](https://user-images.githubusercontent.com/50273941/189177820-b496e6d8-6747-4310-84fc-2a6e016f67a4.png)
+Fluoromachine is a fork of the popular Synthwave84 color scheme, which is inspired by the 
+aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluoromachine (Colorscheme) 
+incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of 
+sci-fi to your coding experience.
 
-## Features
+![preview](https://user-images.githubusercontent.com/50273941/235521835-847f5720-4f88-4349-a2e9-2c8fa0dd4590.png)
 
-- Designed for use in the Neovim text editor
-- Based on the Synthwave84 color scheme, which is inspired by the aesthetics of the 1980s and the retro-futuristic genre known as synthwave
-- Provides a high-contrast, visually pleasing color scheme for coding and other tasks
+<details>
+    <summary>Install</summary>
 
+To install fluoromachine you need a plugin manager.
 
-## Installation
+- [Lazy.nvim](https://github.com/folke/lazy.nvim)
+- [Packer](https://github.com/wbthomason/packer.nvim)
 
-Fluoromachine can be installed using a plugin manager such as [Packer](https://github.com/wbthomason/packer.nvim).
-
-### Packer
-
-To install Fluoromachine using Packer, add the following line to your plugin list in your `init.lua` or `init.vim` file:
+Example with Lazy.nvim
 
 ```lua
-use 'maxmx03/FluoroMachine.nvim'
+return {
+    {
+        'maxmx03/fluoromachine.nvim',
+        config = function ()
+         local fm = require 'fluoromachine'
+
+         fm.setup {
+            glow = false,
+            theme = 'fluoromachine'
+         }
+
+         vim.cmd.colorscheme 'fluoromachine'
+        end
+    }
+}
 ```
 
-Then, create a new file in your Neovim configuration directory called ftdetect/fluoromachine.lua, 
-and add the following code:
+</details>
+
+<details>
+    <summary>Configuration</summary>
+
+| Name        | type           | default value   | Description                                                                              |
+| ----------- | -------------- | --------------- | ---------------------------------------------------------------------------------------- |
+| glow        | boolean        | `false`         | Enable glow                                                                              |
+| theme       | string         | `fluoromachine` | Change the theme of the colorscheme, you can choose between fluoromachine and retrowave  |
+| transparent | boolean/string | `false`         | Change the background to transparent, you can set "full" to make everything transparent. |
+| colors      | table/callback | `{}`            | Add or override to fluoromachine colors                                                  |
+| overrides   | table/callback | `{}`            | Update or add new highlight groups.                                                      |
+
+example:
 
 ```lua
-local success, fluoromachine = pcall(require, 'fluoromachine')
+local fm = require 'fluoromachine'
 
-if not success then
-  return
+fm.setup {
+  glow = true,
+  theme = 'retrowave',
+  transparent = 'full',
+}
+
+vim.cmd.colorscheme('fluoromachine')
+```
+
+</details>
+
+<details>
+    <summary>Customization</summary>
+
+Fluoromachine is a fully customizable colorscheme, you can even create a colorscheme within
+fluoromachine. You can add new colors, add new highlight groups, and update highlight groups.
+
+examples
+
+Changing the colorscheme style.
+
+```lua
+local fm = require 'fluoromachine'
+
+fm.setup {
+    overrides = {
+       ['@type'] = { italic = true, bold = false },
+       ['@function'] = { italic = false, bold = false },
+       ['@comment'] = { italic = true },
+       ['@keyword'] = { italic = false },
+       ['@constant'] = { italic = false, bold = false },
+       ['@variable'] = { italic = true },
+       ['@field'] = { italic = true },
+       ['@parameter'] = { italic = true },
+   }
+}
+
+vim.cmd.colorscheme 'fluoromachine'
+```
+
+Customizing Telescope.
+
+The "callback overrides" function receives "colors", "darken", "lighten", and "blend" as
+parameters. The "darken" function takes two arguments: the color you want to make darker and the
+percentage of darkness. The "lighten" function works the same way as "darken". The "blend" function
+takes three arguments: color, background, and alpha.
+
+```lua
+local fm = require 'fluoromachine'
+
+function overrides(c)
+    return {
+     TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
+     TelescopeResultsNormal = { bg = c.alt_bg },
+     TelescopePreviewNormal = { bg = c.bg },
+     TelescopePromptBorder = { fg = c.alt_bg, bg = c.alt_bg },
+     TelescopeTitle = { fg = c.fg, bg = c.comment },
+     TelescopePromptPrefix = { fg = c.purple },
+    }
 end
 
-fluoromachine:setup {}
-
-vim.cmd 'colorscheme fluoromachine'
-```
-
-## Configuration
-
-```lua
-vim.g.fluoromachine_italic_comments = true
-vim.g.fluoromachine_italic_functions = true
-vim.g.fluoromachine_italic_keywords = false
-vim.g.fluoromachine_italic_variables = false
-```
-
-| option      | default            | description                                        |
-| ----------- | ------------------ | -------------------------------------------------- |
-| transparent | `false`            | enable and disable background transparency         |
-| brightness  | `0.15`             | The value should be a float value from 0 to 1      |
-| glow        | `false`             | Enable and disable the glow effect                 |
-| colors      | `{}` or `function` | You can add new colors or override the default     |
-| highlights  | `{}` or `function` | You can add new highlights or override the default |
-
-## Customization
-
-```lua
-local fluoromachine = require 'fluoromachine'
-
-fluoromachine:setup {
-  config = {
-   transparent = false,
-   brightness = 0.15,
-   glow = true,
-  },
-  colors = {
-    dracula = {
-      green = '#50fa7b'
-    }
-  },
-  highlights = function(colors, darken, lighten, blend)
-    local alpha = fluoromachine.config.brightness
-
-    return {
-      ['@tag'] = { fg = colors.dracula.green, bg = blend(colors.dracula.green, colors.bg, alpha) }
-    }
-  end,
+fm.setup {
+  overrides = overrides
 }
 
-vim.cmd 'colorscheme fluoromachine'
 ```
 
-<p>before</p>
+Customizing colors
 
-![before](https://user-images.githubusercontent.com/50273941/189538463-1e0aee04-585b-4854-addf-b284a85aaa2c.png)
-
-<p>after</p>
-
-![after](https://user-images.githubusercontent.com/50273941/189538457-473fc325-0d53-4eab-bb01-914b985253c2.png)
-
-or
+You can customize colors in the same way you customize highlight groups.
+The color callback function receives the same parameters as overrides.
+The added or customized colors can be used later in overrides.
 
 ```lua
-fluoromachine:setup {
-  config = {
-   transparent = false,
-   brightness = 0.15,
-  },
-  colors = function (colors, _, blend)
-    local green = '#50fa7b'
-    local alpha = fluoromachine.config.brightness
+local fm = require 'fluoromachine'
+
+fm.setup {
+ colors = function (c, _, lighten)
 
     return {
-      dracula = {
-        green = green,
-        green_bg = blend(green, colors.bg, alpha)
-      }
+      bg = lighten(c.bg, 10)
     }
-  end,
-  highlights = function(colors)
-    return {
-      ['@tag'] = { fg = colors.dracula.green, bg = colors.dracula.green_bg }
-    }
-  end,
-}
-```
-
-<p>same result</p>
-
-![after](https://user-images.githubusercontent.com/50273941/189538457-473fc325-0d53-4eab-bb01-914b985253c2.png)
-
-### Customization - Darken Function
-
-Darken hex colors
-
-```lua
-local fluoromachine = require 'fluoromachine'
-
-fluoromachine:setup {
-  config = {
-   transparent = false,
-   brightness = 0.15,
-  },
-  highlights = function(colors, darken)
-    return {
-      DiagnosticVirtualTextError = { fg = colors.danger, bg = darken(colors.error, 30) },
-      DiagnosticVirtualTextWarn = { fg = colors.warning, bg = darken(colors.warn, 30) },
-      DiagnosticVirtualTextInfo = { fg = colors.info, bg = darken(colors.info, 30) },
-      DiagnosticVirtualTextHint = { fg = colors.hint, bg = darken(colors.hint, 30) },
-    }
-  end,
+ end
 }
 
-vim.cmd 'colorscheme fluoromachine'
+vim.cmd.colorscheme 'fluoromachine'
 ```
 
-## [Lualine](https://github.com/nvim-lualine/lualine.nvim)
+</details>
 
-```lua
-local success, lualine = pcall(require, 'lualine')
+<details>
+    <summary>Contribution</summary>
 
-if not success then
-  return
-end
+Pull requests are welcome.\
+To learn more about the colorscheme, please read the [SPECIFICATION.md](https://github.com/maxmx03/FluoroMachine.nvim/blob/retro/SPECIFICATION.md)
 
-lualine.setup {
-  options = {
-    theme = 'fluoromachine'
-  }
-}
-```
+</details>
 
-## Contributing 😳
+## Maintainers
 
-Pull requests are welcome.
+| [![Max](https://github.com/maxmx03.png?size=100)](https://github.com/maxmx03) |
+| ----------------------------------------------------------------------------- |
+| Max Miliano                                                                   |
 
-## Credit & References
+## License
 
-- [synthwave-x-fluoromachine](https://github.com/webrender/synthwave-x-fluoromachine)
-- [synthwave84](https://github.com/LunarVim/synthwave84.nvim)
+[MIT License](./LICENSE)

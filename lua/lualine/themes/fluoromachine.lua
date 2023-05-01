@@ -1,29 +1,32 @@
 local fluoromachine = require 'fluoromachine'
-local chromatic = require 'fluoromachine.chromatic'
-
+local utils = require 'fluoromachine.utils'
 local colors = fluoromachine.colors
-local blend = chromatic.blend
-local darken = chromatic.darken
+local d = utils.darken
 
-local M = {
+if colors == nil then
+  return
+end
+
+return {
   normal = {
-    a = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15), gui = 'bold' },
-    b = { fg = colors.purple, bg = darken(colors.purple, 50) },
-    c = { fg = colors.fg, bg = colors.bg },
-    z = { fg = colors.purple, bg = blend(colors.purple, colors.bg, 0.15) },
+    a = { bg = colors.blended_purple, fg = colors.purple, gui = 'bold' },
+    b = { bg = d(colors.purple, 50), fg = colors.purple },
+    c = { bg = colors.alt_bg, fg = colors.fg },
   },
   insert = {
-    a = { fg = colors.pink, bg = blend(colors.pink, colors.bg, 0.15), gui = 'bold' },
+    a = { bg = colors.blended_yellow, fg = colors.yellow, gui = 'bold' },
+    b = { bg = d(colors.yellow, 50), fg = colors.yellow },
   },
   visual = {
-    a = { fg = colors.blue, bg = blend(colors.blue, colors.bg, 0.15), gui = 'bold' },
+    a = { bg = colors.blended_cyan, fg = colors.cyan, gui = 'bold' },
+    b = { bg = d(colors.cyan, 50), fg = colors.cyan },
   },
   replace = {
-    a = { fg = colors.orange, bg = blend(colors.orange, colors.bg, 0.15), gui = 'bold' },
+    a = { bg = colors.blended_red, fg = colors.red, gui = 'bold' },
+    b = { bg = d(colors.red, 50), fg = colors.red },
   },
   command = {
-    a = { fg = colors.purple, bg = darken(colors.purple, 50), gui = 'bold' },
+    a = { bg = colors.blended_orange, fg = colors.orange, gui = 'bold' },
+    b = { bg = d(colors.orange, 50), fg = colors.orange },
   },
 }
-
-return M

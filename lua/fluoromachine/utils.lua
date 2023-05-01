@@ -1,4 +1,30 @@
-local chromatic = {}
+local M = {}
+
+function M.get_hl(group_name)
+  local group = vim.api.nvim_get_hl(0, { name = group_name, link = false })
+
+  if type(group) == 'table' then
+    return group
+  end
+
+  return nil
+end
+
+function M.update_highlight_groups(groups)
+  if not groups then
+    return
+  end
+
+  for group_name, val in pairs(groups) do
+    local group_val = M.get_hl(group_name)
+
+    if type(group_val) == 'table' then
+      local value = vim.tbl_extend('force', group_val, val)
+
+      vim.api.nvim_set_hl(0, group_name, value)
+    end
+  end
+end
 
 local function hex_to_rgb(hex)
   -- Remove the "#" character if present
@@ -17,7 +43,7 @@ local function rgb_to_hex(red, green, blue)
   return string.format('#%02X%02X%02X', red, green, blue)
 end
 
-function chromatic.darken(color, percent)
+function M.darken(color, percent)
   local r = tonumber(color:sub(2, 3), 16)
   local g = tonumber(color:sub(4, 5), 16)
   local b = tonumber(color:sub(6, 7), 16)
@@ -29,7 +55,7 @@ function chromatic.darken(color, percent)
   return string.format('#%02X%02X%02X', r, g, b)
 end
 
-function chromatic.lighten(color, percent)
+function M.lighten(color, percent)
   local r = tonumber(color:sub(2, 3), 16)
   local g = tonumber(color:sub(4, 5), 16)
   local b = tonumber(color:sub(6, 7), 16)
@@ -41,7 +67,7 @@ function chromatic.lighten(color, percent)
   return string.format('#%02X%02X%02X', r, g, b)
 end
 
-function chromatic.blend(hex_fg, hex_bg, alpha)
+function M.blend(hex_fg, hex_bg, alpha)
   local rgb_bg = hex_to_rgb(hex_bg)
   local rgb_fg = hex_to_rgb(hex_fg)
   local min = math.min
@@ -57,4 +83,4 @@ function chromatic.blend(hex_fg, hex_bg, alpha)
   return rgb_to_hex(blend_channel(1), blend_channel(2), blend_channel(3))
 end
 
-return chromatic
+return M

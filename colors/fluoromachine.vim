@@ -1,5 +1,4 @@
 lua << EOF
-local fluoromachine = require 'fluoromachine'
-
-fluoromachine:setup()
+local fluoromachine = require("fluoromachine")
+fluoromachine.setup({})
 EOF
