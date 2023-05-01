@@ -22,6 +22,8 @@ local colors = {
   info = '#61E2FF',
   hint = '#61E2FF',
   other = '#AF6DF9',
+  blankline = '#57367C',
+  active_blankline = '#7E0C4D',
 }
 
 return colors

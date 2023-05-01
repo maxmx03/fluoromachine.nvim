@@ -27,6 +27,8 @@ warning = '#ff8b39'
 info = '#61E2FF'
 hint = '#61E2FF'
 other = '#AF6DF9'
+blankline = '#57367C'
+active_blankline = '#7E0C4D'
 
 [highlights]
 Normal = 'fg bg'
@@ -529,10 +531,10 @@ NotifyTRACEBody = 'link:NormalFloat'
 '@neorg.links.file' = 'link:@text.uri'
 
 [IndentBlankLine]
-IndentBlanklineChar = 'purple'
-IndentBlanklineContextChar = 'pink'
-IndentBlanklineSpaceChar = 'purple'
-IndentBlanklineContextSpaceChar = 'pink' 
+IndentBlanklineChar = 'blankline'
+IndentBlanklineContextChar = 'active_blankline'
+IndentBlanklineSpaceChar = 'blankline'
+IndentBlanklineContextSpaceChar = 'active_blankline'
 
 [Hop]
 HopNextKey = 'pink - b'
