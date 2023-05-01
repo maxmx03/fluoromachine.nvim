@@ -24,13 +24,19 @@ function M:set_blended_colors()
   local ignore_colors = {
     'fg',
     'bg',
-    'bgdark',
     'alt_bg',
     'currentline',
     'selection',
     'comment',
     'cursor_fg',
     'cursor_bg',
+    'blankline',
+    'active_blankline',
+    'error',
+    'warning',
+    'info',
+    'hint',
+    'other',
   }
 
   for color_name, color_value in pairs(self.colors) do
