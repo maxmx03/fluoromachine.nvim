@@ -149,6 +149,7 @@ vim.cmd.colorscheme 'fluoromachine'
 <details>
     <summary>Lualine</summary>
 
+themes: `fluoromachine` `retrowave`
 ```lua
 local lualine = require 'lualine'
 
