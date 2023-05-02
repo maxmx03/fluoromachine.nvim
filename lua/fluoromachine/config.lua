@@ -91,7 +91,6 @@ function M:set_glow()
       self.colors.bg = '#200933'
       self.colors.alt_bg = utils.darken(self.colors.bg, 10)
     end
-    self:set_blended_colors()
   end
 end
 
@@ -110,6 +109,7 @@ function M:load(user_config)
   self:set_brightness()
   self:set_colors()
   self:set_glow()
+  self:set_blended_colors()
   self:set_theme()
   self:set_user_colors()
 end
