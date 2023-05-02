@@ -2,9 +2,9 @@
 
 > Created with [colorgen](https://github.com/ChristianChiarulli/colorgen-nvim)
 
-Fluoromachine is a fork of the popular Synthwave84 color scheme, which is inspired by the 
-aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluoromachine (Colorscheme) 
-incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of 
+Fluoromachine is a fork of the popular Synthwave84 color scheme, which is inspired by the
+aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluoromachine (Colorscheme)
+incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of
 sci-fi to your coding experience.
 
 ![preview](https://user-images.githubusercontent.com/50273941/235521835-847f5720-4f88-4349-a2e9-2c8fa0dd4590.png)
@@ -44,7 +44,8 @@ return {
 
 | Name        | type           | default value   | Description                                                                              |
 | ----------- | -------------- | --------------- | ---------------------------------------------------------------------------------------- |
-| glow        | boolean        | `false`         | Enable glow                                                                              |
+| glow        | boolean        | `false`         | Enable and disable the glow effect                                                       |
+| brightness  | number         | `0.05`          | The value should be a float value from 0 to 1                                            |
 | theme       | string         | `fluoromachine` | Change the theme of the colorscheme, you can choose between fluoromachine and retrowave  |
 | transparent | boolean/string | `false`         | Change the background to transparent, you can set "full" to make everything transparent. |
 | colors      | table/callback | `{}`            | Add or override to fluoromachine colors                                                  |
@@ -146,10 +147,25 @@ vim.cmd.colorscheme 'fluoromachine'
 </details>
 
 <details>
+    <summary>Lualine</summary>
+
+```lua
+local lualine = require 'lualine'
+
+lualine.setup {
+  options = {
+    theme = 'fluoromachine'
+  }
+}
+```
+
+</details>
+
+<details>
     <summary>Contribution</summary>
 
 Pull requests are welcome.\
-To learn more about the colorscheme, please read the [SPECIFICATION.md](https://github.com/maxmx03/FluoroMachine.nvim/blob/retro/SPECIFICATION.md)
+To learn more about the colorscheme, please read the [SPECIFICATION.md](https://github.com/maxmx03/FluoroMachine.nvim/blob/main/SPECIFICATION.md)
 
 </details>
 
