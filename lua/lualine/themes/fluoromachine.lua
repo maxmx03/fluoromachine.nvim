@@ -1,6 +1,11 @@
+local fluoromachine = require 'fluoromachine'
 local utils = require 'fluoromachine.utils'
-local colors = require 'fluoromachine.palettes'
+local colors = fluoromachine.colors
 local d = utils.darken
+
+if colors == nil then
+  return
+end
 
 return {
   normal = {
