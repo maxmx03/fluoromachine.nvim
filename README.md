@@ -7,7 +7,8 @@ aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluor
 incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of
 sci-fi to your coding experience.
 
-![fluoromachine](https://user-images.githubusercontent.com/50273941/236271899-4ab72c80-e87e-449d-b560-740f7631d38a.png)
+![fluoromachine](https://user-images.githubusercontent.com/50273941/236274078-66913584-0412-4899-944b-35f32e236c96.png)
+
 
 <details>
     <summary>Install</summary>
