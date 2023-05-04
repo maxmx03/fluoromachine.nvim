@@ -539,7 +539,7 @@ IndentBlanklineSpaceChar = 'blankline'
 IndentBlanklineContextSpaceChar = 'active_blankline'
 
 [Hop]
-HopNextKey = 'cyan - b'
+HopNextKey = 'red - b'
 HopNextKey1 = 'cyan - b'
 HopUnmatched = 'comment'
 
