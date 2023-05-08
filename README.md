@@ -9,7 +9,6 @@ sci-fi to your coding experience.
 
 ![fluoromachine](https://user-images.githubusercontent.com/50273941/236274078-66913584-0412-4899-944b-35f32e236c96.png)
 
-
 <details>
     <summary>Install</summary>
 
@@ -134,12 +133,20 @@ The added or customized colors can be used later in overrides.
 local fm = require 'fluoromachine'
 
 fm.setup {
- colors = function (c, _, lighten)
-
+  glow = true,
+  theme = 'retrowave',
+  colors = function(_, d)
     return {
-      bg = lighten(c.bg, 10)
+      bg = '#190920',
+      alt_bg = d('#190920', 20),
+      cyan = '#49eaff',
+      red = '#ff1e34',
+      yellow = '#ffe756',
+      orange = '#f38e21',
+      pink = '#ffadff',
+      purple = '#9544f7',
     }
- end
+  end,
 }
 
 vim.cmd.colorscheme 'fluoromachine'
@@ -151,6 +158,7 @@ vim.cmd.colorscheme 'fluoromachine'
     <summary>Lualine</summary>
 
 themes: `fluoromachine` `retrowave`
+
 ```lua
 local lualine = require 'lualine'
 
