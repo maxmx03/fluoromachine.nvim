@@ -63,7 +63,7 @@ function M:set_user_colors()
   if type(self.user_config.colors) == 'table' then
     self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors)
   elseif type(self.user_config.colors) == 'function' then
-    self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors(self.colors))
+    self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors(self.colors, utils.darken, utils.lighten, utils.blend))
   end
 end
 
@@ -109,9 +109,9 @@ function M:load(user_config)
   self:set_brightness()
   self:set_colors()
   self:set_glow()
+  self:set_user_colors()
   self:set_blended_colors()
   self:set_theme()
-  self:set_user_colors()
 end
 
 return M
