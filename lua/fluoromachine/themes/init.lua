@@ -518,8 +518,11 @@ theme.set_highlights = function(c)
   hl(0, 'LazyButtonActive', { link = 'LazyH1' })
 
   -- BufferLine
-  hl(0, 'BufferLineIndicatorSelected', { fg = c.purple, bg = 'NONE' })
-  hl(0, 'BufferLineSeparator', { fg = c.bg, bg = 'NONE' })
+  hl(0, 'BufferLineSeparator', { fg = c.alt_bg, bg = c.alt_bg })
+  hl(0, 'BufferLineSeparatorSelected', { fg = c.alt_bg, bg = c.bg })
+  hl(0, 'BufferLineBufferSelected', { fg = c.yellow, bg = 'NONE', bold = true })
+  hl(0, 'BufferLineFill', { fg = 'NONE', bg = c.alt_bg })
+  hl(0, 'BufferLineIndicatorSelected', { fg = c.yellow, bg = 'NONE' })
 
   -- SymbolsOutline
   hl(0, 'FocusedSymbol', { fg = c.cyan, bg = 'NONE' })
