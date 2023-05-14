@@ -45,9 +45,9 @@ function M:apply_glow()
   end
 
   local glow_groups = {
-    'Keyword',
-    'Function',
-    'Boolean',
+    '@keyword',
+    '@function',
+    '@boolean',
     '@tag',
     '@constructor',
     '@constructor.tsx',
