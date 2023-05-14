@@ -18,39 +18,6 @@ function M:new()
   return config
 end
 
-function M:set_blended_colors()
-  local b = utils.blend
-  local blended_colors = {}
-  local ignore_colors = {
-    'fg',
-    'bg',
-    'alt_bg',
-    'currentline',
-    'selection',
-    'comment',
-    'cursor_fg',
-    'cursor_bg',
-    'blankline',
-    'active_blankline',
-    'error',
-    'warning',
-    'info',
-    'hint',
-    'other',
-  }
-
-  for color_name, color_value in pairs(self.colors) do
-    if not vim.tbl_contains(ignore_colors, color_name) then
-      local blended_color = b(color_value, self.colors.bg, self.brightness)
-      local blended_name = 'blended_' .. color_name
-
-      blended_colors[blended_name] = blended_color
-    end
-  end
-
-  self.colors = vim.tbl_extend('keep', self.colors, blended_colors)
-end
-
 function M:set_colors()
   if self.user_config.theme ~= 'retrowave' then
     self.colors = require 'fluoromachine.palettes'
@@ -110,7 +77,6 @@ function M:load(user_config)
   self:set_colors()
   self:set_glow()
   self:set_user_colors()
-  self:set_blended_colors()
   self:set_theme()
 end
 

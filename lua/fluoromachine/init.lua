@@ -36,28 +36,33 @@ function M:apply_glow()
     return
   end
 
-  if self.user_config.theme ~= 'retrowave' then
-    groups = {
-      LineNr = { fg = utils.darken(self.colors.purple, 50) },
-      CursorLineNr = { fg = self.colors.purple, bold = true },
-      Keyword = { bg = self.colors.blended_pink, bold = true },
-      Function = { bg = self.colors.blended_yellow, bold = true },
-      ['@tag'] = { bg = self.colors.blended_yellow, bold = true },
-      ['@constructor'] = { bg = self.colors.blended_pink, bold = true },
-      ['@constructor.tsx'] = { bg = self.colors.blended_purple, bold = true },
-      ['@constructor.javascript'] = { bg = self.colors.blended_purple, bold = true },
-    }
+  if self.user_config.theme == 'retrowave' then
+    groups.LineNr = { fg = utils.darken(self.colors.cyan, 50) }
+    groups.CursorLineNr = { fg = self.colors.cyan, bold = true }
   else
-    groups = {
-      LineNr = { fg = utils.darken(self.colors.cyan, 50) },
-      CursorLineNr = { fg = self.colors.cyan, bold = true },
-      Keyword = { bg = self.colors.blended_green, bold = true },
-      Function = { bg = self.colors.blended_yellow, bold = true },
-      ['@tag'] = { bg = self.colors.blended_green, bold = true },
-      ['@constructor'] = { bg = self.colors.blended_yellow, bold = true },
-      ['@constructor.tsx'] = { bg = self.colors.blended_green, bold = true },
-      ['@constructor.javascript'] = { bg = self.colors.blended_green, bold = true },
-    }
+    groups.LineNr = { fg = utils.darken(self.colors.purple, 50) }
+    groups.CursorLineNr = { fg = self.colors.purple, bold = true }
+  end
+
+  local glow_groups = {
+    'Keyword',
+    'Function',
+    'Boolean',
+    '@tag',
+    '@constructor',
+    '@constructor.tsx',
+    '@constructor.javascript',
+  }
+
+  for _, name in pairs(glow_groups) do
+    local hl_group = utils.get_hl(name)
+
+    if hl_group and hl_group.fg then
+      local fg = utils.decimal_to_hash(hl_group.fg)
+      local bg = utils.blend(fg, self.colors.bg, self.brightness)
+
+      groups[name] = { bg = bg, bold = true }
+    end
   end
 
   return groups
@@ -84,8 +89,8 @@ M.setup = function(user_config)
     M.user_config.overrides = M.user_config.overrides(M.colors, utils.darken, utils.lighten, utils.blend)
   end
 
-  utils.update_highlight_groups(M:apply_glow())
   utils.update_highlight_groups(M.user_config.overrides)
+  utils.update_highlight_groups(M:apply_glow())
   utils.update_highlight_groups(M:apply_transparency())
 end
 

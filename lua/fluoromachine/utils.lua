@@ -1,5 +1,12 @@
 local M = {}
 
+function M.decimal_to_hash(decimal_value)
+  local hex_value = string.format('%x', decimal_value)
+  hex_value = string.format('%06s', hex_value)
+
+  return hex_value
+end
+
 function M.get_hl(group_name)
   local group = vim.api.nvim_get_hl(0, { name = group_name, link = false })
 
