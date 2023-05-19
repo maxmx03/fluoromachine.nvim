@@ -4,7 +4,7 @@ local colors = fluoromachine.colors
 local d = utils.darken
 
 if colors == nil then
-  return
+  colors = require("fluoromachine.palettes")
 end
 
 return {
