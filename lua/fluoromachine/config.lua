@@ -20,11 +20,11 @@ end
 
 function M:set_colors()
   if self.user_config.theme == 'retrowave' then
-    self.theme = require 'fluoromachine.palettes.retrowave'
+    self.colors = require 'fluoromachine.palettes.retrowave'
   elseif self.user_config.theme == 'delta' then
-    self.theme = require 'fluoromachine.palettes.delta'
+    self.colors = require 'fluoromachine.palettes.delta'
   else
-    self.theme = require 'fluoromachine.palettes'
+    self.colors = require 'fluoromachine.palettes'
   end
 end
 
