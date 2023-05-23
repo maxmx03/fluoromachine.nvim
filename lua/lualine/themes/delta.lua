@@ -17,7 +17,7 @@ return {
     a = { bg = colors.green, fg = d(colors.green, 50), gui = 'bold' },
   },
   visual = {
-    a = { bg = colors.selection, fg = d(colors.selection, 50), gui = 'bold' },
+    a = { bg = colors.purple, fg = d(colors.selection, 50), gui = 'bold' },
   },
   replace = {
     a = { bg = colors.red, fg = d(colors.red, 50), gui = 'bold' },
