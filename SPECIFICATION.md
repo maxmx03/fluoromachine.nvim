@@ -60,29 +60,29 @@
 
 ### Delta
 
-| Highlight               | Color      | Treesitter                                 |
-| ----------------------- | ---------- | ------------------------------------------ |
-| string                  | purple     | @string                                    |
-| text                    | foreground | @text                                      |
-| variable                | foreground | @variable                                  |
-| constant                | red        | @constant                                  |
-| boolean                 | cyan       | @boolean                                   |
-| number                  | cyan       | @number                                    |
-| float                   | cyan       | @float                                     |
-| function                | yellow     | @function                                  |
-| method                  | yellow     | @method                                    |
-| decorators              | yellow     | @attribute                                 |
-| params                  | orange     | @parameter                                 |
-| Class                   | green      | @type                                      |
-| Type                    | pink       | @type.builtin                              |
-| this                    | red        | @variable.builtin                          |
-| Object & fields         | green      | @field & @property                         |
-| constructor             | pink       | @constructor                               |
-| keywords                | green      | @keyword                                   |
-| namespace               | cyan       | @namespace                                 |
-| operator                | pink       | @operator                                  |
-| punctuation & delimiter | foreground | @punctuation.delimiter                     |
-| brackets                | foreground | @punctuation.bracket                       |
-| html tag                | pink       | @tag                                       |
-| html tag attribute      | green      | @tag.attribute                             |
-| html tag delimiter      | foreground | @tag.delimiter                             |
+| Highlight               | Color      | Treesitter             |
+| ----------------------- | ---------- | ---------------------- |
+| string                  | purple     | @string                |
+| text                    | foreground | @text                  |
+| variable                | foreground | @variable              |
+| constant                | red        | @constant              |
+| boolean                 | cyan       | @boolean               |
+| number                  | cyan       | @number                |
+| float                   | cyan       | @float                 |
+| function                | yellow     | @function              |
+| method                  | yellow     | @method                |
+| decorators              | yellow     | @attribute             |
+| params                  | orange     | @parameter             |
+| Class                   | green      | @type                  |
+| Type                    | pink       | @type.builtin          |
+| this                    | red        | @variable.builtin      |
+| Object & fields         | foreground | @field & @property     |
+| constructor             | pink       | @constructor           |
+| keywords                | green      | @keyword               |
+| namespace               | cyan       | @namespace             |
+| operator                | pink       | @operator              |
+| punctuation & delimiter | foreground | @punctuation.delimiter |
+| brackets                | foreground | @punctuation.bracket   |
+| html tag                | pink       | @tag                   |
+| html tag attribute      | green      | @tag.attribute         |
+| html tag delimiter      | foreground | @tag.delimiter         |
