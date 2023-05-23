@@ -162,9 +162,9 @@ theme.set_highlights = function(c)
   hl(0, '@text.danger', { link = 'ErrorMsg' })
   hl(0, '@text.diff.add', { link = 'DiffAdd' })
   hl(0, '@text.diff.delete', { link = 'DiffDelete' })
-  hl(0, '@tag', { fg = c.green, bg = 'NONE' })
+  hl(0, '@tag', { fg = c.pink, bg = 'NONE' })
   hl(0, '@tag.attribute', { link = '@field' })
-  hl(0, '@tag.delimiter', { fg = c.cyan, bg = 'NONE' })
+  hl(0, '@tag.delimiter', { fg = c.fg, bg = 'NONE' })
 
   -- Semantic
   hl(0, '@lsp.type.namespace', { link = '@namespace' })
@@ -316,10 +316,10 @@ theme.set_highlights = function(c)
   hl(0, 'SagaWinbarSep', { fg = c.cyan, bg = 'NONE' })
 
   -- Telescope
-  hl(0, 'TelescopeTitle', { fg = c.cyan, bg = 'NONE' })
+  hl(0, 'TelescopeTitle', { fg = c.green, bg = 'NONE', reverse = true })
   hl(0, 'TelescopeNormal', { link = 'NormalFloat' })
   hl(0, 'TelescopeSelection', { fg = c.fg, bg = c.selection })
-  hl(0, 'TelescopeSelectionCaret', { fg = c.cyan, bg = c.selection })
+  hl(0, 'TelescopeSelectionCaret', { fg = c.pink, bg = c.selection })
   hl(0, 'TelescopeMatching', { link = 'IncSearch' })
   hl(0, 'TelescopeBorder', { link = 'WinSeparator' })
 
@@ -508,17 +508,6 @@ theme.set_highlights = function(c)
   hl(0, 'HopNextKey', { fg = c.red, bg = 'NONE', bold = true })
   hl(0, 'HopNextKey1', { fg = c.cyan, bg = 'NONE', bold = true })
   hl(0, 'HopUnmatched', { fg = c.comment, bg = 'NONE' })
-
-  -- Lazy
-  hl(0, 'LazyH1', { link = 'Title' })
-  hl(0, 'LazyButtonActive', { link = 'LazyH1' })
-
-  -- BufferLine
-  hl(0, 'BufferLineSeparator', { fg = c.alt_bg, bg = c.alt_bg })
-  hl(0, 'BufferLineSeparatorSelected', { fg = c.alt_bg, bg = c.bg })
-  hl(0, 'BufferLineBufferSelected', { fg = c.fg, bg = 'NONE', bold = true })
-  hl(0, 'BufferLineFill', { fg = 'NONE', bg = c.alt_bg })
-  hl(0, 'BufferLineIndicatorSelected', { fg = c.fg, bg = 'NONE' })
 
   -- SymbolsOutline
   hl(0, 'FocusedSymbol', { fg = c.cyan, bg = 'NONE' })

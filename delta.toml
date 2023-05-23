@@ -190,9 +190,9 @@ TabLineFill = '- bg'
 '@text.danger' = 'link:ErrorMsg'
 '@text.diff.add' = 'link:DiffAdd'
 '@text.diff.delete' = 'link:DiffDelete'
-'@tag' = 'green'
+'@tag' = 'pink'
 '@tag.attribute' = 'link:@field'
-'@tag.delimiter' = 'cyan'
+'@tag.delimiter' = 'fg'
 
 [Semantic]
 '@lsp.type.namespace' = 'link:@namespace'
@@ -344,10 +344,10 @@ SagaWinbarFileIcon = 'link:Directory'
 SagaWinbarSep = 'cyan'
 
 [Telescope]
-TelescopeTitle = 'cyan'
+TelescopeTitle = 'green - r'
 TelescopeNormal = 'link:NormalFloat'
 TelescopeSelection = 'fg selection'
-TelescopeSelectionCaret = 'cyan selection'
+TelescopeSelectionCaret = 'pink selection'
 TelescopeMatching = 'link:IncSearch'
 TelescopeBorder = 'link:WinSeparator'
 
@@ -536,17 +536,6 @@ IndentBlanklineContextSpaceChar = 'active_blankline'
 HopNextKey = 'red - b'
 HopNextKey1 = 'cyan - b'
 HopUnmatched = 'comment'
-
-[Lazy]
-LazyH1 = 'link:Title'
-LazyButtonActive = 'link:LazyH1'
-
-[BufferLine]
-BufferLineSeparator = 'alt_bg alt_bg'
-BufferLineSeparatorSelected = 'alt_bg bg'
-BufferLineBufferSelected = 'fg - b'
-BufferLineFill = '- alt_bg'
-BufferLineIndicatorSelected = 'fg'
 
 [SymbolsOutline]
 FocusedSymbol = 'cyan'
