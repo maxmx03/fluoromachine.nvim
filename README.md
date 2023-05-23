@@ -46,7 +46,7 @@ return {
 | ----------- | -------------- | --------------- | ---------------------------------------------------------------------------------------- |
 | glow        | boolean        | `false`         | Enable and disable the glow effect                                                       |
 | brightness  | number         | `0.05`          | The value should be a float value from 0 to 1                                            |
-| theme       | string         | `fluoromachine` | Change the theme of the colorscheme, you can choose between fluoromachine and retrowave  |
+| theme       | string         | `fluoromachine` | Change the theme of the colorscheme, you can choose: fluoromachine, retrowave, delta     |
 | transparent | boolean/string | `false`         | Change the background to transparent, you can set "full" to make everything transparent. |
 | colors      | table/callback | `{}`            | Add or override to fluoromachine colors                                                  |
 | overrides   | table/callback | `{}`            | Update or add new highlight groups.                                                      |
@@ -157,7 +157,7 @@ vim.cmd.colorscheme 'fluoromachine'
 <details>
     <summary>Lualine</summary>
 
-themes: `fluoromachine` `retrowave`
+themes: `fluoromachine` `retrowave` `delta`
 
 ```lua
 local lualine = require 'lualine'

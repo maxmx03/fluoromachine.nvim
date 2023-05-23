@@ -19,10 +19,12 @@ function M:new()
 end
 
 function M:set_colors()
-  if self.user_config.theme ~= 'retrowave' then
-    self.colors = require 'fluoromachine.palettes'
+  if self.user_config.theme == 'retrowave' then
+    self.theme = require 'fluoromachine.palettes.retrowave'
+  elseif self.user_config.theme == 'delta' then
+    self.theme = require 'fluoromachine.palettes.delta'
   else
-    self.colors = require 'fluoromachine.palettes.retrowave'
+    self.theme = require 'fluoromachine.palettes'
   end
 end
 
@@ -30,15 +32,21 @@ function M:set_user_colors()
   if type(self.user_config.colors) == 'table' then
     self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors)
   elseif type(self.user_config.colors) == 'function' then
-    self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors(self.colors, utils.darken, utils.lighten, utils.blend))
+    self.colors = vim.tbl_extend(
+      'force',
+      self.colors,
+      self.user_config.colors(self.colors, utils.darken, utils.lighten, utils.blend)
+    )
   end
 end
 
 function M:set_theme()
-  if self.user_config.theme ~= 'retrowave' then
-    self.theme = require 'fluoromachine.themes'
-  else
+  if self.user_config.theme == 'retrowave' then
     self.theme = require 'fluoromachine.themes.retrowave'
+  elseif self.user_config.theme == 'delta' then
+    self.theme = require 'fluoromachine.themes.delta'
+  else
+    self.theme = require 'fluoromachine.themes'
   end
 end
 
@@ -54,7 +62,7 @@ function M:set_glow()
   end
 
   if self.glow then
-    if self.user_config.theme ~= 'retrowave' then
+    if self.user_config.theme == 'fluoromachine' and not self.user_config.theme then
       self.colors.bg = '#200933'
       self.colors.alt_bg = utils.darken(self.colors.bg, 10)
     end
