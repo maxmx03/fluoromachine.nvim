@@ -62,7 +62,7 @@ function M:set_glow()
   end
 
   if self.glow then
-    if self.user_config.theme == 'fluoromachine' and not self.user_config.theme then
+    if self.user_config.theme == 'fluoromachine' or not self.user_config.theme then
       self.colors.bg = '#200933'
       self.colors.alt_bg = utils.darken(self.colors.bg, 10)
     end
