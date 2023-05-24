@@ -1,4 +1,7 @@
-# Fluoromachine for [Neovim](https://neovim.io)
+<div align="center">
+  <img src="https://github.com/maxmx03/fluoromachine.nvim/assets/50273941/d26acf04-13e0-433e-8820-49eddcd8f887" height="250" width="250" />
+    <h1>Fluoromachine</h1>
+</div>
 
 > Created with [colorgen](https://github.com/ChristianChiarulli/colorgen-nvim)
 
@@ -7,7 +10,7 @@ aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluor
 incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of
 sci-fi to your coding experience.
 
-![fluoromachine](https://user-images.githubusercontent.com/50273941/236274078-66913584-0412-4899-944b-35f32e236c96.png)
+![fluoromachine](https://github.com/maxmx03/fluoromachine.nvim/assets/50273941/b530eb2d-d2f7-4096-8be0-da0b0a67714f)
 
 <details>
     <summary>Install</summary>
