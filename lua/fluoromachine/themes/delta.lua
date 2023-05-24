@@ -520,11 +520,11 @@ theme.set_highlights = function(c)
   hl(0, 'MiniCompletionActiveParameter', { link = '@paramter' })
 
   -- MiniJump
-  hl(0, 'MiniJump2dSpot', { fg = c.cyan, bg = 'NONE' })
+  hl(0, 'MiniJump2dSpot', { fg = c.green, bg = 'NONE' })
   hl(0, 'MiniJump2dSpotUnique', { fg = c.purple, bg = 'NONE' })
 
   -- MiniIndent
-  hl(0, 'MiniIndentscopeSymbol', { fg = c.cyan, bg = 'NONE' })
+  hl(0, 'MiniIndentscopeSymbol', { fg = c.green, bg = 'NONE' })
   hl(0, 'MiniIndentscopeSymbolOff', { fg = 'NONE', bg = 'NONE' })
 
   -- MiniMap
@@ -534,11 +534,11 @@ theme.set_highlights = function(c)
   hl(0, 'MiniMapSymbolView', { fg = c.alt_bg, bg = 'NONE' })
 
   -- MiniStatusLine
-  hl(0, 'MiniStatuslineModeNormal', { fg = c.bg, bg = c.purple })
+  hl(0, 'MiniStatuslineModeNormal', { fg = c.bg, bg = c.pink })
   hl(0, 'MiniStatuslineModeInsert', { fg = c.bg, bg = c.green })
-  hl(0, 'MiniStatuslineModeVisual', { fg = c.bg, bg = c.yellow })
+  hl(0, 'MiniStatuslineModeVisual', { fg = c.bg, bg = c.purple })
   hl(0, 'MiniStatuslineModeReplace', { fg = c.bg, bg = c.red })
-  hl(0, 'MiniStatuslineModeCommand', { fg = c.purple, bg = 'NONE' })
+  hl(0, 'MiniStatuslineModeCommand', { fg = c.orange, bg = 'NONE' })
   hl(0, 'MiniStatuslineDevinfo', { fg = c.fg, bg = c.comment })
   hl(0, 'MiniStatuslineFileinfo', { fg = c.fg, bg = c.comment })
 

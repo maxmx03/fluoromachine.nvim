@@ -320,7 +320,7 @@ theme.set_highlights = function(c)
   hl(0, 'SagaWinbarSep', { fg = c.pink, bg = 'NONE' })
 
   -- Telescope
-  hl(0, 'TelescopeTitle', { fg = c.cyan, bg = 'NONE' })
+  hl(0, 'TelescopeTitle', { fg = c.yellow, bg = 'NONE', reverse = true })
   hl(0, 'TelescopeNormal', { link = 'NormalFloat' })
   hl(0, 'TelescopeSelection', { fg = c.fg, bg = c.selection })
   hl(0, 'TelescopeSelectionCaret', { fg = c.pink, bg = c.selection })
@@ -512,17 +512,6 @@ theme.set_highlights = function(c)
   hl(0, 'HopNextKey', { fg = c.pink, bg = 'NONE', bold = true })
   hl(0, 'HopNextKey1', { fg = c.cyan, bg = 'NONE', bold = true })
   hl(0, 'HopUnmatched', { fg = c.comment, bg = 'NONE' })
-
-  -- Lazy
-  hl(0, 'LazyH1', { fg = c.purple, bg = 'NONE' })
-  hl(0, 'LazyButtonActive', { link = 'LazyH1' })
-
-  -- BufferLine
-  hl(0, 'BufferLineSeparator', { fg = c.alt_bg, bg = c.alt_bg })
-  hl(0, 'BufferLineSeparatorSelected', { fg = c.alt_bg, bg = c.bg })
-  hl(0, 'BufferLineBufferSelected', { fg = c.yellow, bg = 'NONE', bold = true })
-  hl(0, 'BufferLineFill', { fg = 'NONE', bg = c.alt_bg })
-  hl(0, 'BufferLineIndicatorSelected', { fg = c.yellow, bg = 'NONE' })
 
   -- SymbolsOutline
   hl(0, 'FocusedSymbol', { fg = c.cyan, bg = 'NONE' })

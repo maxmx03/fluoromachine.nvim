@@ -548,11 +548,11 @@ MiniCursorword = '- selection'
 MiniCompletionActiveParameter = 'link:@paramter'
 
 [MiniJump]
-MiniJump2dSpot = 'cyan'
+MiniJump2dSpot = 'green'
 MiniJump2dSpotUnique = 'purple'
 
 [MiniIndent]
-MiniIndentscopeSymbol = 'cyan'
+MiniIndentscopeSymbol = 'green'
 MiniIndentscopeSymbolOff = '- -'
 
 [MiniMap]
@@ -562,11 +562,11 @@ MiniMapSymbolLine = 'cyan'
 MiniMapSymbolView = 'alt_bg'
 
 [MiniStatusLine]
-MiniStatuslineModeNormal = 'bg purple'
+MiniStatuslineModeNormal = 'bg pink'
 MiniStatuslineModeInsert = 'bg green'
-MiniStatuslineModeVisual = 'bg yellow'
+MiniStatuslineModeVisual = 'bg purple'
 MiniStatuslineModeReplace = 'bg red'
-MiniStatuslineModeCommand = 'purple'
+MiniStatuslineModeCommand = 'orange'
 MiniStatuslineDevinfo = 'fg comment'
 MiniStatuslineFileinfo = 'fg comment'
 

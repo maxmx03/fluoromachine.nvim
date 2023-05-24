@@ -10,7 +10,7 @@ end
 return {
   normal = {
     a = { bg = colors.pink, fg = d(colors.pink, 50), gui = 'bold' },
-    b = { bg = colors.comment, fg = colors.fg },
+    b = { bg = colors.fg, fg = colors.bg },
     c = { bg = colors.alt_bg, fg = colors.fg },
   },
   insert = {

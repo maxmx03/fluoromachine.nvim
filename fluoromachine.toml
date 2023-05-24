@@ -348,7 +348,7 @@ SagaWinbarFileIcon = 'link:Directory'
 SagaWinbarSep = 'pink'
 
 [Telescope]
-TelescopeTitle = 'cyan'
+TelescopeTitle = 'yellow - r'
 TelescopeNormal = 'link:NormalFloat'
 TelescopeSelection = 'fg selection'
 TelescopeSelectionCaret = 'pink selection'
@@ -540,17 +540,6 @@ IndentBlanklineContextSpaceChar = 'active_blankline'
 HopNextKey = 'pink - b'
 HopNextKey1 = 'cyan - b'
 HopUnmatched = 'comment'
-
-[Lazy]
-LazyH1 = 'purple'
-LazyButtonActive = 'link:LazyH1'
-
-[BufferLine]
-BufferLineSeparator = 'alt_bg alt_bg'
-BufferLineSeparatorSelected = 'alt_bg bg'
-BufferLineBufferSelected = 'yellow - b'
-BufferLineFill = '- alt_bg'
-BufferLineIndicatorSelected = 'yellow'
 
 [SymbolsOutline]
 FocusedSymbol = 'cyan'
