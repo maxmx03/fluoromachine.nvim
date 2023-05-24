@@ -36,10 +36,7 @@ function M:apply_glow()
     return
   end
 
-  if self.user_config.theme == 'retrowave' then
-    groups.LineNr = { fg = utils.darken(self.colors.cyan, 50) }
-    groups.CursorLineNr = { fg = self.colors.cyan, bold = true }
-  else
+  if self.user_config.theme == "fluoromachine" or not self.user_config.theme then
     groups.LineNr = { fg = utils.darken(self.colors.purple, 50) }
     groups.CursorLineNr = { fg = self.colors.purple, bold = true }
   end

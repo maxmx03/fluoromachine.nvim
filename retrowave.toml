@@ -350,7 +350,7 @@ SagaWinbarFileIcon = 'link:Directory'
 SagaWinbarSep = 'cyan'
 
 [Telescope]
-TelescopeTitle = 'cyan'
+TelescopeTitle = 'cyan - r'
 TelescopeNormal = 'link:NormalFloat'
 TelescopeSelection = 'fg selection'
 TelescopeSelectionCaret = 'cyan selection'
@@ -543,17 +543,6 @@ HopNextKey = 'red - b'
 HopNextKey1 = 'cyan - b'
 HopUnmatched = 'comment'
 
-[Lazy]
-LazyH1 = 'purple'
-LazyButtonActive = 'link:LazyH1'
-
-[BufferLine]
-BufferLineSeparator = 'alt_bg alt_bg'
-BufferLineSeparatorSelected = 'alt_bg bg'
-BufferLineBufferSelected = 'cyan - b'
-BufferLineFill = '- alt_bg'
-BufferLineIndicatorSelected = 'cyan'
-
 [SymbolsOutline]
 FocusedSymbol = 'cyan'
 SymbolsOutlineConnector = 'comment'
@@ -579,11 +568,11 @@ MiniMapSymbolLine = 'cyan'
 MiniMapSymbolView = 'alt_bg'
 
 [MiniStatusLine]
-MiniStatuslineModeNormal = 'bg purple'
+MiniStatuslineModeNormal = 'bg cyan'
 MiniStatuslineModeInsert = 'bg green'
-MiniStatuslineModeVisual = 'bg yellow'
+MiniStatuslineModeVisual = 'bg purple'
 MiniStatuslineModeReplace = 'bg red'
-MiniStatuslineModeCommand = 'purple'
+MiniStatuslineModeCommand = 'orange'
 MiniStatuslineDevinfo = 'fg comment'
 MiniStatuslineFileinfo = 'fg comment'
 

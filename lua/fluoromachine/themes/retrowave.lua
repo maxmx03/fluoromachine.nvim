@@ -322,7 +322,7 @@ theme.set_highlights = function(c)
   hl(0, 'SagaWinbarSep', { fg = c.cyan, bg = 'NONE' })
 
   -- Telescope
-  hl(0, 'TelescopeTitle', { fg = c.cyan, bg = 'NONE' })
+  hl(0, 'TelescopeTitle', { fg = c.cyan, bg = 'NONE', reverse = true })
   hl(0, 'TelescopeNormal', { link = 'NormalFloat' })
   hl(0, 'TelescopeSelection', { fg = c.fg, bg = c.selection })
   hl(0, 'TelescopeSelectionCaret', { fg = c.cyan, bg = c.selection })
@@ -515,17 +515,6 @@ theme.set_highlights = function(c)
   hl(0, 'HopNextKey1', { fg = c.cyan, bg = 'NONE', bold = true })
   hl(0, 'HopUnmatched', { fg = c.comment, bg = 'NONE' })
 
-  -- Lazy
-  hl(0, 'LazyH1', { fg = c.purple, bg = 'NONE' })
-  hl(0, 'LazyButtonActive', { link = 'LazyH1' })
-
-  -- BufferLine
-  hl(0, 'BufferLineSeparator', { fg = c.alt_bg, bg = c.alt_bg })
-  hl(0, 'BufferLineSeparatorSelected', { fg = c.alt_bg, bg = c.bg })
-  hl(0, 'BufferLineBufferSelected', { fg = c.cyan, bg = 'NONE', bold = true })
-  hl(0, 'BufferLineFill', { fg = 'NONE', bg = c.alt_bg })
-  hl(0, 'BufferLineIndicatorSelected', { fg = c.cyan, bg = 'NONE' })
-
   -- SymbolsOutline
   hl(0, 'FocusedSymbol', { fg = c.cyan, bg = 'NONE' })
   hl(0, 'SymbolsOutlineConnector', { fg = c.comment, bg = 'NONE' })
@@ -551,11 +540,11 @@ theme.set_highlights = function(c)
   hl(0, 'MiniMapSymbolView', { fg = c.alt_bg, bg = 'NONE' })
 
   -- MiniStatusLine
-  hl(0, 'MiniStatuslineModeNormal', { fg = c.bg, bg = c.purple })
+  hl(0, 'MiniStatuslineModeNormal', { fg = c.bg, bg = c.cyan })
   hl(0, 'MiniStatuslineModeInsert', { fg = c.bg, bg = c.green })
-  hl(0, 'MiniStatuslineModeVisual', { fg = c.bg, bg = c.yellow })
+  hl(0, 'MiniStatuslineModeVisual', { fg = c.bg, bg = c.purple })
   hl(0, 'MiniStatuslineModeReplace', { fg = c.bg, bg = c.red })
-  hl(0, 'MiniStatuslineModeCommand', { fg = c.purple, bg = 'NONE' })
+  hl(0, 'MiniStatuslineModeCommand', { fg = c.orange, bg = 'NONE' })
   hl(0, 'MiniStatuslineDevinfo', { fg = c.fg, bg = c.comment })
   hl(0, 'MiniStatuslineFileinfo', { fg = c.fg, bg = c.comment })
 
