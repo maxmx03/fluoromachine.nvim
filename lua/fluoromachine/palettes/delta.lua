@@ -24,7 +24,7 @@ local colors = {
   other = '#D598FF',
   blankline = '#492949',
   active_blankline = '#607F4C',
-  inlay_hint = '#607F4C',
+  inlay_hint = '#99CC79',
 }
 
 return colors

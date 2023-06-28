@@ -29,7 +29,7 @@ hint = '#C0FF98'
 other = '#D598FF'
 blankline = '#492949'
 active_blankline = '#607F4C'
-inlay_hint = '#607F4C'
+inlay_hint = '#99CC79'
 
 [highlights]
 Normal = 'fg bg'
