@@ -4,7 +4,13 @@ local colors = require('fluoromachine.palette').get_colors()
 
 describe('Fluoromachine', function()
   setup(function()
-    require('fluoromachine').setup({ glow = true, transparent = true })
+    require('fluoromachine').setup({
+      glow = true,
+      transparent = true,
+      overrides = {
+        Directory = { fg = '#ffffff' },
+      },
+    })
     vim.cmd.colorscheme('fluoromachine')
   end)
 
@@ -18,6 +24,12 @@ describe('Fluoromachine', function()
     local output = nvim_get_hl('Function')
     assert.equal(colors.yellow, output.fg)
     assert.equal(expect, output.bg)
+  end)
+
+  test('overrides', function()
+    local output = nvim_get_hl('Directory')
+    local expected = ('#ffffff'):upper()
+    assert.equal(expected, output.fg)
   end)
 
   test('editor highlight', function()

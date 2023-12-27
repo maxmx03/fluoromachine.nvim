@@ -31,7 +31,7 @@ function M.load(colors, config)
     fnc = function()
       M.overrides(config.overrides(colors, colorhelper))
     end,
-  }, config.highlights)
+  }, config.overrides)
 end
 
 return M
