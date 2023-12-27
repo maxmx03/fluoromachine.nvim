@@ -13,7 +13,7 @@ local function editor(c, config)
   hl('lCursor', { link = 'Cursor' }) -- character under the cursor
   hl('CursorIM', { link = 'Cursor' }) -- like cursor, but IME mode
   hl('CursorColumn', { link = 'ColorColumn' }) -- screen-column at the cursor
-  hl('CursorLine', { fg = c.editor.currentline }) -- screen-line at the cursor
+  hl('CursorLine', { bg = c.editor.currentline }) -- screen-line at the cursor
   hl('Directory', { fg = c.yellow }) -- directory names
   hl('DiffAdd', { fg = c.git.add }) -- Added line
   hl('DiffChange', { fg = c.git.change }) -- Changed line
@@ -35,7 +35,7 @@ local function editor(c, config)
   hl('Substitute', { link = 'IncSearch' }) -- :substitute replacement text highlight
   hl(
     'LineNr',
-    { fg = c.comment, bg = c.editor.selection },
+    { fg = c.comment, bg = c.bg },
     { transparent = config.transparent }
   ) -- Line number for ":number" and ":#" commands
   hl('LineNrAbove', { link = 'LineNr' }) -- Line number, above the cursor line
