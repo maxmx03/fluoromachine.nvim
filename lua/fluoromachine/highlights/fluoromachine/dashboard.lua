@@ -16,7 +16,7 @@ local function dashboard(c)
   hl('DashboardShotCutIcon', { fg = c.purple })
 
   -- Doom theme
-  hl('DashboardDesc', { fg = c.fg })
+  hl('DashboardDesc', { link = 'Directory' })
   hl('DashboardKey', { fg = c.purple })
   hl('DashboardIcon', { link = 'Directory' })
   hl('DashboardShotCut', { fg = c.fg })

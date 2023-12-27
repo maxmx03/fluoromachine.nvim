@@ -6,7 +6,7 @@ function M.get_colors()
     fluoromachine = {
       fg = '#8BA7A7',
       bg = '#262335',
-      bgdark = '#241b2f',
+      bgdark = '#241B2F',
       cyan = '#61E2FF',
       green = '#72F1B8',
       orange = '#FF8B39',

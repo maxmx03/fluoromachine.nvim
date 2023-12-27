@@ -4,7 +4,7 @@ local function syntax(c, config)
   hl('Comment', { fg = c.comment }, { styles = config.styles.comments }) -- any comment
   hl(
     'Constant',
-    { fg = c.purple },
+    { fg = c.cyan },
     { styles = config.styles.constants, glow = config.glow }
   ) -- any constant
   hl('String', { fg = c.purple }) -- a string constant: "this is a string"
