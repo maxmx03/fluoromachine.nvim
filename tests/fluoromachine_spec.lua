@@ -108,4 +108,10 @@ describe('Fluoromachine', function()
     local expect = 'Visual'
     assert.equal(expect, output.link)
   end)
+
+  test('Saga highlight', function()
+    local output = nvim_get_hl('SagaNormal')
+    local expect = 'Pmenu'
+    assert.equal(expect, output.link)
+  end)
 end)

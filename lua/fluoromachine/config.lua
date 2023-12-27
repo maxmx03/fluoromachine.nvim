@@ -36,6 +36,7 @@ function M.default_config()
       illuminate = true,
       indentblankline = true,
       lsp = true,
+      saga = true,
       semantic = true,
       syntax = true,
       treesitter = true,
