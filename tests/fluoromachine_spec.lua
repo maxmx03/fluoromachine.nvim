@@ -67,7 +67,7 @@ describe('Fluoromachine', function()
   test('bufferline highlight', function()
     local output = nvim_get_hl('BufferLineFill')
     local darken = require('fluoromachine.utils.colors').darken
-    local expect = darken(colors.bg, 25):upper()
+    local expect = darken('#200933', 25):upper()
     assert.equal(expect, output.bg)
   end)
 

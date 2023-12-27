@@ -39,6 +39,7 @@ function M.default_config()
       saga = true,
       semantic = true,
       syntax = true,
+      navic = true,
       treesitter = true,
     },
   }
