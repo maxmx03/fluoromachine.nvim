@@ -35,6 +35,7 @@ function M.default_config()
       hop = true,
       illuminate = true,
       indentblankline = true,
+      nvchad = true,
       semantic = true,
       syntax = true,
       treesitter = true,
