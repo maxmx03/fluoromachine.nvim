@@ -7,9 +7,14 @@ describe('Fluoromachine', function()
     require('fluoromachine').setup({
       glow = true,
       transparent = true,
-      overrides = {
-        Directory = { fg = '#ffffff' },
+      colors = {
+        bglight = '#ffffff',
       },
+      overrides = function(c)
+        return {
+          Directory = { fg = c.red },
+        }
+      end,
     })
     vim.cmd.colorscheme('fluoromachine')
   end)
@@ -18,7 +23,7 @@ describe('Fluoromachine', function()
     assert.equal('fluoromachine', vim.g.colors_name)
   end)
 
-  test('glow is enabled', function()
+  test('config.glow', function()
     local blend = require('fluoromachine.utils.colors').blend
     local expect = blend(colors.yellow, colors.bg, 0.05):upper()
     local output = nvim_get_hl('Function')
@@ -26,9 +31,15 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.bg)
   end)
 
-  test('overrides', function()
+  test('config.colors', function()
+    local output = require('fluoromachine.config').colors.bglight
+    local expect = '#ffffff'
+    assert.equal(expect, output)
+  end)
+
+  test('config.overrides', function()
     local output = nvim_get_hl('Directory')
-    local expected = ('#ffffff'):upper()
+    local expected = colors.red
     assert.equal(expected, output.fg)
   end)
 
