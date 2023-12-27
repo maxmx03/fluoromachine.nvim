@@ -11,6 +11,7 @@ function M.default_config()
   return {
     theme = 'fluoromachine',
     brightness = 0.17,
+    glow = true,
     transparent = false,
     styles = {
       comments = {},
