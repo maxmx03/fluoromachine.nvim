@@ -45,7 +45,7 @@ describe('Fluoromachine', function()
     require('fluoromachine').setup({ glow = true })
     vim.cmd.colorscheme('fluoromachine')
     local blend = require('fluoromachine.utils.colors').blend
-    local expect = blend(colors.yellow, colors.bg, 0.17):upper()
+    local expect = blend(colors.yellow, colors.bg, 0.05):upper()
     local output = nvim_get_hl('Function')
     assert.equal(colors.yellow, output.fg)
     assert.equal(expect, output.bg)

@@ -10,7 +10,7 @@ M.colors = nil
 function M.default_config()
   return {
     theme = 'fluoromachine',
-    brightness = 0.17,
+    brightness = 0.05,
     glow = true,
     transparent = false,
     styles = {
