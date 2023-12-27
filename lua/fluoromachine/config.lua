@@ -34,6 +34,7 @@ function M.default_config()
       gitsign = true,
       hop = true,
       illuminate = true,
+      indentblankline = true,
       semantic = true,
       syntax = true,
       treesitter = true,

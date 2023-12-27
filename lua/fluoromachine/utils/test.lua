@@ -1,8 +1,11 @@
 local M = {}
 
 ---@param decimal number
----@return string
+---@return string | any
 function M.to_hex(decimal)
+  if type(decimal) ~= 'number' then
+    return decimal
+  end
   local hex = string.format('#%06x', decimal)
   return hex:upper()
 end

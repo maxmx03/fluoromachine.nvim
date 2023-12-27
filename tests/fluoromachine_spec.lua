@@ -43,7 +43,9 @@ describe('Fluoromachine', function()
 
   test('bufferline highlight', function()
     local output = nvim_get_hl('BufferLineFill')
-    assert.equal(colors.bgdark, output.bg)
+    local darken = require('fluoromachine.utils.colors').darken
+    local expect = darken(colors.bg, 25):upper()
+    assert.equal(expect, output.bg)
   end)
 
   test('cmp highlight', function()
@@ -69,5 +71,12 @@ describe('Fluoromachine', function()
   test('illuminate highlight', function()
     local output = nvim_get_hl('illuminatedWord')
     assert.equal(colors.editor.selection, output.bg)
+  end)
+
+  test('indentblankline highlight', function()
+    local output = nvim_get_hl('IblIndent')
+    local darken = require('fluoromachine.utils.colors').darken
+    local expect = darken(colors.purple, 20):upper()
+    assert.equal(expect, output.fg)
   end)
 end)
