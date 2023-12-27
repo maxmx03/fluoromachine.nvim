@@ -26,10 +26,10 @@ function M.load(colors, config)
   M.load_highlights(colors, config)
   utils.on_config({
     tbl = function()
-      M.overrides(config.highlights)
+      M.overrides(config.overrides)
     end,
     fnc = function()
-      M.overrides(config.highlights(colors, colorhelper))
+      M.overrides(config.overrides(colors, colorhelper))
     end,
   }, config.highlights)
 end

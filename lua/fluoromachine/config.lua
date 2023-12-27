@@ -24,7 +24,7 @@ function M.default_config()
       types = {},
     },
     colors = {},
-    highlights = {},
+    overrides = {},
     plugins = {
       bufferline = true,
       cmp = true,
