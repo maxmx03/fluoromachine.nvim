@@ -8,7 +8,7 @@ local function lsp(c)
   hl('LspReferenceRead', { link = 'Visual' }) -- used for highlighting "read" references
   hl('LspReferenceWrite', { link = 'Visual' }) -- used for highlighting "write" references
 
-  hl('LspInlayHint', { fg = darken(c.yellow, 20) }) -- used for highlighting inlay hints
+  hl('LspInlayHint', { fg = darken(c.yellow, 40) }) -- used for highlighting inlay hints
 
   -- if you want to me to enable the highlight groups bellow, please send a screenshot for me to see how
   -- they look like or how to config for me to test.
