@@ -18,7 +18,7 @@ local function nvim_get_hl(name)
   return t
 end
 
-local colors = require('fluoromachine.palette').get_colors()['fluoromachine']
+local colors = require('fluoromachine.palette').get_colors()
 
 describe('Fluoromachine', function()
   setup(function()

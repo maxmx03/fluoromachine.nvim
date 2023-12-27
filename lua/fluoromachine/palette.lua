@@ -122,7 +122,7 @@ function M.get_colors()
     },
   }
 
-  return colors[((config.theme or {}).theme or 'fluoromachine')]
+  return colors[((config or {}).theme or 'fluoromachine')]
 end
 
 function M.extend_colors(colors)

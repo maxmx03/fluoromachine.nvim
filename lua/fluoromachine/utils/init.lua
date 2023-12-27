@@ -28,13 +28,10 @@ function M.set_hl(name, val, opts)
     if opts.glow then
       local config = require('fluoromachine.config')
       local palette = require('fluoromachine.palette').get_colors()
-      local theme = (
-        (config.config or config.default_config()).theme or 'fluoromachine'
-      )
       local brightness = (
         (config.config or config.default_config()).brightness or 0.17
       )
-      local bg = palette[theme].bg
+      local bg = palette.bg
 
       val.bg = colors.blend(val.fg, bg, brightness)
     end

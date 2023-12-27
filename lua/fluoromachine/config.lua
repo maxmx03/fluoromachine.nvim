@@ -66,8 +66,7 @@ function M.load()
   vim.o.termguicolors = true
   vim.g.colors_name = 'fluoromachine'
 
-  local colors =
-      palette.get_colors()[((M.config or M.default_config()).theme or 'fluoromachine')]
+  local colors = palette.get_colors()
   fluoromachine.load(M.colors or colors, M.config or M.default_config())
 end
 
