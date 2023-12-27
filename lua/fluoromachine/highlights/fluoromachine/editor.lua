@@ -1,10 +1,37 @@
 local function editor(c, config)
   local hl = require('fluoromachine.utils').set_hl
+  local colors = require('fluoromachine.utils.colors')
+  local darken = colors.darken
 
   if config.transparent then
     hl('ColorColumn', { bg = c.bg }) -- used for columns
   else
     hl('ColorColumn', { bg = c.bgdark }) -- used for columns
+  end
+
+  if config.glow then
+    hl(
+      'LineNr',
+      { fg = darken(c.purple, 50), bg = c.bg },
+      { transparent = config.transparent }
+    )
+    hl(
+      'CursorLineNr',
+      { fg = c.purple, bg = c.bg, bold = true },
+      { transparent = config.transparent }
+    )
+  else
+    hl(
+      'LineNr',
+      { fg = c.comment, bg = c.bg },
+      { transparent = config.transparent }
+    )
+
+    hl(
+      'CursorLineNr',
+      { fg = c.pink, bg = c.bg },
+      { transparent = config.transparent }
+    ) -- Like LineNr when 'cursorline' is set
   end
 
   hl('Conceal', { fg = c.pink }) -- placeholder characters
@@ -33,18 +60,9 @@ local function editor(c, config)
   hl('SignColumn', { bg = c.bg }, { transparent = config.transparent }) -- Column were signs are displayed
   hl('IncSearch', { fg = c.cyan }, { transparent = config.transparent }) -- 'incsearch' highlighting, also for the text replaced
   hl('Substitute', { link = 'IncSearch' }) -- :substitute replacement text highlight
-  hl(
-    'LineNr',
-    { fg = c.comment, bg = c.bg },
-    { transparent = config.transparent }
-  ) -- Line number for ":number" and ":#" commands
+  -- Line number for ":number" and ":#" commands
   hl('LineNrAbove', { link = 'LineNr' }) -- Line number, above the cursor line
   hl('LineNrBelow', { link = 'LineNr' }) -- Line number, below the cursor
-  hl(
-    'CursorLineNr',
-    { fg = c.pink, bg = c.bg },
-    { transparent = config.transparent }
-  ) -- Like LineNr when 'cursorline' is set
   hl('CursorLineFold', { link = 'FoldColumn' }) -- Like FoldColumn when 'cursorline' is set
   hl('CursorLineSign', { link = 'SignColumn' }) -- Like SignColumn when 'cursorline' is set
   hl('MatchParen', { fg = c.diagnostic.hint }) -- Character under the cursor or just before it
