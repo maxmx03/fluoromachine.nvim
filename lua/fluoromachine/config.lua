@@ -35,6 +35,7 @@ function M.default_config()
       hop = true,
       illuminate = true,
       indentblankline = true,
+      lsp = true,
       semantic = true,
       syntax = true,
       treesitter = true,

@@ -102,4 +102,10 @@ describe('Fluoromachine', function()
     local expect = darken(colors.purple, 20):upper()
     assert.equal(expect, output.fg)
   end)
+
+  test('Lsp highlight', function()
+    local output = nvim_get_hl('LspReferenceText')
+    local expect = 'Visual'
+    assert.equal(expect, output.link)
+  end)
 end)
