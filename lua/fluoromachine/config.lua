@@ -42,7 +42,7 @@ function M.default_config()
       saga = false,
       semantic = false,
       syntax = true,
-      treesitter = false,
+      treesitter = true,
     },
   }
   return config
@@ -54,6 +54,7 @@ function M.setup(opts)
 
   utils.on_config({
     tbl = function()
+      ---@diagnostic disable-next-line: param-type-mismatch
       M.colors = palette.extend_colors(M.config.colors)
     end,
     fnc = function()

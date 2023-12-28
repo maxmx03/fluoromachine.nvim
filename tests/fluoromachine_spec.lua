@@ -58,12 +58,12 @@ describe('Fluoromachine', function()
   --   local output = nvim_get_hl('@lsp.type.class')
   --   assert.equal('Type', output.link)
   -- end)
-  --
-  -- test('treesitter highlight', function()
-  --   local output = nvim_get_hl('@comment')
-  --   assert.equal('Comment', output.link)
-  -- end)
-  --
+
+  test('treesitter highlight', function()
+    local output = nvim_get_hl('@comment')
+    assert.equal('Comment', output.link)
+  end)
+
   -- test('bufferline highlight', function()
   --   local output = nvim_get_hl('BufferLineFill')
   --   local darken = require('fluoromachine.utils.colors').darken
