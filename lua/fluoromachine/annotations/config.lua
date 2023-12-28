@@ -39,6 +39,7 @@
 ---@field bufferline? boolean
 ---@field cmp? boolean
 ---@field diagnostic? boolean
+---@field dashboard? boolean
 ---@field editor? true
 ---@field gitsign? boolean
 ---@field hop? boolean
