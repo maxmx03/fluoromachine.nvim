@@ -50,6 +50,7 @@
 ---@field saga? boolean
 ---@field semantic? boolean
 ---@field syntax? true
+---@field tree? true
 ---@field treesitter? boolean
 
 ---@class fm.config.styles

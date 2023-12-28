@@ -114,4 +114,10 @@ describe('Fluoromachine', function()
     local expect = 'Pmenu'
     assert.equal(expect, output.link)
   end)
+
+  test('Nvim-tree highlight', function()
+    local output = nvim_get_hl('NvimTreeFolderIcon')
+    local expect = 'Directory'
+    assert.equal(expect, output.link)
+  end)
 end)

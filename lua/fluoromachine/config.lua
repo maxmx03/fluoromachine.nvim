@@ -44,6 +44,7 @@ function M.default_config()
       semantic = true,
       syntax = true,
       treesitter = true,
+      tree = true,
     },
   }
   return config
