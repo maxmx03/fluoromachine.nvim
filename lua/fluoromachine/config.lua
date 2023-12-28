@@ -1,14 +1,17 @@
 local palette = require('fluoromachine.palette')
 local fluoromachine = require('fluoromachine.highlights')
 local utils = require('fluoromachine.utils')
-local colorhelper = require('fluoromachine.utils.colors')
+local colorhelper = require('fluoromachine.utils.color')
+
 local M = {}
 
 M.config = nil
 M.colors = nil
 
+---@return fm.config.default
 function M.default_config()
-  return {
+  ---@class fm.config.default
+  local config = {
     theme = 'fluoromachine',
     brightness = 0.05,
     glow = true,
@@ -26,25 +29,26 @@ function M.default_config()
     colors = {},
     overrides = {},
     plugins = {
-      bufferline = true,
-      cmp = true,
-      dashboard = true,
-      diagnostic = true,
+      bufferline = false,
+      cmp = false,
+      diagnostic = false,
       editor = true,
-      gitsign = true,
-      hop = true,
-      illuminate = true,
-      indentblankline = true,
-      lsp = true,
-      saga = true,
-      semantic = true,
+      gitsign = false,
+      hop = false,
+      illuminate = false,
+      indentblankline = false,
+      lsp = false,
+      navic = false,
+      saga = false,
+      semantic = false,
       syntax = true,
-      navic = true,
-      treesitter = true,
+      treesitter = false,
     },
   }
+  return config
 end
 
+---@param opts fm.config.default
 function M.setup(opts)
   M.config = vim.tbl_deep_extend('force', M.default_config(), opts or {})
 

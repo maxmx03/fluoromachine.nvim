@@ -1,0 +1,8 @@
+---@class fm.color
+---@field hex_to_rgb fun(hex: string): number, number, number
+---@field rgb_to_hex fun(red: number, green: number, blue: number): string
+---@field darken fun(hex: string, percentage: number): string
+---@field lighten fun(hex: string, percentage: number): string
+---@field shade fun(hex: string, i: number): string
+---@field tint fun(hex: string, i: number): string
+---@field blend fun(fg: string, bg: string, alpha: number): string

@@ -1,6 +1,7 @@
-local function diagnostic(c, config)
-  local utils = require('fluoromachine.utils')
-  local hl = utils.set_hl
+---@param opts { colors: table, config: table, utils: table, color:   }
+local function diagnostic(opts)
+  local hl = opts.utils.set_hl
+  local c = opts.colors
 
   hl('DiagnosticError', { fg = c.diagnostic.error }) -- Used as the base highlight group.(except Underline)
   hl('DiagnosticWarn', { fg = c.diagnostic.warning }) --Used as the base highlight group.(except Underline)

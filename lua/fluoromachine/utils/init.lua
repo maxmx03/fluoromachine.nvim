@@ -1,14 +1,22 @@
-local colors = require('fluoromachine.utils.colors')
-local M = {}
+local function on_config(opts, config)
+  if type(config) == 'table' and not vim.tbl_isempty(config) then
+    opts.tbl()
+  elseif type(config) == 'function' then
+    opts.fnc()
+  end
+end
 
---- Sets a highlight group
---- @param name string
---- @param val? table
---- @param opts? table The opts object..
----       - opts.transparent: (boolean) Specifies whether transparency is enabled.
----       - opts.styles: (table) A table of custom styles for various elements.
----@return nil
-function M.set_hl(name, val, opts)
+local function get_hl(name)
+  local highlight = vim.api.nvim_get_hl(0, { name = name, link = true })
+
+  if highlight.link then
+    return get_hl(highlight.link)
+  end
+
+  return highlight
+end
+
+local function set_hl(name, val, opts)
   local default_val = { fg = 'NONE', bg = 'NONE' }
   val = val or {}
 
@@ -26,6 +34,7 @@ function M.set_hl(name, val, opts)
     end
 
     if opts.glow then
+      local blend = require('fluoromachine.utils.color').blend
       local config = require('fluoromachine.config')
       local palette = require('fluoromachine.palette').get_colors()
       local brightness = (
@@ -33,37 +42,18 @@ function M.set_hl(name, val, opts)
       )
       local bg = palette.bg
 
-      val.bg = colors.blend(val.fg, bg, brightness)
+      val.bg = blend(val.fg, bg, brightness)
     end
   end
 
   vim.api.nvim_set_hl(0, name, val)
 end
 
---- get highlight group
---- @param highlight_name string
---- @return table highlight
-function M.get_hl(highlight_name)
-  local highlight =
-    vim.api.nvim_get_hl(0, { name = highlight_name, link = true })
-
-  if highlight.link then
-    return M.get_hl(highlight.link)
-  end
-
-  return highlight
-end
-
---- @param opts table The user-specified custom configuration
----       - fnc (function): callback type configuration
----       - tbl (function): table type configuration
---- @param config (table|function): config to be used
-function M.on_config(opts, config)
-  if type(config) == 'table' and not vim.tbl_isempty(config) then
-    opts.tbl()
-  elseif type(config) == 'function' then
-    opts.fnc()
-  end
-end
+---@type fm.utils
+local M = {
+  set_hl = set_hl,
+  get_hl = get_hl,
+  on_config = on_config,
+}
 
 return M

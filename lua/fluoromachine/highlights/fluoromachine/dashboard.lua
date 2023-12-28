@@ -1,6 +1,6 @@
-local function dashboard(c)
-  local utils = require('fluoromachine.utils')
-  local hl = utils.set_hl
+---@param opts { colors: table, config: table, utils: utils, color: table  }
+local function dashboard(opts)
+  local hl = opts.utils.set_hl
 
   -- general
   hl('DashboardHeader', { fg = c.red })

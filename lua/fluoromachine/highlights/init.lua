@@ -1,15 +1,21 @@
 local utils = require('fluoromachine.utils')
-local colorhelper = require('fluoromachine.utils.colors')
+local color = require('fluoromachine.utils.color')
 local M = {}
 
 function M.load_highlights(colors, config)
   for plugin, enabled in pairs(config.plugins) do
     if enabled then
-      local highlights = require(
+      ---@type fm.highlights
+      local highlight = require(
         string.format('fluoromachine.highlights.%s.%s', config.theme, plugin)
       )
 
-      highlights(colors, config)
+      highlight.load({
+        colors = colors,
+        config = config,
+        utils = utils,
+        color = color,
+      })
     end
   end
 end
@@ -25,7 +31,7 @@ end
 function M.load(colors, config)
   if config.theme == 'fluoromachine' and config.glow then
     colors.bg = '#200933'
-    colors.bgdark = colorhelper.darken('#200933', 10)
+    colors.bgdark = color.darken('#200933', 10)
   end
 
   M.load_highlights(colors, config)
@@ -34,7 +40,7 @@ function M.load(colors, config)
       M.overrides(config.overrides)
     end,
     fnc = function()
-      M.overrides(config.overrides(colors, colorhelper))
+      M.overrides(config.overrides(colors, color))
     end,
   }, config.overrides)
 end
