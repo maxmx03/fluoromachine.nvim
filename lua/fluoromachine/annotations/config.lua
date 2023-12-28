@@ -72,3 +72,10 @@
 ---@field colors? fm.config.colors | fun(colors: fm.colors, color: fm.color): fm.config.colors
 ---@field overrides? table | fun(colors: fm.colors, color: fm.color): table
 ---@field plugins? fm.config.plugins
+
+---@class fm.config
+---@field config nil | fm.config.default
+---@field colors nil | fm.colors
+---@field default_config fun(): fm.config.default
+---@field setup fun(opts: fm.config.default)
+---@field load fun()

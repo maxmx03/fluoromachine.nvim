@@ -1,6 +1,11 @@
 local config = require('fluoromachine.config')
-local M = {}
 
-M.setup = config.setup
+---@class fluoromachine
+---@field setup fun(opts: fm.config.default)
+
+---@type fluoromachine
+local M = {
+  setup = config.setup,
+}
 
 return M

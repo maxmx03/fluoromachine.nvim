@@ -3,12 +3,13 @@ local fluoromachine = require('fluoromachine.highlights')
 local utils = require('fluoromachine.utils')
 local colorhelper = require('fluoromachine.utils.color')
 
+---@type fm.config
+---@diagnostic disable-next-line: missing-fields
 local M = {}
 
 M.config = nil
 M.colors = nil
 
----@return fm.config.default
 function M.default_config()
   ---@class fm.config.default
   local config = {
@@ -50,7 +51,6 @@ function M.default_config()
   return config
 end
 
----@param opts fm.config.default
 function M.setup(opts)
   M.config = vim.tbl_deep_extend('force', M.default_config(), opts or {})
 
