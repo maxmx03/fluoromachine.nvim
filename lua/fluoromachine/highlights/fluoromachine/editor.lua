@@ -39,7 +39,7 @@ local M = {
     end
 
     hl('Conceal', { fg = c.pink }) -- placeholder characters
-    hl('CurSearch', { fg = lighten(c.fg, 20), bg = c.editor.selection }) -- highlight under cursor
+    hl('CurSearch', { fg = lighten(c.fg, 100), bg = c.editor.selection }) -- highlight under cursor
     hl('Cursor', { fg = c.editor.cursor_fg, bg = c.editor.cursor_bg }) -- character under cursor
     hl('lCursor', { link = 'Cursor' }) -- character under the cursor
     hl('CursorIM', { link = 'Cursor' }) -- like cursor, but IME mode
