@@ -41,6 +41,7 @@ function M.default_config()
       indentblankline = true,
       lazy = true,
       lsp = true,
+      mini = true,
       navic = true,
       neogit = true,
       neotree = true,
