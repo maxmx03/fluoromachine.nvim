@@ -129,7 +129,7 @@ describe('Fluoromachine', function()
 
   test('Noice highlight', function()
     local output = nvim_get_hl('NoiceLspProgressSpinner')
-    local expect = colors.red
+    local expect = colors.purple
     assert.equal(expect, output.fg)
   end)
 
