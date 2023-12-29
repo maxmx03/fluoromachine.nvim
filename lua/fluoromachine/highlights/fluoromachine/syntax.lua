@@ -8,22 +8,22 @@ local M = {
     hl('Comment', { fg = c.comment }, { styles = config.styles.comments }) -- any comment
     hl(
       'Constant',
-      { fg = c.cyan },
+      { fg = c.cyan, bold = config.glow },
       { styles = config.styles.constants, glow = config.glow }
     ) -- any constant
     hl('String', { fg = c.purple }) -- a string constant: "this is a string"
     hl('Character', { link = 'String' }) -- a character constant: 'c', '\n'
     hl(
       'Number',
-      { fg = c.purple },
+      { fg = c.purple, bold = config.glow },
       { styles = config.styles.numbers, glow = config.glow }
     ) -- a number constant: 234, 0xff
-    hl('Boolean', { fg = c.purple }, { glow = config.glow }) -- a boolean constant: TRUE, false
+    hl('Boolean', { fg = c.purple, bold = config.glow }, { glow = config.glow }) -- a boolean constant: TRUE, false
     hl('Float', { link = 'Number' }) -- a floating point constant: 2.3e10
     hl('Identifier', { fg = c.cyan }, { styles = config.styles.variables }) -- any variable name
     hl(
       'Function',
-      { fg = c.yellow },
+      { fg = c.yellow, bold = config.glow },
       { styles = config.styles.functions, glow = config.glow }
     ) -- function name (also: methods for classes)
     hl('Statement', { link = 'Keyword' }) -- any statement
@@ -33,7 +33,7 @@ local M = {
     hl('Operator', { link = 'Keyword' }) -- "sizeof", "+", "*", etc.
     hl(
       'Keyword',
-      { fg = c.pink },
+      { fg = c.pink, bold = config.glow },
       { styles = config.styles.keywords, glow = config.glow }
     ) -- any other keyword
     hl('Exception', { link = 'Keyword' }) -- try, catch, throw

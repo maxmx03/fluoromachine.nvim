@@ -1,5 +1,5 @@
 local c = require('fluoromachine.palette').get_colors()
-local colors = require('fluoromachine.utils.colors')
+local colors = require('fluoromachine.utils.color')
 local darken = colors.darken
 
 return {
