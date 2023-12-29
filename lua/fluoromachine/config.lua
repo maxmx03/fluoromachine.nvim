@@ -45,6 +45,7 @@ function M.default_config()
       neogit = true,
       neotree = true,
       noice = true,
+      notify = true,
       saga = true,
       semantic = true,
       syntax = true,

@@ -139,6 +139,12 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.fg)
   end)
 
+  test('Notify highlight', function()
+    local output = nvim_get_hl('NotifyERRORBorder')
+    local expect = colors.diagnostic.error
+    assert.equal(expect, output.fg)
+  end)
+
   test('Saga highlight', function()
     local output = nvim_get_hl('SagaNormal')
     local expect = 'Pmenu'
