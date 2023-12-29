@@ -41,6 +41,7 @@ function M.default_config()
       indentblankline = true,
       lsp = true,
       navic = true,
+      neogit = true,
       saga = true,
       semantic = true,
       syntax = true,

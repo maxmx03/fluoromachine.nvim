@@ -109,6 +109,18 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.link)
   end)
 
+  test('Navic highlight', function()
+    local output = nvim_get_hl('NavicIconsFile')
+    local expect = colors.fg
+    assert.equal(expect, output.fg)
+  end)
+
+  test('Neogit highlight', function()
+    local output = nvim_get_hl('NeogitBranch')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
+
   test('Saga highlight', function()
     local output = nvim_get_hl('SagaNormal')
     local expect = 'Pmenu'
