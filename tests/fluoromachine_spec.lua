@@ -1,4 +1,5 @@
 local utils = require('fluoromachine.utils.test')
+
 local nvim_get_hl = utils.nvim_get_hl
 local colors = require('fluoromachine.palette').get_colors()
 
@@ -141,8 +142,8 @@ describe('Fluoromachine', function()
 
   test('Notify highlight', function()
     local output = nvim_get_hl('NotifyERRORBorder')
-    local expect = colors.diagnostic.error
-    assert.equal(expect, output.fg)
+    local expect = 'NotifyERRORBody'
+    assert.equal(expect, output.link)
   end)
 
   test('Saga highlight', function()
