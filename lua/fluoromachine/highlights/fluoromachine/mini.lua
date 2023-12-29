@@ -4,6 +4,9 @@ local M = {
     local hl = opts.utils.set_hl
     local c = opts.colors
     local darken = opts.color.darken
+    local blend = opts.color.blend
+    local alpha = 0.2
+    local percentage = 25
 
     -- MiniCursor
     hl('MiniCursorword', { bg = c.editor.selection })
@@ -14,9 +17,18 @@ local M = {
     hl('MiniStatuslineModeVisual', { fg = c.bg, bg = c.yellow })
     hl('MiniStatuslineModeReplace', { fg = c.bg, bg = c.red })
     hl('MiniStatuslineModeCommand', { fg = c.bg, bg = c.orange })
-    hl('MinistatusLineFileName', { fg = c.fg, bg = c.bgdark })
-    hl('MiniStatuslineDevinfo', { fg = c.bg, bg = c.comment })
-    hl('MiniStatuslineFileinfo', { fg = c.bg, bg = c.comment })
+    hl('MinistatusLineFileName', {
+      bg = c.bg,
+      fg = c.purple,
+    })
+    hl('MiniStatuslineDevinfo', {
+      bg = blend(c.purple, c.bg, alpha),
+      fg = c.purple,
+    })
+    hl('MiniStatuslineFileinfo', {
+      bg = blend(c.purple, c.bg, alpha),
+      fg = c.purple,
+    })
     hl('MiniStatuslineInactive', { fg = c.comment, bg = c.bg })
 
     -- MiniTabLine
@@ -26,8 +38,11 @@ local M = {
     hl('MiniTablineModifiedCurrent', { link = 'MiniTabLineCurrent' })
     hl('MiniTablineModifiedVisible', { link = 'MiniTablineVisible' })
     hl('MiniTablineModifiedHidden', { link = 'MiniTablineHidden' })
-    hl('MiniTablineFill', { fg = c.fg, bg = darken(c.bg, 25) })
-    hl('MiniTablineTabpagesection', { fg = c.fg, bg = darken(c.bg, 25) })
+    hl('MiniTablineFill', { fg = c.fg, bg = darken(c.bg, percentage) })
+    hl(
+      'MiniTablineTabpagesection',
+      { fg = c.fg, bg = darken(c.bg, percentage) }
+    )
 
     -- MiniStarter
     hl('MiniStarterCurrent', { link = 'CursorLine' })

@@ -6,7 +6,7 @@ return {
   normal = {
     a = { bg = c.bg, fg = c.purple, gui = 'bold' },
     b = { bg = darken(c.purple, 50), fg = c.purple },
-    c = { bg = c.alt_bg, fg = c.fg },
+    c = { bg = c.bgdark, fg = c.fg },
   },
   insert = {
     a = { bg = c.bg, fg = c.yellow, gui = 'bold' },
