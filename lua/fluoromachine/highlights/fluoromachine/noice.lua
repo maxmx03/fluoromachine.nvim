@@ -5,7 +5,7 @@ local M = {
     local darken = opts.color.darken
     local c = opts.colors
 
-    hl('NoiceFormatProgressTodo', { fg = darken(c.yellow, 40), reverse = true })
+    hl('NoiceFormatProgressTodo', { fg = c.yellow, bg = darken(c.yellow, 50) })
     hl('NoiceFormatProgressDone', { fg = c.yellow, reverse = true })
     hl('NoiceLspProgressSpinner', { fg = c.red })
     hl('NoiceLspProgressClient', { fg = c.red })
