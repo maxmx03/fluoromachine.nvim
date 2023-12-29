@@ -158,6 +158,12 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.link)
   end)
 
+  test('Telescope highlight', function()
+    local output = nvim_get_hl('TelescopeTitle')
+    local expect = colors.yellow
+    assert.equal(expect, output.fg)
+  end)
+
   test('Nvim-tree highlight', function()
     local output = nvim_get_hl('NvimTreeFolderIcon')
     local expect = 'Directory'

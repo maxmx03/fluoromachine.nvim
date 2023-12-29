@@ -50,6 +50,7 @@ function M.default_config()
       saga = true,
       semantic = true,
       syntax = true,
+      telescope = true,
       treesitter = true,
       tree = true,
     },
