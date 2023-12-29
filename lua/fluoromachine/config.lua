@@ -43,6 +43,7 @@ function M.default_config()
       navic = true,
       neogit = true,
       neotree = true,
+      noice = true,
       saga = true,
       semantic = true,
       syntax = true,

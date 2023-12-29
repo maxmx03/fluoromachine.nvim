@@ -1,0 +1,16 @@
+---@type fm.highlights
+local M = {
+  load = function(opts)
+    local hl = opts.utils.set_hl
+    local darken = opts.color.darken
+    local c = opts.colors
+
+    hl('NoiceFormatProgressTodo', { fg = darken(c.yellow, 40), reverse = true })
+    hl('NoiceFormatProgressDone', { fg = c.yellow, reverse = true })
+    hl('NoiceLspProgressSpinner', { fg = c.red })
+    hl('NoiceLspProgressClient', { fg = c.red })
+    hl('NoiceLspProgressTitle', { link = 'Title' })
+  end,
+}
+
+return M

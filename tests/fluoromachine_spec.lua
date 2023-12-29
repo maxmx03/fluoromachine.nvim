@@ -121,10 +121,16 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.fg)
   end)
 
-  test('Neotree', function()
+  test('Neotree highlight', function()
     local output = nvim_get_hl('NeoTreeNormal')
     assert.equal(colors.fg, output.fg)
     assert.equal('#1C082D', output.bg)
+  end)
+
+  test('Noice highlight', function()
+    local output = nvim_get_hl('NoiceLspProgressSpinner')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
   end)
 
   test('Saga highlight', function()
