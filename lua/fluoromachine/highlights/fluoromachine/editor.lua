@@ -5,6 +5,7 @@ local M = {
     local hl = opts.utils.set_hl
     local c = opts.colors
     local darken = opts.color.darken
+    local lighten = opts.color.lighten
 
     if config.transparent then
       hl('ColorColumn', { bg = c.bg }) -- used for columns
@@ -38,7 +39,7 @@ local M = {
     end
 
     hl('Conceal', { fg = c.pink }) -- placeholder characters
-    hl('CurSearch', { fg = c.editor.selection, reverse = true }) -- highlight under cursor
+    hl('CurSearch', { fg = lighten(c.fg, 20), bg = c.editor.selection }) -- highlight under cursor
     hl('Cursor', { fg = c.editor.cursor_fg, bg = c.editor.cursor_bg }) -- character under cursor
     hl('lCursor', { link = 'Cursor' }) -- character under the cursor
     hl('CursorIM', { link = 'Cursor' }) -- like cursor, but IME mode
@@ -55,7 +56,7 @@ local M = {
     hl('ErrorMsg', { fg = c.diagnostic.error }) -- Error messages on the command line
     hl(
       'WinSeparator',
-      { fg = c.editor.separator, bg = c.bgdark },
+      { fg = darken(c.purple, 20), bg = c.bgdark },
       { transparent = config.transparent }
     ) -- Separators between window splits
     hl('Folded', { fg = c.comment, bg = c.editor.selection }) -- Line used for closed folds
