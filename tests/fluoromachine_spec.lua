@@ -103,6 +103,12 @@ describe('Fluoromachine', function()
     assert.equal(expect, output.fg)
   end)
 
+  test('Lazy highlight', function()
+    local output = nvim_get_hl('LazyH1')
+    local expect = colors.yellow
+    assert.equal(expect, output.fg)
+  end)
+
   test('Lsp highlight', function()
     local output = nvim_get_hl('LspReferenceText')
     local expect = 'Visual'

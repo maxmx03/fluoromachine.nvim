@@ -39,6 +39,7 @@ function M.default_config()
       hop = true,
       illuminate = true,
       indentblankline = true,
+      lazy = true,
       lsp = true,
       navic = true,
       neogit = true,
