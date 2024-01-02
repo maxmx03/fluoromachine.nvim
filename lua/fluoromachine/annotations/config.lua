@@ -33,7 +33,6 @@
 ---@field editor? fm.colors.editor
 ---@field diagnostic? fm.colors.diagnostic
 ---@field git? fm.colors.git
----@field lsp? fm.colors.lsp
 
 ---@class fm.config.plugins
 ---@field bufferline? boolean

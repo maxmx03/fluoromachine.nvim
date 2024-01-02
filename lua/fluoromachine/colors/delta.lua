@@ -2,7 +2,7 @@
 local M = {
   fg = '#EFEFFD',
   bg = '#2B2233',
-  bgdark = '#251d2b',
+  bgdark = '#251D2B',
   cyan = '#98FFFB',
   green = '#C0FF98',
   orange = '#FFD298',
@@ -14,9 +14,9 @@ local M = {
   editor = {
     cursor_fg = '#282a36',
     cursor_bg = '#F8F8F8',
-    cursor_line_nr = '#492949',
     currentline = '#492949',
     selection = '#492949',
+    separator = '',
   },
   diagnostic = {
     error = '#FF98B3',
@@ -29,9 +29,6 @@ local M = {
     add = '#C0FF98',
     change = '#FFD298',
     delete = '#FF98B3',
-  },
-  lsp = {
-    inlay_hint = '#99CC79',
   },
 }
 

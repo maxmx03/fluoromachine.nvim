@@ -56,7 +56,7 @@ local M = {
     hl('ErrorMsg', { fg = c.diagnostic.error }) -- Error messages on the command line
     hl(
       'WinSeparator',
-      { fg = darken(c.purple, 20), bg = c.bgdark },
+      { fg = c.editor.separator, bg = c.bgdark },
       { transparent = config.transparent }
     ) -- Separators between window splits
     hl('Folded', { fg = c.comment, bg = c.editor.selection }) -- Line used for closed folds

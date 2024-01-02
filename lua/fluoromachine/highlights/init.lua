@@ -29,11 +29,6 @@ function M.overrides(highlights)
 end
 
 function M.load(colors, config)
-  if config.theme == 'fluoromachine' and config.glow then
-    colors.bg = '#200933'
-    colors.bgdark = color.darken('#200933', 10)
-  end
-
   M.load_highlights(colors, config)
   utils.on_config({
     tbl = function()

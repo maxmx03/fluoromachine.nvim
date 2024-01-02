@@ -14,9 +14,9 @@ local M = {
   editor = {
     cursor_fg = '#282a36',
     cursor_bg = '#F8F8F8',
-    cursor_line_nr = '#F8F8F8',
     currentline = '#463465',
     selection = '#463465',
+    separator = '',
   },
   diagnostic = {
     info = '#61E2FF',
@@ -29,9 +29,6 @@ local M = {
     add = '#72F1B8',
     change = '#FF8B39',
     delete = '#FE4450',
-  },
-  lsp = {
-    inlay_hint = '#CC64AF',
   },
 }
 

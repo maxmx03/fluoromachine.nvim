@@ -3,6 +3,7 @@
 ---@field cursor_bg string
 ---@field currentline string
 ---@field selection string
+---@field separator string
 
 ---@class fm.colors.diagnostic
 ---@field info string
@@ -16,10 +17,8 @@
 ---@field change string
 ---@field delete string
 
----@class fm.colors.lsp
----@field inlay_hint string
-
 ---@class fm.colors
+---@field fg string
 ---@field bg string
 ---@field bgdark string
 ---@field cyan string
@@ -33,4 +32,3 @@
 ---@field editor fm.colors.editor
 ---@field diagnostic fm.colors.diagnostic
 ---@field git fm.colors.git
----@field lsp fm.colors.lsp

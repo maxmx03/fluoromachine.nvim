@@ -16,7 +16,7 @@ local M = {
     cursor_bg = '#8BA7A7',
     currentline = '#463465',
     selection = '#463465',
-    separator = '#495495',
+    separator = '#8C57C7',
   },
   diagnostic = {
     info = '#61E2FF',
@@ -29,9 +29,6 @@ local M = {
     add = '#72F1B8',
     change = '#FF8B39',
     delete = '#FE4450',
-  },
-  lsp = {
-    inlay_hint = '#8C57C7',
   },
 }
 
