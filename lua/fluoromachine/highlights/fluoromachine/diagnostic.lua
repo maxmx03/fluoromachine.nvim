@@ -5,11 +5,11 @@ local M = {
     local c = opts.colors
     local config = opts.config
 
-    hl('DiagnosticError', { fg = c.diagnostic.error }) -- Used as the base highlight group.(except Underline)
+    hl('DiagnosticError', { fg = c.diagnostic.error })  -- Used as the base highlight group.(except Underline)
     hl('DiagnosticWarn', { fg = c.diagnostic.warning }) --Used as the base highlight group.(except Underline)
-    hl('DiagnosticInfo', { fg = c.diagnostic.info }) -- Used as the base highlight group.(except Underline)
-    hl('DiagnosticHint', { fg = c.diagnostic.hint }) -- Used as the base highlight group.(except Underline)
-    hl('DiagnosticOk', { fg = c.diagnostic.ok }) -- Used as the base highlight group.(except Underline)
+    hl('DiagnosticInfo', { fg = c.diagnostic.info })    -- Used as the base highlight group.(except Underline)
+    hl('DiagnosticHint', { fg = c.diagnostic.hint })    -- Used as the base highlight group.(except Underline)
+    hl('DiagnosticOk', { fg = c.diagnostic.ok })        -- Used as the base highlight group.(except Underline)
     hl(
       'DiagnosticVirtualTextError',
       { fg = c.diagnostic.error },
@@ -50,7 +50,7 @@ local M = {
     hl(
       'DiagnosticUnderlineHint',
       { fg = c.diagnostic.hint, sp = c.diagnostic.hint }
-    ) -- Used to underline "Hint" diagnostics.
+    )                                                                           -- Used to underline "Hint" diagnostics.
     hl('DiagnosticUnderlineOk', { fg = c.diagnostic.ok, sp = c.diagnostic.ok }) -- Used to underline "Ok" diagnostics.
     -- hl('DiagnosticFloatingError') -- Used to color "Error" diagnostic messages in diagnostics float.
     -- hl('DiagnosticFloatingWarn') -- Used to color "Warn" diagnostic messages in diagnostics float.
