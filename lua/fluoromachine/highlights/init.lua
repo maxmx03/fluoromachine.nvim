@@ -6,9 +6,7 @@ function M.load_highlights(colors, config)
   for plugin, enabled in pairs(config.plugins) do
     if enabled then
       ---@type fm.highlights
-      local highlight = require(
-        string.format('fluoromachine.highlights.%s.%s', config.theme, plugin)
-      )
+      local highlight = require(string.format('fluoromachine.highlights.%s.%s', config.theme, plugin))
 
       highlight.load({
         colors = colors,
@@ -23,7 +21,14 @@ end
 function M.overrides(highlights)
   for hl_name, hl_val in pairs(highlights) do
     local highlight = utils.get_hl(hl_name)
-    local val = vim.tbl_extend('force', highlight, hl_val)
+    local val = {}
+
+    if highlight.link then
+      val = hl_val
+    else
+      val = vim.tbl_extend('force', highlight, hl_val)
+    end
+
     vim.api.nvim_set_hl(0, hl_name, val)
   end
 end
