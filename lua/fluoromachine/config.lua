@@ -76,8 +76,9 @@ function M:set_brightness()
 end
 
 function M:load(user_config)
-  if vim.tbl_isempty(self.user_config) then
-    self.user_config = user_config or {}
+  -- extend the internal `user_config`. Allows calling `setup` multiple times and changing the current setup
+  if user_config and not vim.tbl_isempty(user_config) then
+    self.user_config = vim.tbl_deep_extend('force', self.user_config, user_config)
   end
 
   self:set_transparent()

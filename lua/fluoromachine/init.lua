@@ -36,7 +36,7 @@ function M:apply_glow()
     return
   end
 
-  if self.user_config.theme == "fluoromachine" or not self.user_config.theme then
+  if self.user_config.theme == 'fluoromachine' or not self.user_config.theme then
     groups.LineNr = { fg = utils.darken(self.colors.purple, 50) }
     groups.CursorLineNr = { fg = self.colors.purple, bold = true }
   end
@@ -65,7 +65,12 @@ function M:apply_glow()
   return groups
 end
 
-M.setup = function(user_config)
+M.set_colorscheme = function()
+  if not M.theme then
+    -- make sure setup is called, `theme` will be `nil` if it hasn't been called yet
+    M.setup()
+  end
+
   if vim.g.colors_name then
     vim.cmd 'hi clear'
   end
@@ -78,8 +83,6 @@ M.setup = function(user_config)
   vim.o.termguicolors = true
   vim.g.colors_name = 'fluoromachine'
 
-  M:load(user_config)
-
   M.theme.set_highlights(M.colors)
 
   if type(M.user_config.overrides) == 'function' then
@@ -89,6 +92,10 @@ M.setup = function(user_config)
   utils.update_highlight_groups(M.user_config.overrides)
   utils.update_highlight_groups(M:apply_glow())
   utils.update_highlight_groups(M:apply_transparency())
+end
+
+M.setup = function(user_config)
+  M:load(user_config)
 end
 
 return M
