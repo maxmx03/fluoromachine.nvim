@@ -83,10 +83,10 @@ M.load = function(opts)
   hl('@tag', { fg = c.yellow }, { glow = config.glow })
   hl('@tag.attribute', { fg = c.pink })
   hl('@tag.delimiter', { fg = c.yellow }, { glow = config.glow })
-  hl('@property.yaml', { fg = c.pink })
-  hl('@property.json', { fg = c.pink })
-  hl('@property.css', { fg = c.pink })
-  hl('@property.scss', { fg = c.pink })
+  -- hl('@property.yaml', { fg = c.pink })
+  -- hl('@property.json', { fg = c.pink })
+  -- hl('@property.css', { fg = c.pink })
+  -- hl('@property.scss', { fg = c.pink })
 end
 
 return M
