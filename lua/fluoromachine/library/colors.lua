@@ -5,7 +5,7 @@
 ---@field selection string
 ---@field separator string
 
----@class fm.colors.diagnostic
+---@class fm.colors.diag
 ---@field info string
 ---@field hint string
 ---@field warning string
@@ -30,5 +30,5 @@
 ---@field yellow string
 ---@field comment string
 ---@field editor fm.colors.editor
----@field diagnostic fm.colors.diagnostic
+---@field diag fm.colors.diag
 ---@field git fm.colors.git

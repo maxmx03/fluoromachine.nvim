@@ -6,21 +6,21 @@ M.load = function(opts)
   local c = opts.colors
   local config = opts.config
 
-  hl('DiagnosticError', { fg = c.diagnostic.error })                                      -- Used as the base highlight group.(except Underline)
-  hl('DiagnosticWarn', { fg = c.diagnostic.warning })                                     --Used as the base highlight group.(except Underline)
-  hl('DiagnosticInfo', { fg = c.diagnostic.info })                                        -- Used as the base highlight group.(except Underline)
-  hl('DiagnosticHint', { fg = c.diagnostic.hint })                                        -- Used as the base highlight group.(except Underline)
-  hl('DiagnosticOk', { fg = c.diagnostic.ok })                                            -- Used as the base highlight group.(except Underline)
-  hl('DiagnosticVirtualTextError', { fg = c.diagnostic.error }, { glow = config.glow })   -- Used for "Error" diagnostic virtual text.
-  hl('DiagnosticVirtualTextWarn', { fg = c.diagnostic.warning }, { glow = config.glow })  -- Used for "Warn" diagnostic virtual text.
-  hl('DiagnosticVirtualTextInfo', { fg = c.diagnostic.info }, { glow = config.glow })     -- Used for "Info" diagnostic virtual text.
-  hl('DiagnosticVirtualTextHint', { fg = c.diagnostic.hint }, { glow = config.glow })     -- Used for "Hint" diagnostic virtual text.
-  hl('DiagnosticVirtualTextOk', { fg = c.diagnostic.ok }, { glow = config.glow })         -- Used for "Ok" diagnostic virtual text.
-  hl('DiagnosticUnderlineError', { fg = c.diagnostic.error, sp = c.diagnostic.error })    --Used to underline "Error" diagnostics.
-  hl('DiagnosticUnderlineWarn', { fg = c.diagnostic.warning, sp = c.diagnostic.warning }) -- Used to underline "Warn" diagnostics.
-  hl('DiagnosticUnderlineInfo', { fg = c.diagnostic.info, sp = c.diagnostic.info })       -- Used to underline "Info" diagnostics.
-  hl('DiagnosticUnderlineHint', { fg = c.diagnostic.hint, sp = c.diagnostic.hint })       -- Used to underline "Hint" diagnostics.
-  hl('DiagnosticUnderlineOk', { fg = c.diagnostic.ok, sp = c.diagnostic.ok })             -- Used to underline "Ok" diagnostics.
+  hl('DiagnosticError', { fg = c.diag.error }) -- Used as the base highlight group.(except Underline)
+  hl('DiagnosticWarn', { fg = c.diag.warning }) --Used as the base highlight group.(except Underline)
+  hl('DiagnosticInfo', { fg = c.diag.info }) -- Used as the base highlight group.(except Underline)
+  hl('DiagnosticHint', { fg = c.diag.hint }) -- Used as the base highlight group.(except Underline)
+  hl('DiagnosticOk', { fg = c.diag.ok }) -- Used as the base highlight group.(except Underline)
+  hl('DiagnosticVirtualTextError', { fg = c.diag.error }, { glow = config.glow }) -- Used for "Error" diag virtual text.
+  hl('DiagnosticVirtualTextWarn', { fg = c.diag.warning }, { glow = config.glow }) -- Used for "Warn" diag virtual text.
+  hl('DiagnosticVirtualTextInfo', { fg = c.diag.info }, { glow = config.glow }) -- Used for "Info" diagnostic virtual text.
+  hl('DiagnosticVirtualTextHint', { fg = c.diag.hint }, { glow = config.glow }) -- Used for "Hint" diagnostic virtual text.
+  hl('DiagnosticVirtualTextOk', { fg = c.diag.ok }, { glow = config.glow }) -- Used for "Ok" diagnostic virtual text.
+  hl('DiagnosticUnderlineError', { fg = c.diag.error, sp = c.diag.error }) --Used to underline "Error" diagnostics.
+  hl('DiagnosticUnderlineWarn', { fg = c.diag.warning, sp = c.diag.warning }) -- Used to underline "Warn" diagnostics.
+  hl('DiagnosticUnderlineInfo', { fg = c.diag.info, sp = c.diag.info }) -- Used to underline "Info" diagnostics.
+  hl('DiagnosticUnderlineHint', { fg = c.diag.hint, sp = c.diag.hint }) -- Used to underline "Hint" diagnostics.
+  hl('DiagnosticUnderlineOk', { fg = c.diag.ok, sp = c.diag.ok }) -- Used to underline "Ok" diagnostics.
   -- hl('DiagnosticFloatingError') -- Used to color "Error" diagnostic messages in diagnostics float.
   -- hl('DiagnosticFloatingWarn') -- Used to color "Warn" diagnostic messages in diagnostics float.
   -- hl('DiagnosticFloatingInfo') -- Used to color "Info" diagnostic messages in diagnostics float.

@@ -1,4 +1,7 @@
-local function on_config(opts, config)
+---@type fm.utils
+local M = {}
+
+function M.on_config(opts, config)
   if type(config) == 'table' and not vim.tbl_isempty(config) then
     opts.tbl()
   elseif type(config) == 'function' then
@@ -6,17 +9,17 @@ local function on_config(opts, config)
   end
 end
 
-local function get_hl(name)
+function M.get_hl(name)
   local highlight = vim.api.nvim_get_hl(0, { name = name, link = true })
 
   if highlight.link then
-    return get_hl(highlight.link)
+    return M.get_hl(highlight.link)
   end
 
   return highlight
 end
 
-local function set_hl(name, val, opts)
+function M.set_hl(name, val, opts)
   local default_val = { fg = 'NONE', bg = 'NONE' }
   val = val or {}
 
@@ -37,9 +40,7 @@ local function set_hl(name, val, opts)
       local blend = require('fluoromachine.utils.color').blend
       local config = require('fluoromachine.config')
       local palette = require('fluoromachine.palette').get_colors()
-      local brightness = (
-        (config.config or config.default_config()).brightness or 0.17
-      )
+      local brightness = ((config.config or config.default_config()).brightness or 0.17)
       local bg = palette.bg
 
       val.bg = blend(val.fg, bg, brightness)
@@ -48,12 +49,5 @@ local function set_hl(name, val, opts)
 
   vim.api.nvim_set_hl(0, name, val)
 end
-
----@type fm.utils
-local M = {
-  set_hl = set_hl,
-  get_hl = get_hl,
-  on_config = on_config,
-}
 
 return M

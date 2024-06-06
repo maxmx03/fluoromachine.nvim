@@ -1,4 +1,4 @@
 ---@class fm.utils
 ---@field set_hl fun(name: string, val?: vim.api.keyset.highlight, opts?: table): nil
----@field get_hl fun(name: string): vim.api.keyset.get_highlight
+---@field get_hl fun(name: string): vim.api.keyset.hl_info
 ---@field on_config fun(opts: table, config: function | table)

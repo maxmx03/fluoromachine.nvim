@@ -6,6 +6,7 @@ local colors = require('fluoromachine.palette').get_colors()
 describe('Fluoromachine', function()
   setup(function()
     require('fluoromachine').setup({
+      theme = 'fluoromachine',
       glow = true,
       transparent = true,
       colors = {

@@ -7,8 +7,8 @@ M.load = function(opts)
   local config = opts.config
 
   -- hl('CmpItemAbbr') -- Highlight group for unmatched characters of each completion field.
-  hl('CmpItemAbbrDeprecated', { fg = c.comment, strikethrough = true })  -- Highlight group for unmatched characters of each deprecated completion field.
-  hl('CmpItemAbbrMatch', { fg = c.yellow }, { glow = config.glow })      -- Highlight group for matched characters of each completion field.
+  hl('CmpItemAbbrDeprecated', { fg = c.comment, strikethrough = true }) -- Highlight group for unmatched characters of each deprecated completion field.
+  hl('CmpItemAbbrMatch', { fg = c.yellow }, { glow = config.glow }) -- Highlight group for matched characters of each completion field.
   hl('CmpItemAbbrMatchFuzzy', { fg = c.yellow }, { glow = config.glow }) -- Highlight group for fuzzy-matched characters of each completion field.
   -- hl('CmpItemKind') -- Highlight group for the kind of the field.
   -- hl('CmpItemMenu') -- The menu field's highlight group.

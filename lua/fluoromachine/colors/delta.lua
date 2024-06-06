@@ -18,7 +18,7 @@ local M = {
     selection = '#492949',
     separator = '',
   },
-  diagnostic = {
+  diag = {
     error = '#FF98B3',
     warning = '#ffd298',
     info = '#C0FF98',

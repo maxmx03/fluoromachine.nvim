@@ -14,7 +14,7 @@ M.load = function(opts)
     fg = c.yellow,
     bg = blend(c.yellow, c.bgdark, 0.2),
   })
-  hl('LazyCommitIssue', { fg = c.diagnostic.error })
+  hl('LazyCommitIssue', { fg = c.diag.error })
   hl('LazyH1', { fg = c.yellow })
   hl('LazySpecial', { fg = c.pink })
   hl('LazyValue', { fg = c.orange })

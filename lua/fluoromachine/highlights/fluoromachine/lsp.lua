@@ -6,9 +6,9 @@ M.load = function(opts)
   local darken = opts.color.darken
   local c = opts.colors
 
-  hl('LspReferenceText', { link = 'Visual' })       -- used for highlighting "text" references
-  hl('LspReferenceRead', { link = 'Visual' })       -- used for highlighting "read" references
-  hl('LspReferenceWrite', { link = 'Visual' })      -- used for highlighting "write" references
+  hl('LspReferenceText', { link = 'Visual' }) -- used for highlighting "text" references
+  hl('LspReferenceRead', { link = 'Visual' }) -- used for highlighting "read" references
+  hl('LspReferenceWrite', { link = 'Visual' }) -- used for highlighting "write" references
 
   hl('LspInlayHint', { fg = darken(c.yellow, 35) }) -- used for highlighting inlay hints
 
