@@ -9,7 +9,7 @@ M.load = function(opts)
 
   hl('@variable', { link = 'Identifier' })
   hl('@variable.builtin', { fg = c.purple })
-  hl('@variable.parameter', { fg = c.cyan }, { styles = config.styles.parameters })
+  hl('@variable.parameter', { fg = c.orange }, { styles = config.styles.parameters })
   hl('@variable.member', { fg = c.cyan })
   hl('@constant', { link = 'Constant' })
   hl('@constant.builtin', { link = 'Constant' })
