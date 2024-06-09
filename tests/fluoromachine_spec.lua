@@ -80,7 +80,7 @@ describe('Fluoromachine', function()
 
   test('dashboard highlight', function()
     local output = nvim_get_hl('DashboardHeader')
-    assert.equal(colors.red, output.fg)
+    assert.equal(colors.purple, output.fg)
   end)
 
   test('gitsign highlight', function()

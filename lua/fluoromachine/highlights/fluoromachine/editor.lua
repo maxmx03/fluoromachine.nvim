@@ -19,7 +19,6 @@ M.load = function(opts)
     hl('CursorLineNr', { fg = c.purple, bg = c.bg, bold = true }, { transparent = config.transparent })
   else
     hl('LineNr', { fg = c.comment, bg = c.bg }, { transparent = config.transparent })
-
     hl('CursorLineNr', { fg = c.pink, bg = c.bg }, { transparent = config.transparent }) -- Like LineNr when 'cursorline' is set
   end
 
