@@ -30,7 +30,7 @@ function M.default_config()
     colors = {},
     overrides = {},
     plugins = {
-      ['bufferline.nvim'] = true,
+      ['bufferline-nvim'] = true,
       diagnostic = true,
       dashboard = true,
       editor = true,
