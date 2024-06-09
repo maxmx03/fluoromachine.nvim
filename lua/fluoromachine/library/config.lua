@@ -44,6 +44,10 @@
 ---@field ibl? boolean
 ---@field illuminate? boolean
 ---@field lspconfig? boolean
+---@field minicursor? boolean
+---@field ministarter? boolean
+---@field ministatusline? boolean
+---@field minitabline? boolean
 ---@field navic? boolean
 ---@field noice? boolean
 ---@field notify? boolean
