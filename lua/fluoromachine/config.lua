@@ -30,8 +30,7 @@ function M.default_config()
     colors = {},
     overrides = {},
     plugins = {
-      bufferline = true,
-      cmp = true,
+      ['bufferline.nvim'] = true,
       diagnostic = true,
       dashboard = true,
       editor = true,
@@ -47,6 +46,7 @@ function M.default_config()
       neotree = true,
       noice = true,
       notify = true,
+      ['nvim-cmp'] = true,
       saga = true,
       semantic = true,
       syntax = true,

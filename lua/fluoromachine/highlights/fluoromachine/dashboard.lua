@@ -6,11 +6,11 @@ M.load = function(opts)
   local c = opts.colors
 
   -- general
-  hl('DashboardHeader', { fg = c.red })
+  hl('DashboardHeader', { fg = c.purple })
   hl('DashboardFooter', { fg = c.comment })
 
   -- Hyper
-  hl('DashboardProjectTitle', { fg = c.red })
+  hl('DashboardProjectTitle', { fg = c.purple })
   hl('DashboardProjectTitleIcon', { link = 'DashboardProjectTitle' })
   hl('DashboardProjectIcon', { link = 'Directory' })
   hl('DashboardMruTitle', { link = 'DashboardProjectTitle' })
