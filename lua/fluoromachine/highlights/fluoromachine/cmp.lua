@@ -24,8 +24,8 @@ M.load = function(opts)
   hl('CmpItemKindProperty', { link = 'Identifier' })
   hl('CmpItemKindUnit', { link = 'Number' })
   hl('CmpItemKindEnum', { link = 'Type' })
-  hl('CmpItemKindKeyword', { link = 'Statement' })
-  hl('CmpItemKindSnippet', { link = 'Tag' })
+  hl('CmpItemKindKeyword', { link = 'Keyword' })
+  hl('CmpItemKindSnippet', { link = 'Keyword' })
   hl('CmpItemKindColor', { fg = c.green })
   hl('CmpItemKindFile', { fg = c.fg })
   hl('CmpItemKindReference', { link = 'Underlined' })
@@ -36,6 +36,7 @@ M.load = function(opts)
   hl('CmpItemKindEvent', { link = 'Function' })
   hl('CmpItemKindOperator', { link = 'Operator' })
   hl('CmpItemKindTypeParameter', { link = 'Type' })
+  hl('CmpItemKindValue', { link = 'String' })
 end
 
 return M
