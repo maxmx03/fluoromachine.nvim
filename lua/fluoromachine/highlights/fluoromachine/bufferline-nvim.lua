@@ -18,6 +18,7 @@ M.load = function(opts)
     if config.glow then
       hl('BufferLineBufferSelected', { fg = c.purple, bold = true })
       hl('BufferLineBufferVisible', { fg = darken(c.purple, 50) })
+      hl('BufferLineBuffer', { fg = darken(c.purple, 50) })
     else
       hl('BufferLineBufferSelected', { fg = lighten(c.comment, 20), bold = true })
     end
