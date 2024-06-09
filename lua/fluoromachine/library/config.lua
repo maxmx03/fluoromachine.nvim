@@ -31,23 +31,23 @@
 ---@field yellow? string
 ---@field comment? string
 ---@field editor? fm.colors.editor
----@field diagnostic? fm.colors.diagnostic
+---@field diag? fm.colors.diag
 ---@field git? fm.colors.git
 
 ---@class fm.config.plugins
 ---@field bufferline? boolean
 ---@field cmp? boolean
----@field diagnostic? boolean
 ---@field dashboard? boolean
 ---@field editor? true
 ---@field gitsign? boolean
 ---@field hop? boolean
+---@field ibl? boolean
 ---@field illuminate? boolean
----@field indentblankline? boolean
----@field lsp? boolean
+---@field lspconfig? boolean
 ---@field navic? boolean
+---@field noice? boolean
+---@field notify? boolean
 ---@field saga? boolean
----@field semantic? boolean
 ---@field syntax? true
 ---@field tree? true
 ---@field treesitter? boolean
