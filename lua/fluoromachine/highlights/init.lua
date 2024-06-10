@@ -8,12 +8,14 @@ function M.load_highlights(colors, config)
       ---@type fm.highlights
       local highlight = require(string.format('fluoromachine.highlights.%s.%s', config.theme, plugin))
 
-      highlight.load({
-        colors = colors,
-        config = config,
-        utils = utils,
-        color = color,
-      })
+      if highlight ~= nil and type(highlight.load) == 'function' then
+        highlight.load({
+          colors = colors,
+          config = config,
+          utils = utils,
+          color = color,
+        })
+      end
     end
   end
 end
