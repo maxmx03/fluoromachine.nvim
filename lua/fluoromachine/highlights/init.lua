@@ -8,16 +8,14 @@ function M.load_highlights(colors, config)
       local path = string.format('fluoromachine.highlights.%s.%s', config.theme, plugin)
       local ok, highlight = pcall(require, path)
 
-      if not ok then
-        return
+      if ok then
+        highlight.load({
+          colors = colors,
+          config = config,
+          utils = utils,
+          color = color,
+        })
       end
-
-      highlight.load({
-        colors = colors,
-        config = config,
-        utils = utils,
-        color = color,
-      })
     end
   end
 end
