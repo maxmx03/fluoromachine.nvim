@@ -51,9 +51,8 @@
 ---@field navic? boolean
 ---@field noice? boolean
 ---@field notify? boolean
----@field saga? boolean
 ---@field syntax? true
----@field tree? true
+---@field tree? boolean
 ---@field treesitter? boolean
 
 ---@class fm.config.styles

@@ -49,7 +49,6 @@ function M.default_config()
       noice = true,
       notify = true,
       lspconfig = true,
-      saga = true,
       syntax = true,
       telescope = true,
       treesitter = true,
