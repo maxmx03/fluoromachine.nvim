@@ -63,13 +63,12 @@ function M.setup(opts)
 
   utils.on_config({
     tbl = function()
-      local colors = palette.get_colors(M.config.theme)
       ---@diagnostic disable-next-line: param-type-mismatch
-      M.colors = vim.tbl_deep_extend('force', colors, M.config.colors)
+      M.colors = palette.extend_colors(M.config.colors)
     end,
     fnc = function()
-      local colors = palette.get_colors(M.config.theme)
-      M.colors = vim.tbl_deep_extend('force', colors, M.config.colors(colors, colorhelper))
+      local colors = palette.get_colors()
+      M.colors = palette.extend_colors(M.config.colors(colors, colorhelper))
     end,
   }, M.config.colors)
 end
@@ -86,7 +85,7 @@ function M.load()
   vim.o.termguicolors = true
   vim.g.colors_name = 'fluoromachine'
 
-  local colors = palette.get_colors(M.config.theme)
+  local colors = palette.get_colors()
   fluoromachine.load(M.colors or colors, M.config or M.default_config())
 end
 
