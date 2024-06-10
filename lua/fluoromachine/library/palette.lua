@@ -1,3 +1,3 @@
 ---@class fm.palette
----@field get_colors fun(): fm.colors
+---@field get_colors fun(theme: fm.config.theme): fm.colors
 ---@field extend_colors fun(colors: table): table
