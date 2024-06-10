@@ -5,17 +5,19 @@ local M = {}
 function M.load_highlights(colors, config)
   for plugin, enabled in pairs(config.plugins) do
     if enabled then
-      ---@type fm.highlights
-      local highlight = require(string.format('fluoromachine.highlights.%s.%s', config.theme, plugin))
+      local path = string.format('fluoromachine.highlights.%s.%s', config.theme, plugin)
+      local ok, highlight = pcall(require, path)
 
-      if highlight ~= nil and type(highlight.load) == 'function' then
-        highlight.load({
-          colors = colors,
-          config = config,
-          utils = utils,
-          color = color,
-        })
+      if not ok then
+        return
       end
+
+      highlight.load({
+        colors = colors,
+        config = config,
+        utils = utils,
+        color = color,
+      })
     end
   end
 end
