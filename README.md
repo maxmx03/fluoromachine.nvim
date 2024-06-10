@@ -43,6 +43,37 @@ return {
 </details>
 
 <details>
+  <summary>Annotations</summary>
+
+```lua
+lspconfig.lua_ls.setup {
+  settings = {
+    Lua = {
+      runtime = {
+        version = 'LuaJIT',
+      },
+      workspace = {
+        checkThirdParty = false,
+        library = {
+          vim.env.VIMRUNTIME,
+          '~/.local/share/nvim/lazy/fluoromachine.nvim',
+        },
+      },
+      hint = {
+        enable = true,
+      },
+      completion = {
+        callSnippet = 'Replace',
+      },
+    },
+  },
+  capabilities = capabilities,
+}
+```
+
+</details>
+
+<details>
     <summary>Configuration</summary>
 
 | Name        | type           | default value   | Description                                                                              |
@@ -57,6 +88,7 @@ return {
 example:
 
 ```lua
+---@type fluoromachine
 local fm = require 'fluoromachine'
 
 fm.setup {
