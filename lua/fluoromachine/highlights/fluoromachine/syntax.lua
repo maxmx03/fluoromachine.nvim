@@ -34,7 +34,7 @@ M.load = function(opts)
   hl('Special', { fg = c.yellow }) -- special symbol
   hl('SpecialChar', { fg = c.yellow }) -- special character in a constant
   hl('Tag', { link = 'Special' }) -- you can use CTRL-] on this
-  hl('Delimiter', { fg = c.fg }) -- character that needs attention
+  hl('Delimiter', { fg = c.pink }) -- character that needs attention
   hl('SpecialComment', { link = 'Keyword' }) -- special things inside a comment
   hl('Debug', { link = 'Keyword' }) -- debugging statements
   hl('Underlined', { fg = c.cyan, underline = true }) --text that stands out, HTML links
