@@ -16,7 +16,7 @@ local M = {
     cursor_bg = '#F8F8F8',
     currentline = '#463465',
     selection = '#463465',
-    separator = '',
+    separator = '#495495',
   },
   diag = {
     info = '#61E2FF',
