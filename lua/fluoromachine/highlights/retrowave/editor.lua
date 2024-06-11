@@ -75,9 +75,9 @@ M.load = function(opts)
   hl('SpellRare', { fg = c.diag.warning, sp = c.diag.warning, underline = true })                      -- Word that is recognized by the spellchecker as one that is hardly ever used.
   hl('StatusLine', { fg = c.fg, bg = c.bgdark })                                                       -- Status line of current window.
   hl('StatusLineNC', { fg = c.bgdark, bg = c.bgdark })                                                 -- Status lines of not-current windows.
-  hl('TabLine', { bg = c.bgdark })                                                                     -- Tab pages line, not active tab page label.
+  hl('TabLine', { fg = c.comment, bg = c.bgdark })                                                                     -- Tab pages line, not active tab page label.
   hl('TabLineFill', { fg = c.fg, bg = c.bgdark })                                                      -- Tab pages line, where there are no labels.
-  hl('TabLineSel', { fg = c.yellow, bg = c.base03 })                                                   -- Tab pages line, active tab page label.
+  hl('TabLineSel', { fg = c.fg, bg = c.base03 })                                                   -- Tab pages line, active tab page label.
   hl('Title', { fg = c.yellow, bold = true })                                                          -- Titles for output from ":set all", ":autocmd" etc.
   hl('Visual', { bg = c.editor.selection })                                                            -- Visual mode selection.
   hl('VisualNOS', { link = 'Visual' })                                                                 -- Visual mode selection when vim is "Not Owning the Selection".
