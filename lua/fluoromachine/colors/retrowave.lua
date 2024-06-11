@@ -1,11 +1,11 @@
 ---@type fm.colors
 local M = {
-  fg = '#f8f8f8',
+  fg = '#F8F8F8',
   bg = '#241B2F',
   bgdark = '#262335',
   cyan = '#61E2FF',
   green = '#72F1B8',
-  orange = '#FF8b39',
+  orange = '#FF8B39',
   pink = '#FF7EDB',
   purple = '#AF6DF9',
   red = '#FE4450',
@@ -21,7 +21,7 @@ local M = {
   diag = {
     info = '#61E2FF',
     hint = '#61E2FF',
-    warning = '#FF8b39',
+    warning = '#FF8B39',
     error = '#FE4450',
     ok = '#AF6DF9',
   },
