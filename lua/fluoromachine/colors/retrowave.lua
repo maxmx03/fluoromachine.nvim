@@ -1,8 +1,8 @@
 ---@type fm.colors
 local M = {
   fg = '#F8F8F8',
-  bg = '#241B2F',
-  bgdark = '#262335',
+  bg = '#262335',
+  bgdark = '#241b2f',
   cyan = '#61E2FF',
   green = '#72F1B8',
   orange = '#FF8B39',
