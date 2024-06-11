@@ -45,7 +45,6 @@ M.load = function(opts)
   hl('SignColumn', { bg = c.bg }, { transparent = config.transparent })
   hl('IncSearch', { fg = c.cyan }, { transparent = config.transparent })
   hl('Substitute', { link = 'IncSearch' })
-  -- Line number for ":number" and ":#" commands
   hl('LineNrAbove', { link = 'LineNr' })
   hl('LineNrBelow', { link = 'LineNr' })
   hl('CursorLineFold', { link = 'FoldColumn' })

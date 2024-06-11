@@ -9,6 +9,7 @@ M.load = function(opts)
   local alpha = 0.15
   local config = opts.config
 
+  -- :h lsp-semantic-highlight
   hl('@lsp.type.class', { link = 'Type' })
   hl('@lsp.type.decorator', { link = 'Function' })
   hl('@lsp.type.enum', { link = 'Type' })
@@ -19,17 +20,19 @@ M.load = function(opts)
   hl('@lsp.type.parameter', { fg = c.orange }, {
     styles = config.styles.parameters,
   })
-  hl('@lsp.type.property', { fg = c.base0 })
+  hl('@lsp.type.property', { fg = c.cyan })
   hl('@lsp.type.struct', { fg = c.cyan })
   hl('@lsp.type.type', { fg = c.cyan })
   hl('@lsp.type.typeParameter', { fg = c.cyan, italic = true })
-  hl('@lsp.type.variable', { fg = c.base0 })
+  hl('@lsp.type.variable', { fg = c.cyan })
   hl('@lsp.typemod.variable.defaultLibrary', { link = 'Constant' })
   hl('@lsp.typemod.variable.readonly', { link = 'Constant' })
   hl('@lsp.typemod.variable.global', { link = 'Constant' })
   hl('@lsp.typemod.keyword.documentation', { link = 'Keyword' })
   hl('@lsp.typemod.class.documentation', { link = 'Type' })
   hl('@lsp.typemod.property.readonly', { link = 'Constant' })
+
+  -- :h diagnostic-highlights
   hl('DiagnosticError', { fg = c.diag.error })
   hl('DiagnosticWarn', { fg = c.diag.warning })
   hl('DiagnosticInfo', { fg = c.diag.info })
@@ -45,10 +48,12 @@ M.load = function(opts)
   hl('DiagnosticUnderlineInfo', { fg = c.diag.info, underline = true })
   hl('DiagnosticUnderlineHint', { fg = c.diag.hint, underline = true })
   hl('DiagnosticUnderlineOk', { fg = c.diag.ok, underline = true })
-  hl('LspReferenceText', { link = 'Visual' }) -- used for highlighting "text" references
-  hl('LspReferenceRead', { link = 'Visual' }) -- used for highlighting "read" references
-  hl('LspReferenceWrite', { link = 'Visual' }) -- used for highlighting "write" references
-  hl('LspInlayHint', { fg = darken(c.yellow, 35) }) -- used for highlighting inlay hints
+
+  -- :h lsp-highlight
+  hl('LspReferenceText', { link = 'Visual' })
+  hl('LspReferenceRead', { link = 'Visual' })
+  hl('LspReferenceWrite', { link = 'Visual' })
+  hl('LspInlayHint', { fg = darken(c.yellow, 50) })
 end
 
 return M
