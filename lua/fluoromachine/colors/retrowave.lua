@@ -2,7 +2,7 @@
 local M = {
   fg = '#F8F8F8',
   bg = '#262335',
-  bgdark = '#241b2f',
+  bgdark = '#241B2F',
   cyan = '#61E2FF',
   green = '#72F1B8',
   orange = '#FF8B39',
@@ -12,7 +12,7 @@ local M = {
   yellow = '#FFCC00',
   comment = '#495495',
   editor = {
-    cursor_fg = '#282a36',
+    cursor_fg = '#282A36',
     cursor_bg = '#F8F8F8',
     currentline = '#463465',
     selection = '#463465',
