@@ -6,8 +6,8 @@ M.load = function(opts)
   local hl = opts.utils.set_hl
   local c = opts.colors
 
-  hl('IblIndent', { fg = darken(c.purple, 20), nocombine = true })
-  hl('IblScope', { fg = darken(c.green, 10), nocombine = true })
+  hl('IblIndent', { fg = darken(c.purple, 50), nocombine = true })
+  hl('IblScope', { fg = darken(c.green, 50), nocombine = true })
 end
 
 return M
