@@ -127,7 +127,13 @@ describe('Retrowave', function()
     local expect = colors.editor.selection
     assert.equal(expect, output.bg)
   end)
-  --
+
+  test('MiniStarter highlight', function()
+    local output = nvim_get_hl('MiniStarterHeader')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
+
   -- test('Navic highlight', function()
   --   local output = nvim_get_hl('NavicIconsFile')
   --   local expect = colors.fg
