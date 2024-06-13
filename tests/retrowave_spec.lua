@@ -55,34 +55,34 @@ describe('Retrowave', function()
     assert.equal(colors.fg, output.fg)
     assert.equal(nil, output.bg)
   end)
-  --
+
   test('syntax highlight', function()
     local output = nvim_get_hl('string')
     assert.equal(colors.orange, output.fg)
   end)
-  --
+
   test('semantic highlight', function()
     local output = nvim_get_hl('@lsp.type.class')
     assert.equal('Type', output.link)
   end)
-  --
+
   test('treesitter highlight', function()
     local output = nvim_get_hl('@comment')
     assert.equal('Comment', output.link)
   end)
-  --
+
   test('bufferline highlight', function()
     local output = nvim_get_hl('BufferLineFill')
     local darken = require('fluoromachine.utils.color').darken
     local expect = darken(colors.bg, 25):upper()
     assert.equal(expect, output.bg)
   end)
-  --
+
   test('cmp highlight', function()
     local output = nvim_get_hl('CmpItemKindClass')
     assert.equal('Type', output.link)
   end)
-  --
+
   test('dashboard highlight', function()
     local output = nvim_get_hl('DashboardHeader')
     assert.equal(colors.red, output.fg)
@@ -97,7 +97,7 @@ describe('Retrowave', function()
     local output = nvim_get_hl('HopNextKey')
     assert.equal(colors.red, output.fg)
   end)
-  --
+
   test('illuminate highlight', function()
     local output = nvim_get_hl('illuminatedWord')
     assert.equal(colors.editor.selection, output.bg)
@@ -109,7 +109,7 @@ describe('Retrowave', function()
     local expect = darken(colors.purple, 50):upper()
     assert.equal(expect, output.fg)
   end)
-  --
+
   -- test('Lazy highlight', function()
   --   local output = nvim_get_hl('LazyH1')
   --   local expect = colors.yellow

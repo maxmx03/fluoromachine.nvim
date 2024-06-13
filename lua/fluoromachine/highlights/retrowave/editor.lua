@@ -5,7 +5,8 @@ M.load = function(opts)
   local config = opts.config
   local hl = opts.utils.set_hl
   local c = opts.colors
-  local lighten = opts.color.lighten
+  local blend = opts.color.blend
+  local alpha = 0.15
 
   -- h: highlights-groups
   if config.transparent then
@@ -17,7 +18,7 @@ M.load = function(opts)
   hl('LineNr', { fg = c.comment, bg = c.bg }, { transparent = config.transparent })
   hl('CursorLineNr', { fg = c.red, bg = c.bg, bold = true }, { transparent = config.transparent })
   hl('Conceal', { fg = c.pink })
-  hl('CurSearch', { fg = lighten(c.fg, 100), bg = c.editor.selection })
+  hl('CurSearch', { fg = c.purple, bg = blend(c.purple, c.bg, alpha) })
   hl('Cursor', { fg = c.editor.cursor_fg, bg = c.editor.cursor_bg })
   hl('lCursor', { link = 'Cursor' })
   hl('CursorIM', { link = 'Cursor' })
