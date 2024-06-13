@@ -86,16 +86,18 @@ describe('Retrowave', function()
     local colors = require('fluoromachine.palette').get_colors()
     assert.equal(colors.red, output.fg)
   end)
-  --
-  -- test('gitsign highlight', function()
-  --   local output = nvim_get_hl('GitSignsAdd')
-  --   assert.equal(colors.git.add, output.fg)
-  -- end)
-  --
-  -- test('hop highlight', function()
-  --   local output = nvim_get_hl('HopNextKey')
-  --   assert.equal(colors.pink, output.fg)
-  -- end)
+
+  test('gitsign highlight', function()
+    local output = nvim_get_hl('GitSignsAdd')
+    local colors = require('fluoromachine.palette').get_colors()
+    assert.equal(colors.git.add, output.fg)
+  end)
+
+  test('hop highlight', function()
+    local output = nvim_get_hl('HopNextKey')
+    local colors = require('fluoromachine.palette').get_colors()
+    assert.equal(colors.red, output.fg)
+  end)
   --
   -- test('illuminate highlight', function()
   --   local output = nvim_get_hl('illuminatedWord')
