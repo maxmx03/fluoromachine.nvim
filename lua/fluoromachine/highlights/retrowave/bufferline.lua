@@ -5,7 +5,6 @@ M.load = function(opts)
   local hl = opts.utils.set_hl
   local c = opts.colors
   local darken = opts.color.darken
-  local lighten = opts.color.lighten
   local config = opts.config
   local background = darken(c.bg, 25)
 
