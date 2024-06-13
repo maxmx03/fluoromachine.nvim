@@ -134,6 +134,12 @@ describe('Retrowave', function()
     assert.equal(expect, output.fg)
   end)
 
+  test('MiniStatusline highlight', function()
+    local output = nvim_get_hl('MiniStatuslineModeNormal')
+    local expect = colors.cyan
+    assert.equal(expect, output.bg)
+  end)
+
   -- test('Navic highlight', function()
   --   local output = nvim_get_hl('NavicIconsFile')
   --   local expect = colors.fg
