@@ -15,7 +15,7 @@ M.load = function(opts)
   end
 
   hl('LineNr', { fg = c.comment, bg = c.bg }, { transparent = config.transparent })
-  hl('CursorLineNr', { fg = c.red, bg = c.bg, bold = true }, { transparent = config.transparent })
+  hl('CursorLineNr', { fg = c.pink, bg = c.bg, bold = true }, { transparent = config.transparent })
   hl('Conceal', { fg = c.pink })
   hl('CurSearch', { fg = lighten(c.fg, 100), bg = c.editor.selection })
   hl('Cursor', { fg = c.editor.cursor_fg, bg = c.editor.cursor_bg })
