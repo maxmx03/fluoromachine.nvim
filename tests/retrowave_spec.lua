@@ -98,11 +98,11 @@ describe('Retrowave', function()
     assert.equal(colors.red, output.fg)
   end)
   --
-  -- test('illuminate highlight', function()
-  --   local output = nvim_get_hl('illuminatedWord')
-  --   assert.equal(colors.editor.selection, output.bg)
-  -- end)
-  --
+  test('illuminate highlight', function()
+    local output = nvim_get_hl('illuminatedWord')
+    assert.equal(colors.editor.selection, output.bg)
+  end)
+
   test('indentblankline highlight', function()
     local output = nvim_get_hl('IblIndent')
     local darken = require('fluoromachine.utils.color').darken
