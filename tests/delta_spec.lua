@@ -66,11 +66,11 @@ describe('Delta', function()
   --   assert.equal('Type', output.link)
   -- end)
   --
-  -- test('treesitter highlight', function()
-  --   local output = nvim_get_hl('@comment')
-  --   assert.equal('Comment', output.link)
-  -- end)
-  --
+  test('treesitter highlight', function()
+    local output = nvim_get_hl('@comment')
+    assert.equal('Comment', output.link)
+  end)
+
   -- test('bufferline highlight', function()
   --   local output = nvim_get_hl('BufferLineFill')
   --   local darken = require('fluoromachine.utils.color').darken
