@@ -7,16 +7,16 @@ describe('Retrowave', function()
   setup(function()
     require('fluoromachine').setup({
       theme = 'retrowave',
-      -- glow = true,
+      glow = true,
       transparent = true,
-      -- colors = {
-      --   bglight = '#ffffff',
-      -- },
-      -- overrides = function(c)
-      --   return {
-      --     Directory = { fg = c.red },
-      --   }
-      -- end,
+      colors = {
+        bglight = '#ffffff',
+      },
+      overrides = function(c)
+        return {
+          Directory = { fg = c.red },
+        }
+      end,
     })
     vim.cmd.colorscheme('fluoromachine')
   end)
@@ -29,26 +29,26 @@ describe('Retrowave', function()
     assert.equal('fluoromachine', vim.g.colors_name)
   end)
 
-  -- test('config.glow', function()
-  --   local blend = require('fluoromachine.utils.color').blend
-  --   local expect = blend(colors.yellow, colors.bg, 0.05):upper()
-  --   local output = nvim_get_hl('Function')
-  --   assert.equal(colors.yellow, output.fg)
-  --   assert.equal(expect, output.bg)
-  -- end)
+  test('config.glow', function()
+    local blend = require('fluoromachine.utils.color').blend
+    local expect = blend(colors.yellow, colors.bg, 0.05):upper()
+    local output = nvim_get_hl('Function')
+    assert.equal(colors.yellow, output.fg)
+    assert.equal(expect, output.bg)
+  end)
+
+  test('config.colors', function()
+    local output = require('fluoromachine.config').colors.bglight
+    local expect = '#ffffff'
+    assert.equal(expect, output)
+  end)
+
+  test('config.overrides', function()
+    local output = nvim_get_hl('Directory')
+    local expected = colors.red
+    assert.equal(expected, output.fg)
+  end)
   --
-  -- test('config.colors', function()
-  --   local output = require('fluoromachine.config').colors.bglight
-  --   local expect = '#ffffff'
-  --   assert.equal(expect, output)
-  -- end)
-  --
-  -- test('config.overrides', function()
-  --   local output = nvim_get_hl('Directory')
-  --   local expected = colors.red
-  --   assert.equal(expected, output.fg)
-  -- end)
-  -- --
   test('editor highlight', function()
     local output = nvim_get_hl('Normal')
 
@@ -116,12 +116,6 @@ describe('Retrowave', function()
     assert.equal(expect, output.fg)
   end)
 
-  -- test('Lsp highlight', function()
-  --   local output = nvim_get_hl('LspReferenceText')
-  --   local expect = 'Visual'
-  --   assert.equal(expect, output.link)
-  -- end)
-
   test('MiniCursor highlight', function()
     local output = nvim_get_hl('MiniCursorword')
     local expect = colors.editor.selection
@@ -174,18 +168,18 @@ describe('Retrowave', function()
     assert.equal(expect, output.fg)
   end)
 
-  -- test('Notify highlight', function()
-  --   local output = nvim_get_hl('NotifyERRORBorder')
-  --   local expect = 'NotifyERRORBody'
-  --   assert.equal(expect, output.link)
-  -- end)
-  --
-  -- test('Telescope highlight', function()
-  --   local output = nvim_get_hl('TelescopeTitle')
-  --   local expect = colors.yellow
-  --   assert.equal(expect, output.fg)
-  -- end)
-  --
+  test('Notify highlight', function()
+    local output = nvim_get_hl('NotifyERRORBorder')
+    local expect = 'NotifyERRORBody'
+    assert.equal(expect, output.link)
+  end)
+
+  test('Telescope highlight', function()
+    local output = nvim_get_hl('TelescopeTitle')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
+
   test('Nvim-tree highlight', function()
     local output = nvim_get_hl('NvimTreeFolderIcon')
     local expect = 'Directory'
