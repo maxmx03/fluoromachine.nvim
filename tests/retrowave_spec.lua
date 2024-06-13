@@ -156,11 +156,11 @@ describe('Retrowave', function()
     assert.equal(expect, output.fg)
   end)
   --
-  -- test('Neogit highlight', function()
-  --   local output = nvim_get_hl('NeogitBranch')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
+  test('Neogit highlight', function()
+    local output = nvim_get_hl('NeogitBranch')
+    local expect = colors.pink
+    assert.equal(expect, output.fg)
+  end)
   --
   test('Neotree highlight', function()
     local output = nvim_get_hl('NeoTreeNormal')
