@@ -68,12 +68,13 @@ describe('Retrowave', function()
     assert.equal('Comment', output.link)
   end)
   --
-  -- test('bufferline highlight', function()
-  --   local output = nvim_get_hl('BufferLineFill')
-  --   local darken = require('fluoromachine.utils.color').darken
-  --   local expect = darken('#200933', 25):upper()
-  --   assert.equal(expect, output.bg)
-  -- end)
+  test('bufferline highlight', function()
+    local output = nvim_get_hl('BufferLineFill')
+    local darken = require('fluoromachine.utils.color').darken
+    local colors = require('fluoromachine.palette').get_colors()
+    local expect = darken(colors.bg, 25):upper()
+    assert.equal(expect, output.bg)
+  end)
   --
   -- test('cmp highlight', function()
   --   local output = nvim_get_hl('CmpItemKindClass')
