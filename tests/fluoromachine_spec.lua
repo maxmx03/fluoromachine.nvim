@@ -101,7 +101,7 @@ describe('Fluoromachine', function()
   test('indentblankline highlight', function()
     local output = nvim_get_hl('IblIndent')
     local darken = require('fluoromachine.utils.color').darken
-    local expect = darken(colors.purple, 20):upper()
+    local expect = darken(colors.purple, 50):upper()
     assert.equal(expect, output.fg)
   end)
 
