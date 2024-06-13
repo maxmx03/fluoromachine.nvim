@@ -140,6 +140,16 @@ describe('Retrowave', function()
     assert.equal(expect, output.bg)
   end)
 
+  test('MiniTabline highlight', function()
+    local output = nvim_get_hl('MiniTablineCurrent')
+    local expect = {
+      fg = colors.fg,
+      bg = colors.bg,
+    }
+    assert.equal(expect.fg, output.fg)
+    assert.equal(expect.bg, output.bg)
+  end)
+
   -- test('Navic highlight', function()
   --   local output = nvim_get_hl('NavicIconsFile')
   --   local expect = colors.fg
