@@ -110,23 +110,23 @@ describe('Retrowave', function()
     assert.equal(expect, output.fg)
   end)
 
-  -- test('Lazy highlight', function()
-  --   local output = nvim_get_hl('LazyH1')
-  --   local expect = colors.yellow
-  --   assert.equal(expect, output.fg)
-  -- end)
-  --
+  test('Lazy highlight', function()
+    local output = nvim_get_hl('LazyH1')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
+
   -- test('Lsp highlight', function()
   --   local output = nvim_get_hl('LspReferenceText')
   --   local expect = 'Visual'
   --   assert.equal(expect, output.link)
   -- end)
-  --
-  -- test('Mini highlight', function()
-  --   local output = nvim_get_hl('MiniStarterHeader')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
+
+  test('MiniCursor highlight', function()
+    local output = nvim_get_hl('MiniCursorword')
+    local expect = colors.editor.selection
+    assert.equal(expect, output.bg)
+  end)
   --
   -- test('Navic highlight', function()
   --   local output = nvim_get_hl('NavicIconsFile')
