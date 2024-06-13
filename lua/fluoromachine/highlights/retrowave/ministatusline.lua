@@ -4,8 +4,6 @@ local M = {}
 M.load = function(opts)
   local hl = opts.utils.set_hl
   local c = opts.colors
-  local blend = opts.color.blend
-  local alpha = 0.2
 
   hl('MiniStatuslineModeNormal', { fg = c.bg, bg = c.cyan })
   hl('MiniStatuslineModeInsert', { fg = c.bg, bg = c.green })
