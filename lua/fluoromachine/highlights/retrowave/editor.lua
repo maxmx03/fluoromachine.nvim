@@ -6,7 +6,7 @@ M.load = function(opts)
   local hl = opts.utils.set_hl
   local c = opts.colors
   local blend = opts.color.blend
-  local alpha = 0.15
+  local alpha = 0.2
 
   -- h: highlights-groups
   if config.transparent then
