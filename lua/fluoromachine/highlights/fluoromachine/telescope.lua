@@ -14,7 +14,7 @@ M.load = function(opts)
   hl('TelescopeMultiIcon', { fg = c.pink })
 
   -- "Normal" in the floating windows created by telescope.
-  hl('TelescopeNormal', { fg = c.base0, bg = c.bgdark }, { transparent = config.transparent })
+  hl('TelescopeNormal', { fg = c.fg, bg = c.bgdark }, { transparent = config.transparent })
   hl('TelescopePreviewNormal', { link = 'TelescopeNormal' })
   hl('TelescopePromptNormal', { link = 'TelescopeNormal' })
   hl('TelescopeResultsNormal', { link = 'TelescopeNormal' })
