@@ -43,15 +43,19 @@
 ---@field hop? boolean
 ---@field ibl? boolean
 ---@field illuminate? boolean
+---@field lazy? boolean
 ---@field lspconfig? boolean
 ---@field minicursor? boolean
 ---@field ministarter? boolean
 ---@field ministatusline? boolean
 ---@field minitabline? boolean
 ---@field navic? boolean
+---@field neogit? boolean
+---@field neotree? boolean
 ---@field noice? boolean
 ---@field notify? boolean
 ---@field syntax? true
+---@field telescope? boolean
 ---@field tree? boolean
 ---@field treesitter? boolean
 
