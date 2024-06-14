@@ -162,11 +162,11 @@ describe('Delta', function()
     assert.equal(colors.bgdark, output.bg)
   end)
 
-  -- test('Noice highlight', function()
-  --   local output = nvim_get_hl('NoiceLspProgressSpinner')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
+  test('Noice highlight', function()
+    local output = nvim_get_hl('NoiceLspProgressSpinner')
+    local expect = colors.pink
+    assert.equal(expect, output.fg)
+  end)
   --
   -- test('Notify highlight', function()
   --   local output = nvim_get_hl('NotifyERRORBorder')
