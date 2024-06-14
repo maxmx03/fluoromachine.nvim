@@ -97,11 +97,11 @@ describe('Delta', function()
   --   local output = nvim_get_hl('HopNextKey')
   --   assert.equal(colors.red, output.fg)
   -- end)
-  --
-  -- test('illuminate highlight', function()
-  --   local output = nvim_get_hl('illuminatedWord')
-  --   assert.equal(colors.editor.selection, output.bg)
-  -- end)
+
+  test('illuminate highlight', function()
+    local output = nvim_get_hl('illuminatedWord')
+    assert.equal(colors.editor.selection, output.bg)
+  end)
 
   test('indentblankline highlight', function()
     local output = nvim_get_hl('IblIndent')
