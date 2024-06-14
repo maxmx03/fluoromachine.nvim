@@ -58,6 +58,7 @@
 ---@field telescope? boolean
 ---@field tree? boolean
 ---@field treesitter? boolean
+---@field wk? boolean
 
 ---@class fm.config.styles
 ---@field comments? vim.api.keyset.highlight

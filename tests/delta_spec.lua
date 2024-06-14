@@ -184,4 +184,10 @@ describe('Delta', function()
     local expect = 'Directory'
     assert.equal(expect, output.link)
   end)
+
+  test('Which key highlight', function()
+    local output = nvim_get_hl('WhichKey')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
 end)

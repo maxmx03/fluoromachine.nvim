@@ -53,6 +53,7 @@ function M.default_config()
       telescope = true,
       treesitter = true,
       tree = true,
+      wk = true,
     },
   }
   return config

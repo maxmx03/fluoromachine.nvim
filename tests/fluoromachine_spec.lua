@@ -164,4 +164,10 @@ describe('Fluoromachine', function()
     local expect = 'Directory'
     assert.equal(expect, output.link)
   end)
+
+  test('Which key highlight', function()
+    local output = nvim_get_hl('WhichKey')
+    local expect = colors.pink
+    assert.equal(expect, output.fg)
+  end)
 end)
