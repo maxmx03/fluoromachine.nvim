@@ -143,12 +143,12 @@ describe('Delta', function()
   --   assert.equal(expect.fg, output.fg)
   --   assert.equal(expect.bg, output.bg)
   -- end)
-  --
-  -- test('Navic highlight', function()
-  --   local output = nvim_get_hl('NavicIconsFile')
-  --   local expect = colors.fg
-  --   assert.equal(expect, output.fg)
-  -- end)
+
+  test('Navic highlight', function()
+    local output = nvim_get_hl('NavicIconsFile')
+    local expect = colors.fg
+    assert.equal(expect, output.fg)
+  end)
 
   test('Neogit highlight', function()
     local output = nvim_get_hl('NeogitBranch')
