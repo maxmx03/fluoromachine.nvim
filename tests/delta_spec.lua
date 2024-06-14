@@ -102,14 +102,13 @@ describe('Delta', function()
   --   local output = nvim_get_hl('illuminatedWord')
   --   assert.equal(colors.editor.selection, output.bg)
   -- end)
-  --
-  -- test('indentblankline highlight', function()
-  --   local output = nvim_get_hl('IblIndent')
-  --   local darken = require('fluoromachine.utils.color').darken
-  --   local expect = darken(colors.purple, 50):upper()
-  --   assert.equal(expect, output.fg)
-  -- end)
-  --
+
+  test('indentblankline highlight', function()
+    local output = nvim_get_hl('IblIndent')
+    local expect = colors.editor.currentline
+    assert.equal(expect, output.fg)
+  end)
+
   test('Lazy highlight', function()
     local output = nvim_get_hl('LazyH1')
     local expect = colors.red
