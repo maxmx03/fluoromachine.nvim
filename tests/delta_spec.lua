@@ -115,33 +115,33 @@ describe('Delta', function()
     assert.equal(expect, output.fg)
   end)
   --
-  -- test('MiniCursor highlight', function()
-  --   local output = nvim_get_hl('MiniCursorword')
-  --   local expect = colors.editor.selection
-  --   assert.equal(expect, output.bg)
-  -- end)
-  --
-  -- test('MiniStarter highlight', function()
-  --   local output = nvim_get_hl('MiniStarterHeader')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
-  --
-  -- test('MiniStatusline highlight', function()
-  --   local output = nvim_get_hl('MiniStatuslineModeNormal')
-  --   local expect = colors.cyan
-  --   assert.equal(expect, output.bg)
-  -- end)
-  --
-  -- test('MiniTabline highlight', function()
-  --   local output = nvim_get_hl('MiniTablineCurrent')
-  --   local expect = {
-  --     fg = colors.fg,
-  --     bg = colors.bg,
-  --   }
-  --   assert.equal(expect.fg, output.fg)
-  --   assert.equal(expect.bg, output.bg)
-  -- end)
+  test('MiniCursor highlight', function()
+    local output = nvim_get_hl('MiniCursorword')
+    local expect = colors.editor.selection
+    assert.equal(expect, output.bg)
+  end)
+
+  test('MiniStarter highlight', function()
+    local output = nvim_get_hl('MiniStarterHeader')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
+
+  test('MiniStatusline highlight', function()
+    local output = nvim_get_hl('MiniStatuslineModeNormal')
+    local expect = colors.pink
+    assert.equal(expect, output.bg)
+  end)
+
+  test('MiniTabline highlight', function()
+    local output = nvim_get_hl('MiniTablineCurrent')
+    local expect = {
+      fg = colors.fg,
+      bg = colors.bg,
+    }
+    assert.equal(expect.fg, output.fg)
+    assert.equal(expect.bg, output.bg)
+  end)
 
   test('Navic highlight', function()
     local output = nvim_get_hl('NavicIconsFile')
