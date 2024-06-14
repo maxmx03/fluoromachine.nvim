@@ -155,13 +155,13 @@ describe('Delta', function()
   --   local expect = colors.pink
   --   assert.equal(expect, output.fg)
   -- end)
-  --
-  -- test('Neotree highlight', function()
-  --   local output = nvim_get_hl('NeoTreeNormal')
-  --   assert.equal(colors.fg, output.fg)
-  --   assert.equal(colors.bgdark, output.bg)
-  -- end)
-  --
+
+  test('Neotree highlight', function()
+    local output = nvim_get_hl('NeoTreeNormal')
+    assert.equal(colors.fg, output.fg)
+    assert.equal(colors.bgdark, output.bg)
+  end)
+
   -- test('Noice highlight', function()
   --   local output = nvim_get_hl('NoiceLspProgressSpinner')
   --   local expect = colors.red

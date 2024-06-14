@@ -7,6 +7,7 @@ M.load = function(opts)
   local c = opts.colors
   local config = opts.config
 
+  -- :h treesitter-highlight
   hl('@variable', { link = 'Identifier' })
   hl('@variable.builtin', { fg = c.purple })
   hl('@variable.parameter', { fg = c.orange }, { styles = config.styles.parameters })

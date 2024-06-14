@@ -7,7 +7,7 @@ M.load = function(opts)
   local c = opts.colors
   local lighten = opts.color.lighten
 
-  -- h: highlights-groups
+  -- :h highlights-groups
   if config.transparent then
     hl('ColorColumn', { bg = c.bg })
   else

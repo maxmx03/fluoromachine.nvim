@@ -6,7 +6,7 @@ M.load = function(opts)
   local c = opts.colors
   local config = opts.config
 
-  -- h: :h group-name
+  -- :h group-name
   hl('Comment', { fg = c.comment }, { styles = config.styles.comments })
   hl('Constant', { fg = c.red, bold = config.glow }, { styles = config.styles.constants, glow = config.glow })
   hl('String', { fg = c.orange })
