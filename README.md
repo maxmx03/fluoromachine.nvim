@@ -3,8 +3,6 @@
     <h1>Fluoromachine</h1>
 </div>
 
-> Created with [colorgen](https://github.com/ChristianChiarulli/colorgen-nvim)
-
 Fluoromachine is a fork of the popular Synthwave84 color scheme, which is inspired by the
 aesthetics of the 1980s and the retro-futuristic genre known as synthwave. Fluoromachine (Colorscheme)
 incorporates this neon-drenched style into its design, with a glowing effect that adds a touch of
@@ -141,13 +139,18 @@ takes three arguments: color, background, and alpha.
 ```lua
 local fm = require 'fluoromachine'
 
-function overrides(c)
+function overrides(c,color)
+    local darken = color.darken
+    local lighten = color.lighten
+    local blend = color.blend
+    local shade = color.shade
+    local tint = color.tint
     return {
-     TelescopeResultsBorder = { fg = c.alt_bg, bg = c.alt_bg },
-     TelescopeResultsNormal = { bg = c.alt_bg },
+     TelescopeResultsBorder = { fg = c.bgdark, bg = c.bgdark },
+     TelescopeResultsNormal = { bg = c.bgdark },
      TelescopePreviewNormal = { bg = c.bg },
-     TelescopePromptBorder = { fg = c.alt_bg, bg = c.alt_bg },
-     TelescopeTitle = { fg = c.fg, bg = c.comment },
+     TelescopePromptBorder = { fg = c.bgdark, bg = c.bgdark },
+     TelescopeTitle = { fg = c.red, bg = shade(c.red,5) },
      TelescopePromptPrefix = { fg = c.purple },
     }
 end
@@ -170,10 +173,15 @@ local fm = require 'fluoromachine'
 fm.setup {
   glow = true,
   theme = 'retrowave',
-  colors = function(_, d)
+  colors = function(_, color)
+    local darken = color.darken
+    local lighten = color.lighten
+    local blend = color.blend
+    local shade = color.shade
+    local tint = color.tint
     return {
       bg = '#190920',
-      alt_bg = d('#190920', 20),
+      bgdark = darken('#190920', 20),
       cyan = '#49eaff',
       red = '#ff1e34',
       yellow = '#ffe756',
