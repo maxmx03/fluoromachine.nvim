@@ -24,12 +24,16 @@ Example with Lazy.nvim
 return {
     {
         'maxmx03/fluoromachine.nvim',
+        lazy = true,
+        lazy = false,
+        priority = 1000,
         config = function ()
          local fm = require 'fluoromachine'
 
          fm.setup {
-            glow = false,
+            glow = true,
             theme = 'fluoromachine'
+            transparent = true,
          }
 
          vim.cmd.colorscheme 'fluoromachine'
