@@ -1,92 +1,93 @@
-local utils = require 'fluoromachine.utils'
+local palette = require('fluoromachine.palette')
+local fluoromachine = require('fluoromachine.highlights')
+local utils = require('fluoromachine.utils')
+local colorhelper = require('fluoromachine.utils.color')
 
+---@type fm.config
+---@diagnostic disable-next-line: missing-fields
 local M = {}
 
-function M:new()
+M.config = nil
+M.colors = nil
+
+function M.default_config()
+  ---@class fm.config.default
   local config = {
-    transparent = false,
-    glow = false,
+    theme = 'fluoromachine',
     brightness = 0.05,
-    colors = nil,
-    theme = nil,
-    user_config = {},
+    glow = true,
+    transparent = false,
+    styles = {
+      comments = {},
+      functions = {},
+      variables = {},
+      numbers = {},
+      constants = {},
+      parameters = {},
+      keywords = {},
+      types = {},
+    },
+    colors = {},
+    overrides = {},
+    plugins = {
+      bufferline = true,
+      cmp = true,
+      dashboard = true,
+      editor = true,
+      gitsign = true,
+      hop = true,
+      ibl = true,
+      illuminate = true,
+      lazy = true,
+      minicursor = true,
+      ministarter = true,
+      minitabline = true,
+      ministatusline = true,
+      navic = true,
+      neogit = true,
+      neotree = true,
+      noice = true,
+      notify = true,
+      lspconfig = true,
+      syntax = true,
+      telescope = true,
+      treesitter = true,
+      tree = true,
+      wk = true,
+    },
   }
-
-  setmetatable(config, self)
-  self.__index = self
-
   return config
 end
 
-function M:set_colors()
-  if self.user_config.theme == 'retrowave' then
-    self.colors = require 'fluoromachine.palettes.retrowave'
-  elseif self.user_config.theme == 'delta' then
-    self.colors = require 'fluoromachine.palettes.delta'
-  else
-    self.colors = require 'fluoromachine.palettes'
-  end
+function M.setup(opts)
+  M.config = vim.tbl_deep_extend('force', M.default_config(), opts or {})
+
+  utils.on_config({
+    tbl = function()
+      ---@diagnostic disable-next-line: param-type-mismatch
+      M.colors = palette.extend_colors(M.config.colors)
+    end,
+    fnc = function()
+      local colors = palette.get_colors()
+      M.colors = palette.extend_colors(M.config.colors(colors, colorhelper))
+    end,
+  }, M.config.colors)
 end
 
-function M:set_user_colors()
-  if type(self.user_config.colors) == 'table' then
-    self.colors = vim.tbl_extend('force', self.colors, self.user_config.colors)
-  elseif type(self.user_config.colors) == 'function' then
-    self.colors = vim.tbl_extend(
-      'force',
-      self.colors,
-      self.user_config.colors(self.colors, utils.darken, utils.lighten, utils.blend)
-    )
-  end
-end
-
-function M:set_theme()
-  if self.user_config.theme == 'retrowave' then
-    self.theme = require 'fluoromachine.themes.retrowave'
-  elseif self.user_config.theme == 'delta' then
-    self.theme = require 'fluoromachine.themes.delta'
-  else
-    self.theme = require 'fluoromachine.themes'
-  end
-end
-
-function M:set_transparent()
-  if self.user_config.transparent then
-    self.transparent = self.user_config.transparent
-  end
-end
-
-function M:set_glow()
-  if type(self.user_config.glow) == 'boolean' then
-    self.glow = self.user_config.glow
+function M.load()
+  if vim.g.colors_name then
+    vim.cmd('hi clear')
   end
 
-  if self.glow then
-    if self.user_config.theme == 'fluoromachine' or not self.user_config.theme then
-      self.colors.bg = '#200933'
-      self.colors.alt_bg = utils.darken(self.colors.bg, 10)
-    end
-  end
-end
-
-function M:set_brightness()
-  if type(self.user_config.brightness) == 'number' then
-    self.brightness = self.user_config.brightness
-  end
-end
-
-function M:load(user_config)
-  -- extend the internal `user_config`. Allows calling `setup` multiple times and changing the current setup
-  if user_config and not vim.tbl_isempty(user_config) then
-    self.user_config = vim.tbl_deep_extend('force', self.user_config, user_config)
+  if vim.fn.exists('syntax_on') then
+    vim.cmd('syntax reset')
   end
 
-  self:set_transparent()
-  self:set_brightness()
-  self:set_colors()
-  self:set_glow()
-  self:set_user_colors()
-  self:set_theme()
+  vim.o.termguicolors = true
+  vim.g.colors_name = 'fluoromachine'
+
+  local colors = palette.get_colors()
+  fluoromachine.load(M.colors or colors, M.config or M.default_config())
 end
 
 return M

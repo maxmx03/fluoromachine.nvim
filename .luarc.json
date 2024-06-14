@@ -1,0 +1,15 @@
+{
+  "workspace": {
+    "library": [
+      "runtime/lua",
+      "${3rd}/busted/library",
+      "${3rd}/luv/library",
+      "/usr/share/nvim/runtime",
+      "${3rd}/luassert/library"
+    ],
+    "ignoreDir": ["test"],
+    "checkThirdParty": true
+  },
+  "diagnostics.disable": ["undefined-field",
+        "missing-fields"]
+}

@@ -1,0 +1,34 @@
+---@class fm.colors.editor
+---@field cursor_fg string
+---@field cursor_bg string
+---@field currentline string
+---@field selection string
+---@field separator string
+
+---@class fm.colors.diag
+---@field info string
+---@field hint string
+---@field warning string
+---@field error string
+---@field ok string
+
+---@class fm.colors.git
+---@field add string
+---@field change string
+---@field delete string
+
+---@class fm.colors
+---@field fg string
+---@field bg string
+---@field bgdark string
+---@field cyan string
+---@field green string
+---@field orange string
+---@field pink string
+---@field purple string
+---@field red string
+---@field yellow string
+---@field comment string
+---@field editor fm.colors.editor
+---@field diag fm.colors.diag
+---@field git fm.colors.git

@@ -1,32 +1,27 @@
-local fluoromachine = require 'fluoromachine'
-local utils = require 'fluoromachine.utils'
-local colors = fluoromachine.colors
-local d = utils.darken
-
-if colors == nil then
-  colors = require("fluoromachine.palettes")
-end
+local c = require('fluoromachine.palette').get_colors()
+local colors = require('fluoromachine.utils.color')
+local darken = colors.darken
 
 return {
   normal = {
-    a = { bg = colors.bg, fg = colors.purple, gui = 'bold' },
-    b = { bg = d(colors.purple, 50), fg = colors.purple },
-    c = { bg = colors.alt_bg, fg = colors.fg },
+    a = { bg = c.bg, fg = c.purple, gui = 'bold' },
+    b = { bg = darken(c.purple, 50), fg = c.purple },
+    c = { bg = c.bgdark, fg = c.fg },
   },
   insert = {
-    a = { bg = colors.bg, fg = colors.yellow, gui = 'bold' },
-    b = { bg = d(colors.yellow, 50), fg = colors.yellow },
+    a = { bg = c.bg, fg = c.yellow, gui = 'bold' },
+    b = { bg = darken(c.yellow, 50), fg = c.yellow },
   },
   visual = {
-    a = { bg = colors.bg, fg = colors.cyan, gui = 'bold' },
-    b = { bg = d(colors.cyan, 50), fg = colors.cyan },
+    a = { bg = c.bg, fg = c.cyan, gui = 'bold' },
+    b = { bg = darken(c.cyan, 50), fg = c.cyan },
   },
   replace = {
-    a = { bg = colors.bg, fg = colors.red, gui = 'bold' },
-    b = { bg = d(colors.red, 50), fg = colors.red },
+    a = { bg = c.bg, fg = c.red, gui = 'bold' },
+    b = { bg = darken(c.red, 50), fg = c.red },
   },
   command = {
-    a = { bg = colors.bg, fg = colors.orange, gui = 'bold' },
-    b = { bg = d(colors.orange, 50), fg = colors.orange },
+    a = { bg = c.bg, fg = c.orange, gui = 'bold' },
+    b = { bg = darken(c.orange, 50), fg = c.orange },
   },
 }
