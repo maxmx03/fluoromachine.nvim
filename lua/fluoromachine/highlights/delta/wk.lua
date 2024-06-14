@@ -6,7 +6,7 @@ M.load = function(opts)
   local c = opts.colors
 
   hl('WhichKey', { fg = c.red })
-  hl('WhichKeyDesc', { fg = c.orange, italic = true })
+  hl('WhichKeyDesc', { fg = c.fg, italic = true })
   hl('WhichKeySeparator', { fg = c.pink })
   hl('WhichKeyGroup', { fg = c.green })
 end
