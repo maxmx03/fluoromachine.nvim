@@ -167,11 +167,11 @@ describe('Delta', function()
     assert.equal(expect, output.fg)
   end)
   --
-  -- test('Notify highlight', function()
-  --   local output = nvim_get_hl('NotifyERRORBorder')
-  --   local expect = 'NotifyERRORBody'
-  --   assert.equal(expect, output.link)
-  -- end)
+  test('Notify highlight', function()
+    local output = nvim_get_hl('NotifyERRORBorder')
+    local expect = 'NotifyERRORBody'
+    assert.equal(expect, output.link)
+  end)
 
   test('Telescope highlight', function()
     local output = nvim_get_hl('TelescopeTitle')
