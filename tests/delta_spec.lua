@@ -173,13 +173,13 @@ describe('Delta', function()
   --   local expect = 'NotifyERRORBody'
   --   assert.equal(expect, output.link)
   -- end)
-  --
-  -- test('Telescope highlight', function()
-  --   local output = nvim_get_hl('TelescopeTitle')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
-  --
+
+  test('Telescope highlight', function()
+    local output = nvim_get_hl('TelescopeTitle')
+    local expect = colors.pink
+    assert.equal(expect, output.fg)
+  end)
+
   -- test('Nvim-tree highlight', function()
   --   local output = nvim_get_hl('NvimTreeFolderIcon')
   --   local expect = 'Directory'
