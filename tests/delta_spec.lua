@@ -82,12 +82,12 @@ describe('Delta', function()
   --   local output = nvim_get_hl('CmpItemKindClass')
   --   assert.equal('Type', output.link)
   -- end)
-  --
-  -- test('dashboard highlight', function()
-  --   local output = nvim_get_hl('DashboardHeader')
-  --   assert.equal(colors.red, output.fg)
-  -- end)
-  --
+
+  test('dashboard highlight', function()
+    local output = nvim_get_hl('DashboardHeader')
+    assert.equal(colors.red, output.fg)
+  end)
+
   -- test('gitsign highlight', function()
   --   local output = nvim_get_hl('GitSignsAdd')
   --   assert.equal(colors.git.add, output.fg)
