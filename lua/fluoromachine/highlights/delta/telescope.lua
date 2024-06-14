@@ -11,7 +11,7 @@ M.load = function(opts)
   hl('TelescopeSelection', { link = 'CursorLine' })
   hl('TelescopeSelectionCaret', { fg = c.green })
   hl('TelescopeMultiSelection', { link = 'Type' })
-  hl('TelescopeMultiIcon', { fg = c.red })
+  hl('TelescopeMultiIcon', { fg = c.pink })
 
   -- "Normal" in the floating windows created by telescope.
   hl('TelescopeNormal', { fg = c.fg, bg = c.bgdark }, { transparent = config.transparent })
