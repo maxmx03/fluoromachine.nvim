@@ -88,10 +88,10 @@ describe('Delta', function()
     assert.equal(colors.red, output.fg)
   end)
 
-  -- test('gitsign highlight', function()
-  --   local output = nvim_get_hl('GitSignsAdd')
-  --   assert.equal(colors.git.add, output.fg)
-  -- end)
+  test('gitsign highlight', function()
+    local output = nvim_get_hl('GitSignsAdd')
+    assert.equal(colors.git.add, output.fg)
+  end)
   --
   -- test('hop highlight', function()
   --   local output = nvim_get_hl('HopNextKey')
@@ -149,12 +149,12 @@ describe('Delta', function()
   --   local expect = colors.fg
   --   assert.equal(expect, output.fg)
   -- end)
-  --
-  -- test('Neogit highlight', function()
-  --   local output = nvim_get_hl('NeogitBranch')
-  --   local expect = colors.pink
-  --   assert.equal(expect, output.fg)
-  -- end)
+
+  test('Neogit highlight', function()
+    local output = nvim_get_hl('NeogitBranch')
+    local expect = colors.pink
+    assert.equal(expect, output.fg)
+  end)
 
   test('Neotree highlight', function()
     local output = nvim_get_hl('NeoTreeNormal')
