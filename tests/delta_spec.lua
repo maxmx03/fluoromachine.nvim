@@ -71,13 +71,13 @@ describe('Delta', function()
     assert.equal('Comment', output.link)
   end)
 
-  -- test('bufferline highlight', function()
-  --   local output = nvim_get_hl('BufferLineFill')
-  --   local darken = require('fluoromachine.utils.color').darken
-  --   local expect = darken(colors.bg, 25):upper()
-  --   assert.equal(expect, output.bg)
-  -- end)
-  --
+  test('bufferline highlight', function()
+    local output = nvim_get_hl('BufferLineFill')
+    local darken = require('fluoromachine.utils.color').darken
+    local expect = darken(colors.bg, 25):upper()
+    assert.equal(expect, output.bg)
+  end)
+
   test('cmp highlight', function()
     local output = nvim_get_hl('CmpItemKindClass')
     assert.equal('Type', output.link)
@@ -92,11 +92,11 @@ describe('Delta', function()
     local output = nvim_get_hl('GitSignsAdd')
     assert.equal(colors.git.add, output.fg)
   end)
-  --
-  -- test('hop highlight', function()
-  --   local output = nvim_get_hl('HopNextKey')
-  --   assert.equal(colors.red, output.fg)
-  -- end)
+
+  test('hop highlight', function()
+    local output = nvim_get_hl('HopNextKey')
+    assert.equal(colors.pink, output.fg)
+  end)
 
   test('illuminate highlight', function()
     local output = nvim_get_hl('illuminatedWord')
@@ -166,7 +166,7 @@ describe('Delta', function()
     local expect = colors.pink
     assert.equal(expect, output.fg)
   end)
-  --
+
   test('Notify highlight', function()
     local output = nvim_get_hl('NotifyERRORBorder')
     local expect = 'NotifyERRORBody'
