@@ -110,11 +110,11 @@ describe('Delta', function()
   --   assert.equal(expect, output.fg)
   -- end)
   --
-  -- test('Lazy highlight', function()
-  --   local output = nvim_get_hl('LazyH1')
-  --   local expect = colors.red
-  --   assert.equal(expect, output.fg)
-  -- end)
+  test('Lazy highlight', function()
+    local output = nvim_get_hl('LazyH1')
+    local expect = colors.red
+    assert.equal(expect, output.fg)
+  end)
   --
   -- test('MiniCursor highlight', function()
   --   local output = nvim_get_hl('MiniCursorword')
