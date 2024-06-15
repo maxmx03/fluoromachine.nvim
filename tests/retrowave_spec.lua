@@ -159,7 +159,7 @@ describe('Retrowave', function()
   test('Neotree highlight', function()
     local output = nvim_get_hl('NeoTreeNormal')
     assert.equal(colors.fg, output.fg)
-    assert.equal(colors.bgdark, output.bg)
+    assert.equal(nil, output.bg)
   end)
 
   test('Noice highlight', function()

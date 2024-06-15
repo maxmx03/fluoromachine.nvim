@@ -4,8 +4,9 @@ local M = {}
 M.load = function(opts)
   local hl = opts.utils.set_hl
   local c = opts.colors
+  local config = opts.config
 
-  hl('NeoTreeNormal', { fg = c.fg, bg = c.bgdark })
+  hl('NeoTreeNormal', { fg = c.fg, bg = c.bgdark }, { transparent = config.transparent })
   hl('NeoTreeNormalNC', { link = 'NeoTreeNormal' })
   hl('NeoTreeDotFile', { fg = c.comment })
   hl('NeoTreeFileStats', { fg = c.comment })

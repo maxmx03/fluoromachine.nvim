@@ -36,6 +36,11 @@ function M.overrides(highlights)
 end
 
 function M.load(colors, config)
+  if config.transparent and vim.opt.pumblend == 0 then
+    -- Enables pseudo-transparency for the popup-menu
+    vim.opt.pumblend = 10
+  end
+
   M.load_highlights(colors, config)
   utils.on_config({
     tbl = function()

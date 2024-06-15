@@ -10,6 +10,5 @@
     "ignoreDir": ["test"],
     "checkThirdParty": true
   },
-  "diagnostics.disable": ["undefined-field",
-        "missing-fields"]
+  "diagnostics.disable": ["undefined-field", "missing-fields"]
 }

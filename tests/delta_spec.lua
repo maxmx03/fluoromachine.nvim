@@ -33,6 +33,7 @@ describe('Delta', function()
     local blend = require('fluoromachine.utils.color').blend
     local expect = blend(colors.yellow, colors.bg, 0.05):upper()
     local output = nvim_get_hl('Function')
+
     assert.equal(colors.yellow, output.fg)
     assert.equal(expect, output.bg)
   end)
@@ -158,7 +159,7 @@ describe('Delta', function()
   test('Neotree highlight', function()
     local output = nvim_get_hl('NeoTreeNormal')
     assert.equal(colors.fg, output.fg)
-    assert.equal(colors.bgdark, output.bg)
+    assert.equal(nil, output.bg)
   end)
 
   test('Noice highlight', function()
