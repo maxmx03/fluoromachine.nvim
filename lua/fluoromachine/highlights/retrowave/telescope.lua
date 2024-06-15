@@ -22,7 +22,7 @@ M.load = function(opts)
   -- Border highlight groups.
   --   Use TelescopeBorder to override the default.
   --   Otherwise set them specifically
-  hl('TelescopeBorder', { fg = c.editor.separator, bg = c.bgdark }, { transparent = config.transparent })
+  hl('TelescopeBorder', { link = 'WinSeparator' })
   hl('TelescopePromptBorder', { link = 'TelescopeBorder' })
   hl('TelescopeResultsBorder', { link = 'TelescopeBorder' })
   hl('TelescopePreviewBorder', { link = 'TelescopeBorder' })
