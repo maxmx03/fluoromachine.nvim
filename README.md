@@ -76,16 +76,59 @@ lspconfig.lua_ls.setup {
 </details>
 
 <details>
-    <summary>Configuration</summary>
+    <summary>Default config</summary>
 
-| Name        | type           | default value   | Description                                                                              |
-| ----------- | -------------- | --------------- | ---------------------------------------------------------------------------------------- |
-| glow        | boolean        | `false`         | Enable and disable the glow effect                                                       |
-| brightness  | number         | `0.05`          | The value should be a float value from 0 to 1                                            |
-| theme       | string         | `fluoromachine` | Change the theme of the colorscheme, you can choose: fluoromachine, retrowave, delta     |
-| transparent | boolean/string | `false`         | Change the background to transparent, you can set "full" to make everything transparent. |
-| colors      | table/callback | `{}`            | Add or override to fluoromachine colors                                                  |
-| overrides   | table/callback | `{}`            | Update or add new highlight groups.                                                      |
+```lua
+{
+    theme = 'fluoromachine',
+    brightness = 0.05,
+    glow = true,
+    transparent = false,
+    styles = {
+      comments = {},
+      functions = {},
+      variables = {},
+      numbers = {},
+      constants = {},
+      parameters = {},
+      keywords = {},
+      types = {},
+    },
+    colors = {},
+    overrides = {},
+    plugins = {
+      bufferline = true,
+      cmp = true,
+      dashboard = true,
+      editor = true,
+      gitsign = true,
+      hop = true,
+      ibl = true,
+      illuminate = true,
+      lazy = true,
+      minicursor = true,
+      ministarter = true,
+      minitabline = true,
+      ministatusline = true,
+      navic = true,
+      neogit = true,
+      neotree = true,
+      noice = true,
+      notify = true,
+      lspconfig = true,
+      syntax = true,
+      telescope = true,
+      treesitter = true,
+      tree = true,
+      wk = true,
+    },
+}
+```
+
+</details>
+
+<details>
+    <summary>Configuration</summary>
 
 example:
 
@@ -96,7 +139,10 @@ local fm = require 'fluoromachine'
 fm.setup {
   glow = true,
   theme = 'retrowave',
-  transparent = 'full',
+  transparent = false,
+  plugins = {
+    neotree = false,
+  }
 }
 
 vim.cmd.colorscheme('fluoromachine')
@@ -225,6 +271,8 @@ Pull requests are welcome.\
 To learn more about the colorscheme, please read the [SPECIFICATION.md](https://github.com/maxmx03/FluoroMachine.nvim/blob/main/SPECIFICATION.md)
 
 </details>
+
+[wiki](https://github.com/maxmx03/fluoromachine.nvim/wiki)
 
 ## Maintainers
 
