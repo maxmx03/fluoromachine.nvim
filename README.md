@@ -24,7 +24,6 @@ Example with Lazy.nvim
 return {
     {
         'maxmx03/fluoromachine.nvim',
-        lazy = true,
         lazy = false,
         priority = 1000,
         config = function ()
