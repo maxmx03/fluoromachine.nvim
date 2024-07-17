@@ -31,7 +31,7 @@ return {
 
          fm.setup {
             glow = true,
-            theme = 'fluoromachine'
+            theme = 'fluoromachine',
             transparent = true,
          }
 
