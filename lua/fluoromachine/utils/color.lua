@@ -13,6 +13,9 @@ function M.rgb_to_hex(red, green, blue)
 end
 
 function M.darken(hex, percentage)
+  if hex == nil then
+    return ''
+  end
   local red, green, blue = M.hex_to_rgb(hex)
   local i = 1
   local result = {
@@ -23,8 +26,11 @@ function M.darken(hex, percentage)
   return M.rgb_to_hex(result.red, result.green, result.blue)
 end
 
-function M.lighten(color, percentage)
-  local red, green, blue = M.hex_to_rgb(color)
+function M.lighten(hex, percentage)
+  if hex == nil then
+    return ''
+  end
+  local red, green, blue = M.hex_to_rgb(hex)
   local i = 1
   local result = {
     red = red + (255 - red) * i * (percentage / 100),
@@ -35,6 +41,9 @@ function M.lighten(color, percentage)
 end
 
 function M.shade(hex, i)
+  if hex == nil then
+    return ''
+  end
   local red, green, blue = M.hex_to_rgb(hex)
   local result = {
     red = red * (1 - 0.1 * i),
@@ -67,6 +76,9 @@ local function blend_channel(fg, bg, alpha)
 end
 
 function M.blend(fg, bg, alpha)
+  if bg == nil then
+    bg = '#000000'
+  end
   local red_bg, green_bg, blue_bg = M.hex_to_rgb(bg)
   local red_fg, green_fg, blue_fg = M.hex_to_rgb(fg)
   return M.rgb_to_hex(
